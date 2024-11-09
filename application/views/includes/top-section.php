@@ -3,17 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php echo $title.' | '.PROJECT_NAME; ?></title>
+        <title><?php echo $title; ?> | <?php echo PROJECT_NAME;?></title>
         <!-- Tell the browser to be responsive to screen width -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="<?php echo file_url('includes/bootstrap/css/bootstrap.min.css'); ?>">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        <!-- iCheck -->
-        <link rel="stylesheet" href="<?php echo file_url("includes/plugins/icheck-bootstrap/icheck-bootstrap.min.css"); ?>">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="<?php echo file_url("includes/dist/css/adminlte.min.css"); ?>">
-        <!-- overlayScrollbars -->
-        <link rel="stylesheet" href="<?php echo file_url("includes/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"); ?>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <?php
 			if(!empty($styles)){
 				foreach($styles as $key=>$style){
@@ -39,15 +37,19 @@
 					}
 				}
 			}
-		?>   
+		?>
+        
+        <!-- Theme style -->
+        <link rel="stylesheet" href="<?php echo file_url('includes/dist/css/AdminLTE.min.css'); ?>">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="<?php echo file_url('includes/dist/css/skins/_all-skins.min.css'); ?>">   
+        <!-- Custom style -->
+        <link rel="stylesheet" href="<?php echo file_url('includes/custom/skin-crimson.css'); ?>">     
         <!-- Custom style -->
         <link rel="stylesheet" href="<?php echo file_url('includes/custom/custom.css'); ?>">     
-        <!-- Google Font: Source Sans Pro -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/512e5abe13.js" crossorigin="anonymous"></script>
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic|Raleway:400,500,600,700|Roboto:400,500,700">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-         <link rel="stylesheet" href="<?= base_url('includes/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css');?>">
-        <link rel="stylesheet" href="<?= base_url('includes/plugins/datatables-responsive/css/responsive.bootstrap4.min.css');?>">
 		<?php
             if(!empty($top_script)){
                 foreach($top_script as $key=>$script){
@@ -74,8 +76,31 @@
                 }
             }
         ?>
+        
     </head>
-    <body class="hold-transition <?php if(!empty($body_class)){echo "$body_class ";}else{ echo "sidebar-mini layout-fixed text-sm "; } echo ACCENT_COLOR; ?> ">
-    	<?php if(empty($body_class)){?>
-        <div class="wrapper">
-        <?php } ?>
+     <style>
+      
+        .hold-transition {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+}
+
+.hold-transition::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(<?php echo base_url('assets/images/1.png'); ?>);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4; /* Adjust the opacity */
+    z-index: -1; /* Ensures the background stays behind the content */
+}
+    </style>
+    <body class="hold-transition <?php if(!empty($body_class)){echo $body_class;}else{ echo "skin-crimson sidebar-mini"; }?>">
+    	<div class="wrapper">

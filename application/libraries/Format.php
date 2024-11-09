@@ -99,7 +99,7 @@ class Format {
     {
         // $class = __CLASS__;
         // return new $class();
-        return new static($data, $from_type);
+        return new static($data,$from_type);
     }
     // FORMATTING OUTPUT ---------------------------------------------------------
     /**

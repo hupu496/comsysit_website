@@ -1,6 +1,6 @@
 <?php 
 	if(!defined('BASEPATH')) exit('No direct script access allowed');
-	if(!function_exists('activate_menu')) {
+	if(!function_exists('activate_admin_menu')) {
   		function activate_menu($controller) {
     		$CI = get_instance();
     		$class = $CI->router->fetch_class();
@@ -20,7 +20,7 @@
 		}  
 	}
 	if(!function_exists('activate_dropdown')) {
-		function activate_dropdown($controller,$type="li",$not=array()){
+		function activate_dropdown($controller,$not=array()){
     		$CI = get_instance();
 			$method = $CI->router->fetch_method();
 			if(array_search($method,$not)!==false){
@@ -30,21 +30,12 @@
 			if(is_array($controller)){
 				foreach($controller as $single){
 					if($class == $single){
-						if($type=='li'){
-							return 'menu-open';
-						}
-						else{
-							return 'active';
-						}
+						return 'active';
 					}
 				}
 			}
 			else{
-				if($type=='li'){
-					return ($class == $controller) ? 'menu-open' : '';
-				}else{
-					return ($class == $controller) ? 'active' : '';
-				}
+				return ($class == $controller) ? 'active' : '';
 			}
 		}
 	}

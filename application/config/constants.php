@@ -85,24 +85,15 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 ///////////////////////////////////////////////
-$curyear = date('Y',strtotime(date('Y-m-d'))); 
-defined('PROJECT_NAME')        OR define('PROJECT_NAME','News Of State'); 
-defined('OUR_BRAND')       	   OR define('OUR_BRAND',"Brightcode Software Services Pvt Ltd.");
-defined('SESSION_YEAR')        OR define('SESSION_YEAR',"$curyear");
-defined('SITE_SALT')           OR define('SITE_SALT',"Admin Template");
-defined('TP')        		   OR define('TP',"tmp_"); // Table Prefix
-defined('PRE')                 OR define('PRE',"<pre>");
-defined('NTYPE')               OR define('NTYPE',"toastr"); //Notification Type
+    $curyear = date('Y',strtotime(date('Y-m-d')));
+    $secyear = $curyear+1;
+    define('PROJECT_NAME','ComSysIT'); 
+    define('OUR_BRAND',"Teachnical Sea");
+	define('SESSION_YEAR',"$curyear-$secyear");
+	define('SITE_SALT',"Home Service");
+	define('PRE',"<pre>");
 //////////////////////////////////////////////
-/*--------------Template Colors-------------*/
-//////////////////////////////////////////////
-defined('ACCENT_COLOR')        OR define('ACCENT_COLOR',"accent-danger");
-defined('NAVBAR_COLOR')        OR define('NAVBAR_COLOR',"navbar-light navbar-info");
-defined('BRAND_COLOR')         OR define('BRAND_COLOR',"navbar-light");
-defined('SIDEBAR_COLOR')       OR define('SIDEBAR_COLOR',"sidebar-dark-warning");
-//////////////////////////////////////////////
-
-if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
+if(isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='192.168.1.127')){
 	defined('DB_HOST')		? null : define('DB_HOST','localhost');
 	defined('DB_USER')		? null : define('DB_USER', 'root');
 	defined('DB_PASSWORD')	? null : define('DB_PASSWORD','');
@@ -110,13 +101,8 @@ if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
 }
 else{
 	defined('DB_HOST')      ? null : define('DB_HOST', 'localhost');
-	defined('DB_USER')      ? null : define('DB_USER', 'newsofstates_newsofstate');
-	defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', 'Newsofstate@123#');
-	defined('DB_NAME')      ? null : define('DB_NAME', 'newsofstates_newsofstate');
+	defined('DB_USER')      ? null : define('DB_USER', 'root');
+	defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', '');
+	defined('DB_NAME')      ? null : define('DB_NAME', 'db_udaan');
 }
-// else{
-// 	defined('DB_HOST')      ? null : define('DB_HOST', 'localhost');
-// 	defined('DB_USER')      ? null : define('DB_USER', 'brightwm_newsofstates');
-// 	defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', 'Ic@nsee1');
-// 	defined('DB_NAME')      ? null : define('DB_NAME', 'brightwm_newsofstates');
-// }
+

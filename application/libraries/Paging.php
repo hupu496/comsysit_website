@@ -24,13 +24,7 @@ class Paging {
 	
 	protected $pagefilters=false;
 	
-	protected $ul_class=array("pagination");
-	
-	protected $num_class=array();
-	
-	protected $link_class=array();
-	
-	protected $anchor_class=array();
+	protected $link_class=array("pagination","pagination-sm");
 	
 	protected $config=false;
 
@@ -79,51 +73,46 @@ class Paging {
 	
 	public function pagination(){
 		if($this->config){
-			$pagination="";
+			if($this->display_type=="individual"){
+				$pagination="";
+			}
+			else{
+				$pagination="<ul class='".implode(" ",$this->link_class)."'>";
+			}
+			$current=false;
 			if($this->pages>1){
-				if($this->display_type=="individual"){
-					$pagination="";
-				}
-				else{
-					$pagination="<ul ";
-					if(is_array($this->ul_class))
-						$pagination.="class='".implode(" ",$this->ul_class)."'";
-					$pagination.=">";
-				}
-				$current=false;
-			
 				if(array_search("firstlast",$this->display_links)!==false && $this->page!=1){
-					$pagination.=$this->createpagelinks(1,$this->firstlast['first'],false,$this->link_class);
+					$pagination.=$this->createpagelinks(1,$this->firstlast['first'],false);
 				}
 				if(array_search("skip",$this->display_links)!==false && $this->page-$this->skip['num']>0){
-					$pagination.=$this->createpagelinks($this->page-$this->skip['num'],$this->skip['skip_prev'],false,$this->link_class);
+					$pagination.=$this->createpagelinks($this->page-$this->skip['num'],$this->skip['skip_prev'],false);
 				}
 				if(array_search("prevnext",$this->display_links)!==false && $this->page!=1){
-					$pagination.=$this->createpagelinks($this->page-1,$this->prevnext['prev'],false,$this->link_class);
+					$pagination.=$this->createpagelinks($this->page-1,$this->prevnext['prev'],false);
 				}
 				if(array_search("pages",$this->display_links)!==false){
 					for($i=1;$i<=$this->pages;$i++){
 						if($i<=$this->num_links || $i>$this->pages-$this->num_links || ($i>$this->page-$this->num_links && $i<$this->page+$this->num_links)){
 							if($i==$this->page){ $current=true; }else{ $current=false; }
-							$pagination.=$this->createpagelinks($i,$i,$current,$this->num_class);
+							$pagination.=$this->createpagelinks($i,$i,$current);
 						}
 						elseif($i==$this->num_links+1 || $i==$this->pages-$this->num_links){
-							$pagination.=$this->createpagelinks("","...",$current,$this->num_class);
+							$pagination.=$this->createpagelinks("","...",$current);
 						}
 					}
 				}
 				if(array_search("prevnext",$this->display_links)!==false && $this->page!=$this->pages){
-					$pagination.=$this->createpagelinks($this->page+1,$this->prevnext['next'],false,$this->link_class);
+					$pagination.=$this->createpagelinks($this->page+1,$this->prevnext['next'],false);
 				}
 				if(array_search("skip",$this->display_links)!==false && $this->pages-$this->page>=$this->skip['num']){
-					$pagination.=$this->createpagelinks($this->page+$this->skip['num'],$this->skip['skip_next'],false,$this->link_class);
+					$pagination.=$this->createpagelinks($this->page+$this->skip['num'],$this->skip['skip_next'],false);
 				}
 				if(array_search("firstlast",$this->display_links)!==false && $this->page!=$this->pages){
-					$pagination.=$this->createpagelinks($this->pages,$this->firstlast['last'],false,$this->link_class);
+					$pagination.=$this->createpagelinks($this->pages,$this->firstlast['last'],false);
 				}
-				if($this->display_type!="individual"){
-					$pagination.="</ul>";
-				}
+			}
+			if($this->display_type!="individual"){
+				$pagination.="</ul>";
 			}
 			return $pagination;
 		}
@@ -133,31 +122,26 @@ class Paging {
 		}
 	}
 		
-	public function createpagelinks($page,$link,$current,$class){
+	public function createpagelinks($page,$link,$current){
 		if(!empty($this->pagefilters) && is_array($this->pagefilters)){
 			$this->pagefilters=http_build_query($this->pagefilters);
 			$this->pagefilters="?".$this->pagefilters;
 		}
 		if($this->display_type=="individual"){
-			$pagelink="<ul ";
-			if(is_array($this->ul_class))
-				$pagelink.="class='".implode(" ",$this->ul_class)."'";
-			$pagelink.=">";
+			$pagelink="<ul class='".implode(" ",$this->link_class)."'>";
 		}
 		else{
 			$pagelink="";
 		}
-		$pagelink.="<li class='".implode(" ",$class)." ";
-		if($current===true){$pagelink.="active";}
-		$pagelink.="'>";
+		$pagelink.="<li";
+		if($current===true){$pagelink.=" class='active'";}
 		if($page!=""){
 			$href=$this->url."page/".$page."/".$this->pagefilters;
 		}
 		else{
 			$href="#";
 		}
-		$pagelink.="<a href='$href' class=' ".implode(" ",$this->anchor_class)." ";
-		$pagelink.="'>".$link."</a></li>";
+		$pagelink.="><a href='$href'>".$link."</a></li>";
 		
 		if($this->display_type=="individual"){
 			$pagelink.="</ul> ";

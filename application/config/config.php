@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 date_default_timezone_set('Asia/Kolkata');
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +23,23 @@ date_default_timezone_set('Asia/Kolkata');
 | a PHP script and you can easily do that on your own.
 |
 */
-if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
-	$config['base_url'] = "http://$_SERVER[HTTP_HOST]/comsysit_website";
+if(isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST']=='localhost') ){
+	$config['base_url'] = "https://$_SERVER[HTTP_HOST]/comsysit_website/";
 }
 else{
-	$config['base_url'] = "https://newsofstates.com/";
+	$config['base_url'] = "https://6c31-59-97-166-32.ngrok-free.app/teachnicalseaservice/";
 }
-
 /*
+Database
+dbs248756
+•	Description
+db_homeservice2
+•	Host name
+db5000254896.hosting-data.io
+•	Password
+Homeservice@123#
+•	User name
+dbu418719cc
 |--------------------------------------------------------------------------
 | Index File
 |--------------------------------------------------------------------------
@@ -385,7 +393,7 @@ $config['encryption_key'] = '';
 */
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
+$config['sess_expiration'] = 0;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
@@ -527,3 +535,5 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+

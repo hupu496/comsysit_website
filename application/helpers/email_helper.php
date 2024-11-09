@@ -1,7 +1,7 @@
 <?php 
 	if(!defined('BASEPATH')) exit('No direct script access allowed');
 	if(!function_exists('sendemail')) {
-  		function sendemail($email,$subject,$message,$fieldname=false,$upload_path=false,$allowed_types=false,$file_name=false) {
+  		function sendemail($from,$email,$subject,$message,$fieldname=false,$upload_path=false,$allowed_types=false,$file_name=false) {
     		// Getting CI class instance.
     		$CI = get_instance();
 			if(!$CI->load->is_loaded('email')){
@@ -10,7 +10,9 @@
 			if(!function_exists('upload')){
 				$CI->load->helper('upload');
 			} 
-			$from="prateek.atal@gmail.com";
+			// $from="info@daesyncart.com";
+				$from=$from;
+
 			if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
 				ini_set('smtp','localhost');
 				ini_set('smtp_port',25);
@@ -19,9 +21,20 @@
 				$config['smtp_host']='ssl://smtp.ionos.com';
 				$config['smtp_port']='465';
 				$config['smtp_timeout']='30';
-				$config['smtp_user']='';
-				$config['smtp_pass']='';
-				$from=$config['smtp_user'];
+				$config['smtp_user']='brightmailer@brightcodess.in';
+				$config['smtp_pass']='Brightcode@123#';
+				// $from=$config['smtp_user'];
+				$from=$from;
+			}else{
+				$config['protocol']='smtp';
+				$config['smtp_host']='ssl://smtp.ionos.com';
+				$config['smtp_port']='465';
+				$config['smtp_timeout']='30';
+				$config['smtp_user']='brightmailer@brightcodess.in';
+				$config['smtp_pass']='Brightcode@123#';
+				// $from=$config['smtp_user'];
+				$from=$from;
+				
 			}
 			
 			$config['newline']="\r\n";
@@ -30,7 +43,8 @@
 			$config['mailtype'] = "html";
 			
 			$CI->email->initialize($config);
-			$CI->email->from($from,SITE_SALT);
+			$CI->email->from($from);
+			
 			$CI->email->to($email);
 			$CI->email->subject($subject);
 			$CI->email->message($message);
