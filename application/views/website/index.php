@@ -157,7 +157,7 @@
                             <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-tasks fa-5x text-secondary"></i></div>
                             <div class="feature-content">
                                 <a href="#" class="h4">verification<i class="fa fa-long-arrow-alt-right"></i></a>
-                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                <p class="mt-4 mb-0">The Verification phase in software development is a critical quality assurance step that ensures the product meets its specifications and performs as intended before moving to production
                                 </p>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                             <i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
                             <div class="feature-content">
                                 <a href="#" class="h4">Maintenance<i class="fa fa-long-arrow-alt-right"></i></a>
-                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                <p class="mt-4 mb-0">Maintenance is the final stage of the software development lifecycle (SDLC) and is crucial to ensuring that a system continues to perform optimally, meets user needs, and adapts to any changes.
                                 </p>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
                         <h4 class="text-primary">Fearutes</h4>
                         <h1 class="display-5 mb-4">Push Your Visitors Into Happy Customers</h1>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                        <p class="mb-4">We at ComSys IT Service Provider, believe in the power of collaboration. We work closely with our clients to understand their unique needs and vision, and develop custom software solutions that align with their business objectives. Our team of experienced software developers, designers, and project managers are committed to delivering high-quality software solutions that exceed expectations. Whether you have a clear idea of what you want or need help shaping your vision, we're here to help. From ideation to development and deployment, we'll work with you every step of the way to ensure your project is a success.
                         </p>
                         <div class="row g-4">
                             <div class="col-6">
@@ -380,21 +380,21 @@
         <div class="container-fluid testimonial py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="text-primary">Testimonial</h4>
+                    <h4 class="text-primary">Our Clients</h4>
                     <h1 class="display-5 mb-4">What Our Client Say About Us</h1>
                     <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
                     </p>
                 </div>
                 <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
-                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/img/testimonial-img-1.jpg'); ?>' alt=''>">
+                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/indian_oil.png'); ?>' alt=''>">
                         <div class="testimonial-inner text-center p-5">
                             <div class="d-flex align-items-center justify-content-center mb-4">
                                 <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                    <img src="<?php echo base_url('assets/img/testimonial-img-1.jpg'); ?>" class="img-fluid rounded-circle" alt="">
+                                    <img src="<?php echo base_url('assets/images/indian_oil.png'); ?>" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">John Abraham</h5>
-                                    <p class="mb-0">New York, USA</p>
+                                    <h5 class="mb-2">Indian Oil</h5>
+                                    <p class="mb-0">BP</p>
                                 </div>
                             </div>
                             <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
@@ -410,15 +410,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-2.jpg' alt=''>">
+                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/jharkand.png'); ?>' alt=''>">
                         <div class="testimonial-inner text-center p-5">
                             <div class="d-flex align-items-center justify-content-center mb-4">
                                 <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                    <img src="<?php echo base_url('assets/img/testimonial-img-2.jpg'); ?>" class="img-fluid rounded-circle" alt="">
+                                    <img src="<?php echo base_url('assets/images/jharkand.png'); ?>" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">John Abraham</h5>
-                                    <p class="mb-0">New York, USA</p>
+                                    <h5 class="mb-2">Jharkhand Govt</h5>
+                                    <p class="mb-0">Jharkhand, INDIA</p>
                                 </div>
                             </div>
                             <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
@@ -434,15 +434,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/img/testimonial-img-3.jpg'); ?>' alt=''>">
+                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/sunpharama.jfif'); ?>' alt=''>">
                         <div class="testimonial-inner text-center p-5">
                             <div class="d-flex align-items-center justify-content-center mb-4">
                                 <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                    <img src="<?php echo base_url('assets/img/testimonial-img-3.jpg'); ?>" class="img-fluid rounded-circle" alt="">
+                                    <img src="<?php echo base_url('assets/images/sunpharama.jfif'); ?>" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">John Abraham</h5>
-                                    <p class="mb-0">New York, USA</p>
+                                    <h5 class="mb-2">SUN Pharma</h5>
+                                    <p class="mb-0">INDIA</p>
                                 </div>
                             </div>
                             <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!

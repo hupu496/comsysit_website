@@ -35,8 +35,10 @@
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                         <h4 class="mb-1 text-primary">About Us</h4>
-                        <h1 class="display-5 mb-4">Get Started Easily With a Personalized Product Tour</h1>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                        <h1 class="display-5 mb-4">COMSYS IT is a leading IT and Industrial Automation Service Provider</h1>
+                        <p class="mb-4">, providing a wide range of personalized services to its clients across the country. The company grown from strength to strength from project to project. The company offers a dynamic blend of strategic consulting and system integration services to help organizations architect and build their business.COMSYS IT is a Customer-driven Company in that it always strives to provide customized solutions as per the demand of the customer.Industrial Automation, Customized Software development and IT consulting services has been the forte of the company right from the inception stage.
+
+
                         </p>
                         <a href="#" class="btn btn-primary rounded-pill py-3 px-5">About More</a>
                     </div>
@@ -50,9 +52,9 @@
         <div class="container-fluid feature overflow-hidden py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="text-primary">Our Feature</h4>
+                    <h4 class="text-primary">Commitment</h4>
                     <h1 class="display-5 mb-4">Important Features For Email Marketing</h1>
-                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    <p class="mb-0">We understand the importance of timing, of getting there before the competition. A rich portfolio of reusable, modular frameworks helps jump-start projects. Tried and tested methodology ensures that we follow a predictable, low-risk path to achieve results. Our track record is testimony to complex projects delivered within and even before schedule.Quality Our emphasis on quality can be well tested by our clients.A Full Service Portfolio We offer customers the advantage of being able to Architect, Integrate and Manage technology & services. This means that they can rely on one, fully accountable source instead of trying to integrate disparate multi-vendor solutions.
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center text-center mb-5">
