@@ -135,7 +135,7 @@
                             <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-envelope fa-5x text-secondary"></i></div>
                             <div class="feature-content">
                                 <a href="#" class="h4">Requirement & Study <i class="fa fa-long-arrow-alt-right"></i></a>
-                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                <p class="mt-4 mb-0">Identify the specific needs of stakeholders, users, and system.Translate high-level business objectives into concrete requirements
                                 </p>
                             </div>
                         </div>
