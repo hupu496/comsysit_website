@@ -54,6 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'homeservice';
 $route['profile'] = 'homeservice/profile';
 $route['contact'] = 'homeservice/contact';
+$route['service'] = 'homeservice/service';
 // /////////////////////////////////////////
 $route['term_condition'] = 'homeservice/term_condition';
 $route['cookie_policy'] = 'homeservice/cookie_policy';

@@ -78,14 +78,31 @@ class Homeservice extends CI_Controller {
         $this->load->view('website/footer');
        
 	}
-	public function franchise_book()
+	public function service()
 	{
-		$data['title']="term condition";
-		$this->load->view('website/top-section',$data);
-		$this->load->view('website/franchise_book');
+		$id = $this->uri->segment('3');
+	    $data['title']="Services";
+        $this->load->view('website/top-section',$data);
+      
+        $data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
+		$this->load->view('website/services',$data);
         $this->load->view('website/footer');
+    }
        
-	}
+    public function service_form()
+	{
+        $id = $this->input->post();
+	      $data['title']="Service Form";
+        $this->load->view('website/top-section',$data);
+        $this->load->view('website/main-menu');
+        $data['subservice'] = $this->db->get_where('sub_service',array('service_id'=>$id['id'],'status'=>1))->result_array();
+        $data['service'] = $this->db->get_where('services',array('id'=>$id['id'],'status'=>1))->row_array();
+		    $this->load->view('website/service_form',$data);
+        $this->load->view('website/footer');
+        $this->load->view('website/bottom-script');
+		    $this->load->view('website/bottom-section');
+    }
+    // ///////////////////
 	public function franchise_orderbook(){
 		$data = $this->input->post();
     
@@ -216,50 +233,10 @@ public function franchise_makepayment()
         $this->load->view('website/bottom-script');
 		    $this->load->view('website/bottom-section');
 	}
-	public function service()
-	{
-		$this->load->helper('cookie');
-    	$login_record = get_cookie('login_cookie');
-    	if(empty($login_record)){
-    		$this->session->set_flashdata("web_err_msg","Oops User Login Firstly!!");
-    		redirect('login');
-    	}
-	    $data['title']="Services";
-        $this->load->view('website/top-section',$data);
-        $this->load->view('website/main-menu');
-        $where = array('t1.status'=>2);
-		$data['customer_review'] = $this->Homeservice_model->reviewlist($where);
-        $data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
-		$this->load->view('website/services',$data);
-        $this->load->view('website/footer');
-        $this->load->view('website/bottom-script');
-		    $this->load->view('website/bottom-section');
-    }
-    public function service_form()
-	{
-        $id = $this->input->post();
-	      $data['title']="Service Form";
-        $this->load->view('website/top-section',$data);
-        $this->load->view('website/main-menu');
-        $data['subservice'] = $this->db->get_where('sub_service',array('service_id'=>$id['id'],'status'=>1))->result_array();
-        $data['service'] = $this->db->get_where('services',array('id'=>$id['id'],'status'=>1))->row_array();
-		    $this->load->view('website/service_form',$data);
-        $this->load->view('website/footer');
-        $this->load->view('website/bottom-script');
-		    $this->load->view('website/bottom-section');
-    }
+	
    
 	
-  public function register()
-	{ 	
-    $data['title']="Register";
-    $this->load->view('website/top-section',$data);
-    $this->load->view('website/main-menu');
-	$this->load->view('website/register');
-    $this->load->view('website/footer');
-    $this->load->view('website/bottom-script');
-	$this->load->view('website/bottom-section');
-	}
+ 
 	
 	
 	public function contactform(){

@@ -58,7 +58,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                             <div class="dropdown-menu m-0">
-                                <a href="<?php echo base_url('/service/1'); ?>" class="dropdown-item">Software & Consultation</a>
+                                <a href="<?php echo base_url('homeservice/service/1'); ?>" class="dropdown-item">Software & Consultation</a>
                                 <a href="<?php echo base_url('/service/2'); ?>" class="dropdown-item">Web Development</a>
                                 <a href="<?php echo base_url('/meeting/3'); ?>" class="dropdown-item">Industrial Electronic</a>
                                 <a href="<?php echo base_url('/meeting/4'); ?>" class="dropdown-item">Access and Security</a>
