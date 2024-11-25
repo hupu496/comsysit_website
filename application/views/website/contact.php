@@ -11,46 +11,51 @@
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                         <h2 class="display-5 mb-2">Our Contact Form</h2>
                         <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a class="text-primary fw-bold" href="#">Download Now</a>.</p>
-                        <form>
+                        <form method="post" action="<?php echo base_url('homeservice/contactsave'); ?>">
                             <div class="row g-3">
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="phone" class="form-control" id="phone" placeholder="Phone">
+                                        <input type="phone" name="mobile" class="form-control" id="phone" placeholder="Phone">
                                         <label for="phone">Your Phone</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="project" placeholder="Project">
-                                        <label for="project">Your Project</label>
+                                        
+                                        <select name="service" class="form-control">  <?php if(!empty($service)){
+                                            foreach ($service as $key => $value) { ?>
+                                        <option value="<?php echo $value['name']; ?>"><?php echo $value['name']; ?></option>
+                                    <?php        }
+                                        }   ?></select>
+                                        <label for="project">Your service</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
                                         <label for="subject">Subject</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                                        <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 160px"></textarea>
                                         <label for="message">Message</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3">Send Message</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -59,31 +64,31 @@
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-home fa-2x text-primary"></i></div>
                             <div class="ms-4">
-                                <h4>Addresses</h4>
-                                <p class="mb-0">123 ranking Street, New York, USA</p>
+                                <h4>Head Office</h4>
+                                <p class="mb-0">507,Supriya Apartment, Plot-20,Sec-10 Dwarka, New Delhi-110075</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-map-marker-alt fa-2x text-primary"></i></div>
                             <div class="ms-4">
-                                <h4>Addresses</h4>
-                                <p class="mb-0">123 ranking Street, New York, USA</p>
+                                <h4>Branch Office</h4>
+                                <p class="mb-0">Ghatsila,Jamshedpur</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-phone-alt fa-2x text-primary"></i></div>
                             <div class="ms-4">
                                 <h4>Mobile</h4>
-                                <p class="mb-0">+012 345 67890</p>
-                                <p class="mb-0">+012 345 67890</p>
+                                <p class="mb-0">+919470506166</p>
+                                <p class="mb-0">+917903037977</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-envelope-open fa-2x text-primary"></i></div>
                             <div class="ms-4">
                                 <h4>Email</h4>
-                                <p class="mb-0">info@example.com</p>
-                                <p class="mb-0">info@example.com</p>
+                                <p class="mb-0">info@comsysit.in</p>
+                                <p class="mb-0">info@comsysit.in</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">

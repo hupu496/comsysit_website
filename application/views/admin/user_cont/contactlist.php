@@ -83,7 +83,7 @@
                                 <td ><?php echo $slist['email']; ?></td>
                                 <td ><?php echo $slist['mobile']; ?></td>
 								<td ><?php echo $slist['service']; ?></td>
-								<td><textarea cols="10" disabled><?php echo $slist['address']; ?></textarea></td>
+								<td><textarea cols="10" disabled><?php echo $slist['message']; ?></textarea></td>
 								<td ><?php echo date('d-m-Y h:id:s A',strtotime($slist['added_on'])); ?></td>
                                 <td>
                                     

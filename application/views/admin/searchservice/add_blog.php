@@ -4,56 +4,38 @@
             	<div class="box">
                 	<div class="box-header with-border">
                     	<div class="box-title">
-                        	<a href="<?php echo base_url('admin/searchservice/sub_servicelist') ;?>">
-                            	<button class="btn btn-sm btn-success"><i class="fa fa-plus"></i>SUB SERVICE LIST</button>
+                        	<a href="<?php echo base_url('admin/searchservice/blog_list') ;?>">
+                            	<button class="btn btn-sm btn-success"><i class="fa fa-plus"></i>BLOG LIST</button>
                         	</a>
                         </div>
                         <!--<div class="pull-right"><a href="" class="btn btn-sm btn-primary"> STAFF LIST </a></div>-->
                     </div>
                     <div class="box-body">
-						<form action="<?php echo base_url('admin/searchservice/update_subservice');?>" enctype="multipart/form-data" method="POST">
+						<form action="<?php echo base_url('admin/searchservice/insert_blog');?>" enctype="multipart/form-data" method="POST">
                         	<div class="row form-group">
                                 <div class="col-md-1"></div>
                                 <div class="col-sm-12 col-md-6">                                
                                         <div class="row form-group">
-                                      <input type="hidden" name="id" value="<?php echo $subservicelist['subservice_id']; ?>">
-                                        <label class="col-sm-12 col-md-2 col-form-label">Service Type<span class="text-danger">*</span></label>
+                                        <label class="col-sm-12 col-md-2 col-form-label">Blog Name<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <select name="service_id" id="service_id" class="form-control">
-    <!-- Default selected option -->
-    <option value="<?php echo $subservicelist['service_id']; ?>"><?php echo $subservicelist['name']; ?></option>
-    <?php if (!empty($service)) {
-        foreach ($service as $key => $values) { 
-            // Skip the option that matches the default selected value
-            if ($values['id'] == $subservicelist['service_id']) {
-                continue;
-            } ?>
-            <option value="<?php echo $values['id']; ?>"><?php echo $values['name']; ?></option>
-    <?php   }
-    } ?>
-</select>
-
+                                        <input type="text" name="name" class="form-control" placeholder="Write Blog Name">
                                         </div>
                                         </div>
-                                         <div class="row form-group">
-                                        <label class="col-sm-12 col-md-2 col-form-label">Project<span class="text-danger">*</span></label>
-                                        <div class="col-sm-12 col-md-8">
-                                        <input type="text" name="sub_service" class="form-control" placeholder="Enter Sub Service" value="<?php echo $subservicelist['sub_service']; ?>">
-                                        </div>
-                                        </div>
-                                         <div class="row form-group">
+                                         
+                                        <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Description<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="text" name="Description" class="form-control" placeholder="Enter &#8377;" value="<?php echo $subservicelist['Description']; ?>">
+                                            <?php echo form_textarea(array('name' => 'description', 'id' => 'product_desp', 'class' => 'form-control')); ?>
+                                        <!-- <textarea cols="5" rows="4" class="form-control" name="description" placeholder="Write short Description..."></textarea> -->
                                         </div>
                                         </div>
                                         <div class="row form-group">
-                                        <label class="col-sm-12 col-md-2 col-form-label">Images<span class="text-danger">*</span></label>
+                                        <label class="col-sm-12 col-md-2 col-form-label">images<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                            <img src="<?php echo base_url($subservicelist['proj_images']); ?>">
-                                        <input type="file" name="proj_images" class="form-control" placeholder="Enter &#8377;" value="<?php echo $subservicelist['proj_images']; ?>">
+                                        <input type="file" name="photos" class="form-control">
                                         </div>
                                         </div>
+                                       
                         
                                   <div class="row">
                                   <div class="col-md-1"></div>
@@ -69,6 +51,20 @@
     </section>
     <!-- /.content -->
 <script>
+   let editor;
+    ClassicEditor
+        .create(document.querySelector('#product_desp'), {
+
+        })
+        .then(newEditor => {
+            editor = newEditor;
+            //console.log(editor.config._config.toolbar); 
+        }, editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 $(document).ready(function(e){	
 	function showImage(src,target) {
 		var fr=new FileReader();

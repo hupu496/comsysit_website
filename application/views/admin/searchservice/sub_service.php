@@ -29,17 +29,24 @@
                                         </div>
                                         </div>
                                          <div class="row form-group">
-                                        <label class="col-sm-12 col-md-2 col-form-label">Sub Service<span class="text-danger">*</span></label>
+                                        <label class="col-sm-12 col-md-2 col-form-label">Project Name<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="text" name="sub_service" class="form-control" placeholder="Enter Sub Service">
+                                        <input type="text" name="sub_service" class="form-control" placeholder="Enter Add Project">
                                         </div>
                                         </div>
                                         <div class="row form-group">
-                                        <label class="col-sm-12 col-md-2 col-form-label">price<span class="text-danger">*</span></label>
+                                        <label class="col-sm-12 col-md-2 col-form-label">Desc<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="text" name="price" class="form-control" placeholder="&#8377; 800">
+                                        <textarea cols="5" rows="4" class="form-control" name="Description" placeholder="Write short Description..."></textarea>
                                         </div>
                                         </div>
+                                        <div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">images<span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input type="file" name="proj_images" class="form-control">
+                                        </div>
+                                        </div>
+                                       
                         
                                   <div class="row">
                                   <div class="col-md-1"></div>

@@ -94,11 +94,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(<?php echo base_url('assets/images/1.png'); ?>);
+    background-image: url(<?php echo base_url('assets/images/hero-bg.jpg'); ?>);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.4; /* Adjust the opacity */
+    opacity: 0.6; /* Adjust the opacity */
     z-index: -1; /* Ensures the background stays behind the content */
 }
     </style>

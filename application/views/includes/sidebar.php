@@ -27,33 +27,24 @@
                 <a href="<?php echo base_url("admin/service/servilist"); ?>"><i class="fa fa-cog"></i> <span>Add Services</span></a>
             </li>
             <li class="<?php echo activate_menu('searchservice/track'); ?>">
-                <a href="<?php echo base_url("admin/searchservice/sub_service"); ?>"><i class="fa fa-cog"></i> <span>Sub Services</span></a>
+                <a href="<?php echo base_url("admin/searchservice/sub_service"); ?>"><i class="fa fa-cog"></i> <span>Add Project</span></a>
+            </li>
+             <li class="<?php echo activate_menu('searchservice/track'); ?>">
+                <a href="<?php echo base_url("admin/searchservice/add_blog"); ?>"><i class="fa fa-cog"></i> <span>Add Blog</span></a>
             </li>
          
-             <li class="<?php echo activate_menu('admin/user_cont/user_view'); ?>">
-                <a href="<?php echo base_url('admin/user_cont/user_view'); ?>"><i class="fa fa-users"></i> <span>Register List</span></a>
-            </li> 
             <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
                 <a href="<?php echo base_url('admin/user_cont/contactlist'); ?>"><i class="fa fa-users"></i> <span>Contact Us List</span></a>
             </li> 
-             <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
-                <a href="<?php echo base_url('admin/service/review_list'); ?>"><i class="fa fa-users"></i> <span>Review list</span></a>
-            </li> 
-            <li class="<?php echo activate_menu('admin/user_cont/block_user'); ?>">
-                <a href="<?php echo base_url('admin/user_cont/block_user'); ?>"><i class="fa fa-users"></i> <span>Block User</span></a>
-            </li> 
+            
             <li class="<?php echo activate_menu('admin/service/serviceorder_list'); ?>">
-                <a href="<?php echo base_url('admin/service/serviceorder_list'); ?>"><i class="fa fa-users"></i> <span>Service order list</span></a>
+                <a href="<?php echo base_url('admin/service/serviceorder_list'); ?>"><i class="fa fa-users"></i> <span>Service Request list</span></a>
             </li> 
-             <li class="<?php echo activate_menu('admin/service/franchise_list'); ?>">
-                <a href="<?php echo base_url('admin/service/franchise_list'); ?>"><i class="fa fa-users"></i> <span>Franchise Order List</span></a>
-            </li> 
+            
     
       <?php    }}elseif (!empty($_SESSION['fran_id'])) { ?>
        
-             <li class="<?php echo activate_menu('admin/serviceprovider_cont/myservices'); ?>">
-                <a href="<?php echo base_url('user/franchise_order_list'); ?>"><i class="fa fa-search"></i> <span>Order List</span></a>
-            </li> 
+            
         
    <?php   }
            ?>

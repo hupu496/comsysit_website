@@ -21,6 +21,12 @@
                                             <input type="text" name="name" value="" id="name" placeholder="Name" class="form-control" required/>
                                         </div>
                                     </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">Description <span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                           <textarea rows="5" cols="5" class="form-control" name="Description" placeholder="write the Description"></textarea>
+                                        </div>
+                                    </div>
                                   
                                     <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Photo<span class="text-danger">*</span></label>

@@ -47,21 +47,7 @@ class Service_model extends CI_Model{
 	
 	
 	
-	public function serviceorder($where,$type='all'){
-		$this->db->select('t1.*,t1.id as book_id,t2.id as emp_id,t2.*');
-        $this->db->from('booknow as t1');
-        $this->db->join('user_register as t2', 't1.user_id = t2.id');
-        $this->db->order_by("t1.id", "desc");
-        $this->db->where($where);
-        $query = $this->db->get();
-       
-        if ($type == 'all') {
-            $return = $query->result_array();
-        } else {
-            $return = $query->row_array();
-        }
-        return $return;
-	}
+	
 	public function orderpdf($where){
 		$this->db->select('t1.*,t1.id as book_id,t2.id as emp_id,t2.*');
         $this->db->from('booknow as t1');

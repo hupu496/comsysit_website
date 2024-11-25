@@ -17,6 +17,13 @@
                                         <div class="col-sm-12 col-md-8">
                                           <input type="hidden" name="id" value="<?php echo $edit_list['id']; ?>">
                                             <input type="text" name="name" value="<?php echo $edit_list['name']; ?>" id="name" placeholder="Name" class="form-control" />
+                                            
+                                        </div>
+                                    </div>
+                                     <div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">Description<span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <input class="form-control" name="Description" type="text" value="<?php echo $edit_list['Description']; ?>">
                                         </div>
                                     </div>
                                     <div class="row form-group">

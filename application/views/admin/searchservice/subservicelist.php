@@ -15,9 +15,9 @@
                         	<tr>
                             	<th class="table-plus" >Sl No</th>
                                 <th >Service</th>
-                              
-                                <th>Sub Service</th>
-                                <th>Price</th>
+                                <th>project Name</th>
+                                <th>Description</th>
+                                <th>Images</th>
 
                                 <th class="datatable-nosort">Action</th>
                             </tr>
@@ -30,8 +30,8 @@
                         	<tr>
                             	<td class="table-plus" ><?php echo $i; ?></td>
                                 <td ><?php echo $srlist['name']; ?></td>
-								<td><?php echo $srlist['sub_service'];?></td>
-								<td><?php echo $srlist['price'];?></td>
+								<td><?php echo $srlist['Description'];?></td>
+								<td> <img src="<?php echo base_url($srlist['proj_images']);?>"></td>
                                 <td >
                                  <a href="<?php echo base_url("admin/searchservice/edit_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
                                   <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>

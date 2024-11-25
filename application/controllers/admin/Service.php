@@ -61,12 +61,6 @@ class Service extends CI_Controller{
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $servilist = $this->Service_model->get_service(array(),'all');
-        // echo PRE;
-       // print_r($servilist); die;
-		// if(empty($servilist)){
-		// 	$this->session->set_flashdata('msg',"No data Found.");
-		// 	redirect($_SERVER['HTTP_REFERER']);
-		// }
 		$data['servilist'] = $servilist;
 		$this->template->load('admin/service','view',$data);
 	}
@@ -127,26 +121,14 @@ class Service extends CI_Controller{
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
 		$current_date = date('Y-m-d');
-
-		// Total price for today
-		$this->db->select_sum('price');
-		$this->db->where('status', 1);
-		$this->db->where('DATE(added_on)', $current_date); // Assuming 'booking_date' is a DATETIME or DATE column
-		$today_total = $this->db->get('booknow')->row()->price;
-
-		// Overall total price
-		$this->db->select_sum('price');
-		$this->db->where('status', 1);  // Assuming you want to consider records where status = 1
-		$overall_total = $this->db->get('booknow')->row()->price;
-		$data['today_total'] = $today_total;
-		$data['overall_total'] = $overall_total;
-		$where = array('t1.status'=>1);
-		$serviceprovider = $this->Service_model->serviceorder($where);
+		$data['today'] = $this->db->get_where('serviceorder',array('added_on'=>$current_date))->num_rows();
+		$data['all_order'] = $this->db->get_where('serviceorder',array('status'=>1))->num_rows();
+		$serviceprovider = $this->db->get_where('serviceorder',array('status'=>1))->result_array();
 		if(empty($serviceprovider)){
 			$this->session->set_flashdata('msg',"Add data.");
 			redirect('admin/dashboard/index');
 		}
-		$data['serviceprovider'] = $serviceprovider;
+		$data['serviceroder'] = $serviceprovider;
 		$this->template->load('admin/service','serviceorder_list',$data);
 	}
 	public function update_amount(){

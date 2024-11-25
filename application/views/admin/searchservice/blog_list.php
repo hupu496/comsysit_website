@@ -4,8 +4,8 @@
         	<div class="box">
             	<div class="box-header with-border">
                 	<div class="box-title">
-                      <a href="<?php echo base_url('admin/service') ;?>">
-                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> ADD SERVICE </button>
+                      <a href="<?php echo base_url('admin/searchservice/add_blog') ;?>">
+                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> ADD BLOG</button>
                         </a>
                     </div>
                 </div>
@@ -14,27 +14,29 @@
                     	<thead>
                         	<tr>
                             	<th class="table-plus" >Sl No</th>
-                                <th >Service Type</th>
+                                <th >Name</th>
                                 <th>Description</th>
-                                <th >Images</th>
-                              
+                                <th>Images</th>
+                                <th>Added ON</th>
+
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
-							if(is_array($servilist)){ $i=0;
-								foreach($servilist as $list){ $i++;                    
+							if(is_array($subservicelist)){ $i=0;
+								foreach($subservicelist as $srlist){ $i++;                    
                             ?>
                         	<tr>
                             	<td class="table-plus" ><?php echo $i; ?></td>
-                                <td ><?php echo $list['name']; ?></td>
-                                 <td ><?php echo $list['Description']; ?></td>
-								<td><img src="<?php echo file_url($list['image']);?>" width="100" height="60" ></td>
-							
+                                <td ><?php echo $srlist['name']; ?></td>
+								<td><?php echo $srlist['description'];?></td>
+								<td> <img src="<?php echo base_url($srlist['photos']);?>" width="100px;"></td>
+								<td><?php echo date('d M Y',strtotime($srlist['added_on'])); ?></td>
                                 <td >
-     <a  href='<?php echo base_url("admin/service/service_edit/$list[id]") ;?>' class="btn btn-sm btn-success" ><i class="fa fa-edit"></i> Edit </a>
-                                </td>
+                                 <a href="<?php echo base_url("admin/searchservice/edit_blog/$srlist[id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
+                                  <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
+                              </td>
                             </tr>
                             <?php
                                     }
@@ -47,7 +49,6 @@
         </div>
     </div>
 </section>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	$(document).ready(function(e) {
 		var table=$('.data-table').DataTable({
@@ -66,28 +67,7 @@
 		});
 		new $.fn.dataTable.FixedHeader( table );
 		 
-		$('body').one('click','.delete',function(){
-			var id = $(this).data('value');
-			var prompt = confirm("Are you Sure you want to delete?");
-			if(prompt){
-				
-				$.ajax({
-					url:"<?php echo base_url('admin/service/delete_service')?>",
-					method:"POST",
-					data:{id:id},
-					success:function(data){
-						if(data == 1){
-							 swal("Deleted !", "You clicked the button!", "success");
-						}
-						else{
-							swal("Oops!", "Something Error!", "error");
-						}
-						
-						
-					}
-				});
-			}
-		});
+		
 		
 	});
 </script>
