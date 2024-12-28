@@ -186,7 +186,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <h4 class="text-primary">Fearutes</h4>
+                        <h4 class="text-primary">Features</h4>
                         <h1 class="display-5 mb-4">Push Your Visitors Into Happy Customers</h1>
                         <p class="mb-4">We at ComSys IT Service Provider, believe in the power of collaboration. We work closely with our clients to understand their unique needs and vision, and develop custom software solutions that align with their business objectives. Our team of experienced software developers, designers, and project managers are committed to delivering high-quality software solutions that exceed expectations. Whether you have a clear idea of what you want or need help shaping your vision, we're here to help. From ideation to development and deployment, we'll work with you every step of the way to ensure your project is a success.
                         </p>
@@ -229,7 +229,7 @@
                             <div class="accordion-item border-0 mb-4">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTOne">
-                                        Why did you choose Our Email Services?
+                                        Why did you choose Our ComsysIT services?
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -257,7 +257,7 @@
                             <div class="accordion-item border-0">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        What are the key challenges of email marketing?
+                                        What are the key challenges of Software marketing?
                                     </button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">

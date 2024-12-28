@@ -56,7 +56,9 @@ class Homeservice extends CI_Controller {
 			}
 	
 	public function index()
-	{
+	{   $data['services'] = $this->db->get_where('services',array('status'=>1))->result_array();
+	    $data['sub_service'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+	    $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$data['title']="Home";
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/index',$data);

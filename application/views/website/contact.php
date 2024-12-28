@@ -88,7 +88,7 @@
                             <div class="ms-4">
                                 <h4>Email</h4>
                                 <p class="mb-0">info@comsysit.in</p>
-                                <p class="mb-0">info@comsysit.in</p>
+                                <!-- <p class="mb-0">info@comsysit.in</p> -->
                             </div>
                         </div>
                         <div class="d-flex align-items-center">

@@ -38,7 +38,7 @@
             </li> 
             
             <li class="<?php echo activate_menu('admin/service/serviceorder_list'); ?>">
-                <a href="<?php echo base_url('admin/service/serviceorder_list'); ?>"><i class="fa fa-users"></i> <span>Service Request list</span></a>
+                <a href="<?php echo base_url('admin/service/order_list'); ?>"><i class="fa fa-users"></i> <span>Order list</span></a>
             </li> 
             
     

@@ -22,7 +22,7 @@
                     echo "0";
                 } ?></h3>
 
-                <p>Today Order</p>
+                <p>Total Contact</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -58,7 +58,7 @@
                     echo "0";
                 } ?></h3>
 
-                <p>Today Franchise</p>
+                <p>Today Order</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -76,7 +76,7 @@
                     echo "0";
                 } ?></h3>
 
-                <p>Total Franchise</p>
+                <p>Total Meeting Request</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
