@@ -4,8 +4,8 @@
         	<div class="box">
             	<div class="box-header with-border">
                 	<div class="box-title">
-                      <a href="<?php echo base_url('admin/searchservice/sub_service') ;?>">
-                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> ADD PROJECT</button>
+                      <a href="<?php echo base_url('admin/service') ;?>">
+                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> ADD SERVICE </button>
                         </a>
                     </div>
                 </div>
@@ -14,29 +14,27 @@
                     	<thead>
                         	<tr>
                             	<th class="table-plus" >Sl No</th>
-                                <th >Service</th>
-                                <th>project Name</th>
+                                <th >Service Type</th>
                                 <th>Description</th>
-                                <th>Images</th>
-
+                                <th >Images</th>
+                              
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
-							if(is_array($subservicelist)){ $i=0;
-								foreach($subservicelist as $srlist){ $i++;                    
+							if(is_array($servilist)){ $i=0;
+								foreach($servilist as $list){ $i++;                    
                             ?>
                         	<tr>
                             	<td class="table-plus" ><?php echo $i; ?></td>
-                                <td ><?php echo $srlist['name']; ?></td>
-								<td ><?php echo $srlist['sub_service']; ?></td>
-								<td><?php echo $srlist['Description'];?></td>
-								<td> <img src="<?php echo base_url($srlist['proj_images']);?>"></td>
+                                <td ><?php echo $list['name']; ?></td>
+                                 <td ><?php echo $list['Description']; ?></td>
+								<td><img src="<?php echo file_url($list['image']);?>" width="100" height="60" ></td>
+							
                                 <td >
-                                 <a href="<?php echo base_url("admin/searchservice/edit_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
-                                  <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
-                              </td>
+     <a  href='<?php echo base_url("admin/service/service_edit/$list[id]") ;?>' class="btn btn-sm btn-success" ><i class="fa fa-edit"></i> Edit </a>
+                                </td>
                             </tr>
                             <?php
                                     }
@@ -49,6 +47,7 @@
         </div>
     </div>
 </section>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	$(document).ready(function(e) {
 		var table=$('.data-table').DataTable({
@@ -67,23 +66,28 @@
 		});
 		new $.fn.dataTable.FixedHeader( table );
 		 
-		/*$('body').one('click','.delete',function(){
-			var dlt = $(this).attr('value');
+		$('body').one('click','.delete',function(){
+			var id = $(this).data('value');
 			var prompt = confirm("Are you Sure you want to delete?");
 			if(prompt){
-				//alert(dlt);
+				
 				$.ajax({
-					url:"<?php echo base_url('lead/teamleader/delete_teamleader')?>",
+					url:"<?php echo base_url('admin/service/delete_service')?>",
 					method:"POST",
-					data:{id:dlt},
+					data:{id:id},
 					success:function(data){
-						console.log();
-						//alert(data);
-						//location.reload();
+						if(data == 1){
+							 swal("Deleted !", "You clicked the button!", "success");
+						}
+						else{
+							swal("Oops!", "Something Error!", "error");
+						}
+						
+						
 					}
 				});
 			}
-		});*/
+		});
 		
 	});
 </script>

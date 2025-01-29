@@ -12,7 +12,7 @@ class Searchservice extends CI_Controller{
 		$this->template->load('admin/searchservice','add',$data);
 	}
 	public function sub_service(){
-		$data['title'] = "Add Sub service";
+		$data['title'] = "Add Project";
 		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
 		$servilist = $this->Homeservice_model->get_servicewebsite(array('status'=>1),'all');
 		$data['servilist'] = $servilist;
@@ -85,10 +85,11 @@ class Searchservice extends CI_Controller{
 		$this->template->load('admin/searchservice','view',$data);
 	}
 	public function sub_servicelist(){
-		$data['title'] = "Sub Service list";
+		$data['title'] = "Project List";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $subservicelist= $this->Search_model->sub_servicelist();
+		// print_r($subservicelist);die;
 		if(empty($subservicelist)){
 			$this->session->set_flashdata('msg',"data not Found.");
 			redirect($_SERVER['HTTP_REFERER']);

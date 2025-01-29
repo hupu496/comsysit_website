@@ -5,23 +5,23 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-dark">Company</h4>
-                            <a href=""> Our Portfolio</a>
-                            <a href=""> Contact Us</a>
-                            <a href=""> Privacy Policy</a>
-                            <a href=""> Terms & Conditions</a>
-                            <a href=""> Our Blog & News</a>
-                            <a href=""> Our Team</a>
+                            <a href="<?php echo base_url('profile'); ?>"> Our Portfolio</a>
+                            <a href="<?php echo base_url('contact'); ?>"> Contact Us</a>
+                            <a href="<?php echo base_url('privacy_policy'); ?>"> Privacy Policy</a>
+                            <a href="<?php echo base_url('term_condition'); ?>"> Terms & Conditions</a>
+                            <a href="<?php echo base_url('blog'); ?>"> Our Blog & News</a>
+                            <a href="<?php echo base_url('our_team'); ?>"> Our Team</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-dark">Services</h4>
-                            <a href=""> Software & Consultation</a>
-                            <a href=""> Web Developement</a>
-                            <a href=""> Industrial Electronic</a>
-                            <a href=""> Access and Security</a>
-                            <a href=""> Hardware & Networking</a>
-                            <a href=""> Lay Out Designing & Interior</a>
+                            <a href="<?php echo base_url('homeservice/service/1'); ?>"> Software & Consultation</a>
+                            <a href="<?php echo base_url('homeservice/service/2'); ?>"> Web Developement</a>
+                            <a href="<?php echo base_url('homeservice/service/3'); ?>"> Industrial Electronic</a>
+                            <a href="<?php echo base_url('homeservice/service/4'); ?>"> Access and Security</a>
+                            <a href="<?php echo base_url('homeservice/service/5'); ?>"> Hardware & Networking</a>
+                            <a href="<?php echo base_url('homeservice/service/6'); ?>"> Lay Out Designing & Interior</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

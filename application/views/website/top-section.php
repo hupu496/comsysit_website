@@ -86,7 +86,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-     <form method="post" action="<?php echo base_url('homeservice/contactsave'); ?>">
+     <form method="post" action="<?php echo base_url('homeservice/meeting'); ?>">
                             <div class="row g-3">
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
@@ -102,13 +102,13 @@
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="phone" name="mobile" class="form-control" id="phone" placeholder="Phone">
+                                        <input type="phone" name="phone" class="form-control" id="phone" placeholder="Phone">
                                         <label for="phone">Your Phone</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
-                                        <input type="phone" name="mobile" class="form-control" id="phone" placeholder="Phone">
+                                        <input type="phone" name="whatsapp_no" class="form-control" id="phone" placeholder="Phone">
                                         <label for="phone">Whatsup Number</label>
                                     </div>
                                 </div>

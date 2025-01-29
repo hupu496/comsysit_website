@@ -71,7 +71,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Software & Consultation</h5>
                                 <p class="mb-4">.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/1'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Web Development</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/2'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Industrial Electronic</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/3'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Access and Security</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.dfgdfgdfgdfgfd</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/4'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -309,7 +309,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -328,7 +328,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -347,7 +347,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -366,7 +366,7 @@
                             <div class="blog-content text-dark border p-4 ">
                                 <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -462,3 +462,32 @@
             </div>
         </div>
         <!-- Testimonial End -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+          <script>
+$(document).ready(function () {
+    $("form").submit(function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        $.ajax({
+            url: $(this).attr("action"), // Form action URL
+            type: "POST",
+            data: $(this).serialize(), // Serialize form data
+            dataType: "json",
+            success: function (response) {
+                if (response.status === "success") {
+                    Swal.fire("Submit Successfully!", "Meeting Available Soon!", "success").then(() => {
+                        window.location.reload(); // Reload page after success
+                    });
+                } else {
+                    Swal.fire("Error!", response.message || "Something went wrong.", "error");
+                }
+            },
+            error: function () {
+                Swal.fire("Error!", "Failed to submit the form. Try again!", "error");
+            }
+        });
+    });
+});
+</script>

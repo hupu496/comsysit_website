@@ -96,49 +96,99 @@ class Homeservice extends CI_Controller {
     public function service_form()
 	{
         $id = $this->input->post();
-	      $data['title']="Service Form";
+	    $data['title']="Service Form";
         $this->load->view('website/top-section',$data);
         $this->load->view('website/main-menu');
         $data['subservice'] = $this->db->get_where('sub_service',array('service_id'=>$id['id'],'status'=>1))->result_array();
         $data['service'] = $this->db->get_where('services',array('id'=>$id['id'],'status'=>1))->row_array();
-		    $this->load->view('website/service_form',$data);
+		$this->load->view('website/service_form',$data);
         $this->load->view('website/footer');
         $this->load->view('website/bottom-script');
 		    $this->load->view('website/bottom-section');
     }
+	public function serviceorder(){
+		$data = $this->input->post();
+		$data['added_on'] = date('y-m-d');
+		$query = $this->db->insert('serviceorder',$data);
+	if ($query) {
+        echo json_encode(["status" => "success", "message" => "Service Order successfully!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Service Order failed"]);
+    }
+    exit;
+
+	}
     // ///////////////////
 	
 	public function privacy_policy()
 	{
-		    $data['title']="term condition";
-		    $this->load->view('website/top-section',$data);
+		$data['title']="term condition";
+		$this->load->view('website/top-section',$data);
         $this->load->view('website/main-menu');
-		    $this->load->view('website/privacy_policy');
+		$this->load->view('website/privacy_policy');
         $this->load->view('website/footer');
         $this->load->view('website/bottom-script');
-		    $this->load->view('website/bottom-section');
+		$this->load->view('website/bottom-section');
 	}
-	public function refund_policy()
+	public function term_condition()
 	{
-		    $data['title']="term condition";
-		    $this->load->view('website/top-section',$data);
+		$data['title']="term condition";
+		$this->load->view('website/top-section',$data);
         $this->load->view('website/main-menu');
-		    $this->load->view('website/refund_policy');
+		$this->load->view('website/refund_policy');
         $this->load->view('website/footer');
         $this->load->view('website/bottom-script');
-		    $this->load->view('website/bottom-section');
+		$this->load->view('website/bottom-section');
 	}
-  public function contactsave(){
-  	$data = $this->input->post();
-  	$query = $this->db->insert('contact_us',$data);
-  	
-  	if($query){
-  		 $this->session->set_flashdata("web_msg","Contact Save Successfully!!");
-  	}
-  	else{
-  		 $this->session->set_flashdata('web_err_msg', "Contact Save failed ");
-  	}
-  	 redirect('contact');
+	public function meeting() {
+    $data = $this->input->post();
+    $data['added_on'] = date('Y-m-d');
+
+    $query = $this->db->insert('meeting', $data);
+
+    if ($query) {
+        echo json_encode(["status" => "success", "message" => "Meeting saved successfully!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Meeting save failed"]);
+    }
+    exit;
+}
+    public function contactsave(){
+		$data = $this->input->post();
+		$data['added_on'] = date('Y-m-d');
+		$query = $this->db->insert('contact_us',$data);
+		if($query){
+			$this->session->set_flashdata("web_msg","Contact Save Successfully!!");
+		}
+		else{
+			$this->session->set_flashdata('web_err_msg', "Contact Save failed ");
+		}
+		redirect('contact');
   }
+  public function blog()
+	{
+	
+		$data['title']="Blog";
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/blog',$data);
+        $this->load->view('website/footer');
+       
+	}
+	public function our_team()
+	{
+		$data['title']="Our Team";
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/our_team',$data);
+        $this->load->view('website/footer');
+       
+	}
+	public function blog_description()
+	{
+		$data['title']="Blog Description";
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/blog_description',$data);
+        $this->load->view('website/footer');
+       
+	}
     
 }

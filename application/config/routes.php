@@ -55,11 +55,16 @@ $route['default_controller'] = 'homeservice';
 $route['profile'] = 'homeservice/profile';
 $route['contact'] = 'homeservice/contact';
 $route['service'] = 'homeservice/service';
-// /////////////////////////////////////////
+$route['our_team'] = 'homeservice/our_team';
 $route['term_condition'] = 'homeservice/term_condition';
-$route['cookie_policy'] = 'homeservice/cookie_policy';
 $route['privacy_policy'] = 'homeservice/privacy_policy';
-$route['refund_policy'] = 'homeservice/refund_policy';
+$route['blog'] = 'homeservice/blog';
+$route['our_team']='homeservice/our_team';
+$route['blog_description'] = 'homeservice/blog_description';
+// /////////////////////////////////////////
+
+// $route['cookie_policy'] = 'homeservice/cookie_policy';
+// $route['refund_policy'] = 'homeservice/refund_policy';
 $route['shipping_delivery_policy'] = 'homeservice/shipping_delivery_policy';
 $route['delivery_partner_termcondition'] = 'homeservice/delivery_partner_termcondition';
 $route['payment_verify'] = 'homeservice/payment_verify';
@@ -72,11 +77,6 @@ $route['order_status'] = 'homeservice/order_status';
 $route['service'] = 'homeservice/service';
 $route['service_form'] = 'homeservice/service_form';
 $route['serviceform_save'] = 'homeservice/serviceform_save';
-$route['orderpdf'] = 'homeservice/orderpdf';
-$route['makepayment'] = 'homeservice/makepayment';
-$route['supercoin'] = 'homeservice/supercoin';
-$route['daesynpluszone'] = 'homeservice/daesynpluszone';
-$route['franchise'] = 'homeservice/franchise';
 $route['contactform'] = 'homeservice/contactform';
 
 $route['register'] = 'homeservice/register';

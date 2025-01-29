@@ -265,4 +265,21 @@ public function mark_all_notifications_as_seen() {
     echo json_encode(['status' => 'success']);
 }
 
+public function servilist(){
+		$data['title'] = "Service List";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $servilist = $this->Service_model->get_service(array(),'all');
+		$data['servilist'] = $servilist;
+		$this->template->load('admin/service','view',$data);
+	}
+public function order_list(){
+		$data['title'] = "Service Order";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $servilist = $this->Service_model->get_service(array(),'all');
+		$data['servilist'] = $servilist;
+		$this->template->load('admin/service','orderlist',$data);
+	}
+
 }	
