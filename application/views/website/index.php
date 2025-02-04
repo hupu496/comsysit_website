@@ -63,19 +63,25 @@
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <?php if(!empty($services)){
+                        foreach ($services as $key => $value) { ?>
+                        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <img src="<?php echo base_url('assets/images/software_Development.png'); ?>" class="img-fluid w-100" alt="">
+                                <img src="<?php echo base_url($value['image']); ?>" class="img-fluid w-100" alt="">
                             </div>
                             <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Software & Consultation</h5>
-                                <p class="mb-4">.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/1'); ?>">Read More</a>
+                                <h5 class="mb-4"><?php echo $value['name']; ?></h5>
+                                <p class="mb-4"><?php echo $value['Description']; ?></p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url($value['url_link']); ?>">Read More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                           
+                   <?php     }
+                    }  ?>
+                    
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="<?php echo base_url('assets/images/web_Design.png'); ?>" class="img-fluid w-100" alt="">
@@ -116,7 +122,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Service End -->
 
 

@@ -109,6 +109,7 @@ class Homeservice extends CI_Controller {
 	public function serviceorder(){
 		$data = $this->input->post();
 		$data['added_on'] = date('y-m-d');
+	
 		$query = $this->db->insert('serviceorder',$data);
 	if ($query) {
         echo json_encode(["status" => "success", "message" => "Service Order successfully!"]);

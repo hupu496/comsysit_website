@@ -258,94 +258,105 @@ Development of high-impact graphic design and web design projects including menu
     };
 
 
-    function openModal(title, content) {
-        const modalContainer = document.getElementById('dynamicModalContainer');
+   function openModal(title, content) {
+    const modalContainer = document.getElementById("dynamicModalContainer");
 
-        const modalHtml = `
-            <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="dynamicModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="dynamicModalLabel">${title}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ${content}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
+    const modalHtml = `
+        <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="dynamicModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="dynamicModalLabel">${title}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ${content}
                     </div>
                 </div>
             </div>
-        `;
+        </div>
+    `;
 
-        modalContainer.innerHTML = modalHtml;
-        const modal = new bootstrap.Modal(document.getElementById('dynamicModal'));
-        modal.show();
+    modalContainer.innerHTML = modalHtml;
+    const modal = new bootstrap.Modal(document.getElementById("dynamicModal"));
+    modal.show();
+}
 
-        // Attach form submission handler after modal is inserted
-        attachFormHandler();
-    }
+function generateForm(serviceName) {
+    return `
+        <form id="serviceOrderForm" method="POST" action="<?php echo base_url('homeservice/serviceorder'); ?>">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="tel" class="form-control" id="mobile" name="mobile" required>
+            </div>
+            <div class="mb-3">
+                <label for="service" class="form-label">Service</label>
+                <input type="text" class="form-control" id="service" name="service" value="${serviceName}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="query" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    `;
+}
 
-    function generateForm(serviceName) {
-        return `
-            <form id="serviceOrderForm" method="POST" action="<?php echo base_url('homeservice/serviceorder'); ?>">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="mobile" class="form-label">Mobile</label>
-                    <input type="tel" class="form-control" id="mobile" name="mobile" required>
-                </div>
-                <div class="mb-3">
-                    <label for="service" class="form-label">Service</label>
-                    <input type="text" class="form-control" id="service" name="service" value="${serviceName}" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="query" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        `;
-    }
+// Ensure AJAX submission with event delegation
+$(document).ready(function () {
+    $(document).on("submit", "#serviceOrderForm", function (event) {
+        event.preventDefault(); // Prevent default form submission
 
-    function attachFormHandler() {
-        $("#serviceOrderForm").submit(function (event) {
-            event.preventDefault(); // Prevent default form submission
+        let form = $(this);
+        let submitButton = form.find("button[type='submit']");
+        submitButton.prop("disabled", true).text("Submitting..."); // Disable button during submission
 
-            $.ajax({
-                url: $(this).attr("action"),
-                type: "POST",
-                data: $(this).serialize(),
-                dataType: "json",
-                success: function (response) {
-                    if (response.status === "success") {
-                        Swal.fire({
-                            title: "Success!",
-                            text: "Service Order submitted successfully!",
-                            icon: "success",
-                            confirmButtonText: "OK"
-                        }).then(() => {
-                            $("#dynamicModal").modal("hide"); // Close modal
-                            $("#serviceOrderForm")[0].reset(); // Reset form
-                        });
-                    } else {
-                        Swal.fire("Error!", response.message || "Service Order failed.", "error");
-                    }
-                },
-                error: function () {
-                    Swal.fire("Error!", "Failed to submit the form. Try again!", "error");
+        $.ajax({
+            url: form.attr("action"),
+            type: "POST",
+            data: form.serialize(),
+            dataType: "json",
+            success: function (response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Service Order submitted successfully!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        $("#dynamicModal").modal("hide"); // Close modal
+                        form[0].reset(); // Reset form
+                    });
+                } else {
+                    Swal.fire("Error!", response.message || "Service Order failed.", "error");
                 }
-            });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                let errorMessage = "Failed to submit the form. Try again!";
+                if (jqXHR.responseText) {
+                    try {
+                        let errorData = JSON.parse(jqXHR.responseText);
+                        errorMessage = errorData.message || errorMessage;
+                    } catch (e) {
+                        console.error("Error parsing JSON response:", e);
+                    }
+                }
+                Swal.fire("Error!", errorMessage, "error");
+            },
+            complete: function () {
+                submitButton.prop("disabled", false).text("Submit"); // Re-enable button
+            }
         });
-    }
+    });
+});
 
 
 </script>

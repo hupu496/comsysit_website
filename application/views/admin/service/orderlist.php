@@ -14,9 +14,12 @@
                     	<thead>
                         	<tr>
                             	<th class="table-plus" >Sl No</th>
-                                <th >Service Type</th>
-                                <th>Description</th>
-                                <th >Images</th>
+                                <th >Customer Name</th>
+                                <th>Customer Email</th>
+                                <th >Customer Mobile</th>
+								<th >Service</th>
+								<th >Remarks</th>
+								<th >Date</th>
                               
                                 <th class="datatable-nosort">Action</th>
                             </tr>
@@ -29,8 +32,14 @@
                         	<tr>
                             	<td class="table-plus" ><?php echo $i; ?></td>
                                 <td ><?php echo $list['name']; ?></td>
-                                 <td ><?php echo $list['Description']; ?></td>
-								<td><img src="<?php echo file_url($list['image']);?>" width="100" height="60" ></td>
+                                <td ><?php echo $list['email']; ?></td>
+								<td ><?php echo $list['mobile']; ?></td>
+								<td ><?php echo $list['service']; ?></td>
+								<td ><?php echo $list['query']; ?></td>
+								<td ><?php if (!empty($list['added_on'])): ?>
+    <span><?php echo date('Y-m-d', strtotime($list['added_on'])); ?></span>
+<?php endif; ?></td>
+								
 							
                                 <td >
      <a  href='<?php echo base_url("admin/service/service_edit/$list[id]") ;?>' class="btn btn-sm btn-success" ><i class="fa fa-edit"></i> Edit </a>

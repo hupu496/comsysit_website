@@ -26,6 +26,12 @@
                                             <input class="form-control" name="Description" type="text" value="<?php echo $edit_list['Description']; ?>">
                                         </div>
                                     </div>
+									<div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">URL<span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <input class="form-control" name="url_link" type="text" value="<?php echo $edit_list['url_link']; ?>">
+                                        </div>
+                                    </div>
                                     <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Photo<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">

@@ -60,7 +60,7 @@ class Service_model extends CI_Model{
 	}
 	public function myorder($where,$type='all'){
 		$this->db->order_by('id','desc');
-		$query = $this->db->get_where('service_order',$where);
+		$query = $this->db->get_where('serviceorder',$where);
 		if($type == 'all'){
 			return $query->result_array();
 		}else{
@@ -68,7 +68,7 @@ class Service_model extends CI_Model{
 		}
 	}
 	public function blockserviceorder_list($where,$type='all'){
-		$query = $this->db->get_where('service_order',$where);
+		$query = $this->db->get_where('serviceorder',$where);
 		if($type == 'all'){
 			return $query->result_array();
 		}else{
@@ -86,7 +86,7 @@ class Service_model extends CI_Model{
 		$data= array('status'=>0);
 		$where = array('id'=>$id);
 		$this->db->where($where);
-		$query = $this->db->update('service_order',$data);
+		$query = $this->db->update('serviceorder',$data);
 		return $query;
 	}
 	public function permdelete_order_list($id){

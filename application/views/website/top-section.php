@@ -58,12 +58,18 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                             <div class="dropdown-menu m-0">
-                                <a href="<?php echo base_url('homeservice/service/1'); ?>" class="dropdown-item">Software & Consultation</a>
+                                <?php  $services = $this->db->get_where('services',array('status'=>1))->result_array();
+                                if(!empty($services)){
+                                    foreach ($services as $key => $value) {  ?>
+                                      <a href="<?php echo base_url($value['url_link']); ?>" class="dropdown-item"><?php echo $value['name']; ?></a>
+                           <?php         }
+                                }  ?>
+                                <!-- <a href="<?php echo base_url('homeservice/service/1'); ?>" class="dropdown-item">Software & Consultation</a>
                                 <a href="<?php echo base_url('homeservice/service/2'); ?>" class="dropdown-item">Web Development</a>
                                 <a href="<?php echo base_url('homeservice/service/3'); ?>" class="dropdown-item">Industrial Electronic</a>
                                 <a href="<?php echo base_url('homeservice/service/4'); ?>" class="dropdown-item">Access and Security</a>
                                 <a href="<?php echo base_url('homeservice/service/5'); ?>" class="dropdown-item">Hardware & Networking</a>
-                                 <a href="<?php echo base_url('homeservice/service/6'); ?>" class="dropdown-item">Lay Out Designing & Interior</a>
+                                 <a href="<?php echo base_url('homeservice/service/6'); ?>" class="dropdown-item">Lay Out Designing & Interior</a> -->
                             </div>
                         </div>
                         <a href="<?php echo base_url('/contact'); ?>" class="nav-item nav-link">Contact Us</a>
