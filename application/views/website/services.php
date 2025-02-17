@@ -5,27 +5,35 @@
                     <h4 class="mb-1 text-primary">Software Development</h4>
                     <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
                     <p class="mb-0">ComSys IT is a leader of Software Development in India and provide a large number of web services, including programming for online applications. The Customized Software Developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-<p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
+                            <p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
 
-Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
-                    </p>
+                            Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
+                                                </p>
                 </div>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item text-center rounded p-4">
+                    <?php if(!empty($subservice)){
+                        foreach ($subservice as $key => $value) { ?>
+                        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item text-center rounded p-4">
                             <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
                             <div class="service-content">
-                                <h4 class="mb-4">Visitor Gate Pass</h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                               <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Visitor gate Pass - Modules', generateModuleList('visitor_management'))">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Visitor gate Pass - Order', generateForm('Visitor gate Pass'))">Order</a>
+                                <h4 class="mb-4"><?php echo $value['sub_service']; ?></h4>
+                                <p class="mb-4"><?php echo $value['Description']; ?></p>
+                               <a href="javascript:void(0);" class="btn btn-light rounded-pill text-primary py-2 px-4"
+                                onclick="playVideo('<?php echo $value['video']; ?>')">Demo
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
+                                onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">Order
+                                </a>
+                            </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                    <?php    }
+                    }  ?>
+                    
+                    
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="service-item text-center rounded p-4">
                             <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
                             <div class="service-content">
@@ -33,9 +41,9 @@ Development of high-impact graphic design and web design projects including menu
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
                                 </p>
                               <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('E-Safe Pass - Modules', generateModuleList('e_safe_pass'))">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('E-Safe Pass - Order', generateForm('E-Safe Pass'))">Order</a>
+                                    onclick="openModal('E-Safe Pass - Modules', generateModuleList('e_safe_pass'))">Module</a>  
+                                    <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
+                                    onclick="openModal('E-Safe Pass - Order', generateForm('E-Safe Pass'))">Order</a>
 
                             </div>
                         </div>
@@ -47,12 +55,12 @@ Development of high-impact graphic design and web design projects including menu
                                 <h4 class="mb-4">Inventry System</h4>
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
                                 </p>
-                                 <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" onclick="openModal('Inventry System', 'This is the content for Module')">Module</a>
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" onclick="openModal('Inventry System', 'This is the content for Order')">Order</a>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" onclick="openModal('Inventry System', 'This is the content for Module')">Module</a>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" onclick="openModal('Inventry System', 'This is the content for Order')">Order</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    </div> -->
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="service-item text-center rounded p-4">
                             <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/hospital.png'); ?>"></div>
                             <div class="service-content">
@@ -60,14 +68,15 @@ Development of high-impact graphic design and web design projects including menu
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
                                 </p>
                                 <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Modules', generateModuleList('head_count_system'))">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
+                                    onclick="openModal('Head count system - Modules', generateModuleList('head_count_system'))">Module</a>  
+                                    <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
+                                    onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order
+                                </a>
 
                                 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -227,6 +236,25 @@ Development of high-impact graphic design and web design projects including menu
         <div id="dynamicModalContainer"></div>
 
 
+        <!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="videoModalLabel">Video Demo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideo()"></button>
+      </div>
+      <div class="modal-body text-center">
+        <!-- YouTube iframe -->
+        <iframe id="demoVideo" width="100%" height="400" src="" frameborder="0" 
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -357,6 +385,27 @@ $(document).ready(function () {
         });
     });
 });
+// video monitoring
+function playVideo(videoUrl) {
+    var videoElement = document.getElementById('demoVideo');
+
+    // Convert YouTube URL to embed format if necessary
+    var embedUrl = videoUrl.replace("watch?v=", "embed/").replace("youtu.be/", "www.youtube.com/embed/");
+
+    // Append autoplay parameter
+    embedUrl += "?autoplay=1";
+
+    videoElement.src = embedUrl;  // Set the iframe source
+
+    var videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+    videoModal.show();
+}
+
+// Stop the video when the modal is closed
+function stopVideo() {
+    var videoElement = document.getElementById('demoVideo');
+    videoElement.src = "";  // Clear the iframe source to stop playback
+}
 
 
 </script>

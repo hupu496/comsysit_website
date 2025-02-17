@@ -59,6 +59,8 @@ class Homeservice extends CI_Controller {
 	{   $data['services'] = $this->db->get_where('services',array('status'=>1))->result_array();
 	    $data['sub_service'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
 	    $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
+		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
+		$data['testimonial'] = $this->db->get_where('testimonial',array('status'=>1))->result_array();
 		$data['title']="Home";
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/index',$data);
@@ -68,6 +70,7 @@ class Homeservice extends CI_Controller {
 	{
 		$data['title']="Profile";
 		$this->load->view('website/top-section',$data);
+		$data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/profile',$data);
         $this->load->view('website/footer');
        
@@ -87,8 +90,8 @@ class Homeservice extends CI_Controller {
 		$data['id'] = $id;
 	    $data['title']="Services";
         $this->load->view('website/top-section',$data);
-      
-        $data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
+		$where = array('t2.id'=>$id);
+		$data['subservice'] = $this->Homeservice_model->subservice($where);
 		$this->load->view('website/services',$data);
         $this->load->view('website/footer');
     }
@@ -171,6 +174,7 @@ class Homeservice extends CI_Controller {
 	
 		$data['title']="Blog";
 		$this->load->view('website/top-section',$data);
+		$data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/blog',$data);
         $this->load->view('website/footer');
        
@@ -179,6 +183,7 @@ class Homeservice extends CI_Controller {
 	{
 		$data['title']="Our Team";
 		$this->load->view('website/top-section',$data);
+		$data['our_team']= $this->db->get_where('our_team',array('status'=>1))->result_array();
 		$this->load->view('website/our_team',$data);
         $this->load->view('website/footer');
        

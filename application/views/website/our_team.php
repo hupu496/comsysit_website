@@ -146,7 +146,9 @@
         </div> -->
         <!-- FAQ End -->
         <div class="row">
-            <div class="col-md-6">
+            <?php  if(!empty($our_team)){
+                foreach ($our_team as $key => $value) {  ?>
+                    <div class="col-md-6">
                 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -162,6 +164,9 @@
   </div>
 </div>
             </div>
+    <?php            }
+            }   ?>
+           
 
              <div class="col-md-6">
                 <div class="card mb-3" style="max-width: 540px;">

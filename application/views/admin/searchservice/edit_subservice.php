@@ -47,6 +47,12 @@
                                         <input type="text" name="Description" class="form-control" placeholder="Enter &#8377;" value="<?php echo $subservicelist['Description']; ?>">
                                         </div>
                                         </div>
+                                          <div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">Video<span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                        <input type="text" name="video" class="form-control" placeholder="Enter video" value="<?php echo $subservicelist['video']; ?>">
+                                        </div>
+                                        </div>
                                         <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Images<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">

@@ -16,12 +16,18 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-dark">Services</h4>
-                            <a href="<?php echo base_url('homeservice/service/1'); ?>"> Software & Consultation</a>
-                            <a href="<?php echo base_url('homeservice/service/2'); ?>"> Web Developement</a>
+                             <?php  $services = $this->db->get_where('services',array('status'=>1))->result_array();
+                                if(!empty($services)){
+                                    foreach ($services as $key => $value) {  ?>
+                                     <a href="<?php echo base_url('homeservice/service/1'); ?>"><?php echo $value['name']; ?></a>
+                           <?php         }
+                                }  ?>
+                           
+                            <!-- <a href="<?php echo base_url('homeservice/service/2'); ?>"> Web Developement</a>
                             <a href="<?php echo base_url('homeservice/service/3'); ?>"> Industrial Electronic</a>
                             <a href="<?php echo base_url('homeservice/service/4'); ?>"> Access and Security</a>
                             <a href="<?php echo base_url('homeservice/service/5'); ?>"> Hardware & Networking</a>
-                            <a href="<?php echo base_url('homeservice/service/6'); ?>"> Lay Out Designing & Interior</a>
+                            <a href="<?php echo base_url('homeservice/service/6'); ?>"> Lay Out Designing & Interior</a> -->
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

@@ -17,7 +17,7 @@
                 </div>
             </div>
             <!-- Hero Header End -->
-        </div>
+      
         <!-- Navbar & Hero End -->
 
 
@@ -81,48 +81,7 @@
                    <?php     }
                     }  ?>
                     
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/images/web_Design.png'); ?>" class="img-fluid w-100" alt="">
-                               
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Web Development</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/2'); ?>">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/images/mobile_apps.png'); ?>" class="img-fluid w-100" alt="">
-                               
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Industrial Electronic</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/3'); ?>">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/images/access_control.jpg'); ?>" class="img-fluid w-100" alt="">
-                                
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Access and Security</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.dfgdfgdfgdfgfd</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/service/4'); ?>">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+                 
         <!-- Service End -->
 
 
@@ -232,21 +191,29 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item border-0 mb-4">
+                        <?php  if (!empty($faqs)){
+                            foreach ($faqs as $key => $value) { ?>
+                             <div class="accordion-item border-0 mb-4">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTOne">
-                                        Why did you choose Our ComsysIT services?
+                                        <!-- Why did you choose Our ComsysIT services? -->
+                                        <?php echo $value['question']; ?>   
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body my-2">
-                                        <h5>Dolor sit amet consectetur adipisicing elit.</h5>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                        <!-- <h5>Dolor sit amet consectetur adipisicing elit.</h5> -->
+                                        
+                                        <p><?php echo $value['answer']; ?></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item border-0 mb-4">
+                        <?php   }
+                        } ?>
+
+                           
+ 
+                            <!-- <div class="accordion-item border-0 mb-4">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         Are there any hidden charges? 
@@ -259,7 +226,7 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="accordion-item border-0">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -273,7 +240,7 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  -->
                        </div>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
@@ -285,11 +252,6 @@
             </div>
         </div>
         <!-- FAQ End -->
-
-
-       
-
-
         <!-- Blog Start -->
         <div class="container-fluid blog py-5">
             <div class="container py-5">
@@ -300,26 +262,32 @@
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/img/blog-1.png'); ?>" class="img-fluid w-100" alt="">
-                                <div class="blog-info">
-                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                    <div class="d-flex">
-                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
-                            </div>
+<?php if (!empty($blog)) {
+    foreach ($blog as $key => $value) { ?>
+        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="blog-item">
+                <div class="blog-img">
+                    <img src="<?php echo base_url($value['photos']); ?>" class="img-fluid w-100" alt="Blog Image">
+                    <div class="blog-info">
+                        <span><i class="fa fa-clock"></i> <?php echo date('Y-m-d', strtotime($value['added_on'])); ?></span>
+                        <div class="d-flex">
+                            <span class="me-3">3 <i class="fa fa-heart"></i></span>
+                            <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                </div>
+                <div class="blog-content text-dark border p-4">
+                    <h5 class="mb-4"><?php echo $value['name']; ?></h5>
+                    <p class="mb-4"><?php echo $value['description']; ?></p>
+                    <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description/'.$value['id']); ?>">Read More</a>
+                </div>
+            </div>
+        </div>
+
+<?php } } ?>
+
+                    
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="<?php echo base_url('assets/img/blog-2.png'); ?>" class="img-fluid w-100" alt="">
@@ -337,8 +305,8 @@
                                 <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    </div> -->
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="<?php echo base_url('assets/img/blog-3.png'); ?>" class="img-fluid w-100" alt="">
@@ -356,8 +324,8 @@
                                 <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    </div> -->
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <img src="<?php echo base_url('assets/img/blog-4.png'); ?>" class="img-fluid w-100" alt="">
@@ -375,7 +343,7 @@
                                 <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -392,31 +360,43 @@
                     </p>
                 </div>
                 <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
-                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/indian_oil.png'); ?>' alt=''>">
+                    <?php if(!empty($testimonial)){
+                        foreach ($testimonial as $key => $value) {  ?>
+                         <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url($value['images']); ?>' alt=''>">
                         <div class="testimonial-inner text-center p-5">
                             <div class="d-flex align-items-center justify-content-center mb-4">
                                 <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                    <img src="<?php echo base_url('assets/images/indian_oil.png'); ?>" class="img-fluid rounded-circle" alt="">
+                                    <img src="<?php echo base_url($value['images']); ?>" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">Indian Oil</h5>
-                                    <p class="mb-0">BP</p>
+                                    <h5 class="mb-2"><?php echo base_url('name'); ?></h5>
+                                    <p class="mb-0"><?php echo base_url('location'); ?></p>
                                 </div>
                             </div>
-                            <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+                            <p class="fs-7"><?php echo base_url('description'); ?>
                             </p>
                             <div class="text-center">
                                 <div class="d-flex justify-content-center">
+                                    <?php if(!empty($value['star'])){
+                                        for ($i=0; $i < $value['star']; $i++) {   ?>
+                                          <i class="fas fa-star text-primary"></i>
+                                 <?php   }
+                                    }
+                                     ?>
+                                    <!-- <i class="fas fa-star text-primary"></i>
                                     <i class="fas fa-star text-primary"></i>
                                     <i class="fas fa-star text-primary"></i>
                                     <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/jharkand.png'); ?>' alt=''>">
+                         
+                <?php        } 
+                    }  ?>
+                   
+                    <!-- <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/jharkand.png'); ?>' alt=''>">
                         <div class="testimonial-inner text-center p-5">
                             <div class="d-flex align-items-center justify-content-center mb-4">
                                 <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
@@ -463,9 +443,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
+        </div>
+        </div>
         </div>
         <!-- Testimonial End -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

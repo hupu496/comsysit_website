@@ -42,7 +42,15 @@
 								
 							
                                 <td >
-     <a  href='<?php echo base_url("admin/service/service_edit/$list[id]") ;?>' class="btn btn-sm btn-success" ><i class="fa fa-edit"></i> Edit </a>
+						<?php if($list['status'] == 1){ ?>
+						 <a  href='<?php echo base_url("admin/service/order_status/$list[id]/2") ;?>' class="btn btn-sm btn-success" ><i class="fa fa-edit"></i>Service connect</a>
+                          <a  href='<?php echo base_url("admin/service/order_status/$list[id]/0") ;?>' class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i>Service Decline</a>
+					<?php	}elseif($list['status'] == 2){  ?>
+                            <a  href='' class="btn btn-sm btn-success" ><i class="fa fa-edit"></i>Service connect</a>
+					<?php}else{ ?>
+                           <a  href='#' class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i>Service Decline</a>
+				<?php	}  ?>			
+    
                                 </td>
                             </tr>
                             <?php

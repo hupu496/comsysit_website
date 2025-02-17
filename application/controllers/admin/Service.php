@@ -220,46 +220,28 @@ class Service extends CI_Controller{
 		}
 		redirect('admin/service/review_list');
 	}
-	public function franchise_list(){
-		$data['title'] = "Franchise List";
-		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
-		$data['datatable'] = true;
-		$current_date = date('Y-m-d');
-
-		// Total price for today
-		$this->db->select_sum('price');
-		$this->db->where('status', 1);
-		$this->db->where('DATE(added_on)', $current_date); // Assuming 'booking_date' is a DATETIME or DATE column
-		$today_total = $this->db->get('franchise_book')->row()->price;
-
-		// Overall total price
-		$this->db->select_sum('price');
-		$this->db->where('status', 1);  // Assuming you want to consider records where status = 1
-		$overall_total = $this->db->get('franchise_book')->row()->price;
-		$data['today_total'] = $today_total;
-		$data['overall_total'] = $overall_total;
-        $servilist = $this->db->get_where('franchise_book',array('status>='=>1))->result_array();
-		$data['servilist'] = $servilist;
-		$this->template->load('admin/service','franchiselist',$data);
-	}
+	
 	// Controller function to return notification data (example: NotificationController.php)
     public function get_notifications() {
-    $where = array('t1.notifications'=>1);
-    $book = $this->Service_model->serviceorder($where);
-    $francise = $this->db->get_where('franchise_book', array('notifications' => 1))->result_array();
-    $totalMessages = count($book) + count($francise);
+   
+    $meeting = $this->db->get_where('meeting', array('notifications' => 1))->result_array();
+	$serviceorder = $this->db->get_where('serviceorder', array('notifications' => 1))->result_array();
+	$contact_us = $this->db->get_where('contact_us', array('notifications' => 1))->result_array();
+    $totalMessages = count($meeting) + count($serviceorder) + count($contact_us);
     $data = [
         'totalMessages' => $totalMessages,
-        'book' => $book,
-        'francise' => $francise,
+        'serviceorder' => $serviceorder,
+        'meeting' => $meeting,
+		'contact_us'=> $contact_us,
     ];
 
     echo json_encode($data);
 }
 public function mark_all_notifications_as_seen() {
     // Update the 'notification' field to 0 for all records in both tables
-    $this->db->update('booknow', array('notifications' => 0));
-    $this->db->update('franchise_book', array('notifications' => 0));
+    $this->db->update('meeting', array('notifications' => 0));
+    $this->db->update('serviceorder', array('notifications' => 0));
+	$this->db->update('contact_us', array('notifications' => 0));
 
     // Respond with a success message
     echo json_encode(['status' => 'success']);
@@ -278,7 +260,6 @@ public function order_list(){
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $servilist = $this->Service_model->myorder(array(),'all');
-		// print_r($servilist);die;
 		$data['servilist'] = $servilist;
 		$this->template->load('admin/service','orderlist',$data);
 	}

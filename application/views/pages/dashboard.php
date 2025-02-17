@@ -16,7 +16,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>&#8377;<?php if(!empty($today_book_total)){
+                <h3><?php if(!empty($today_book_total)){
                     echo $today_book_total;
                 }else{
                     echo "0";
@@ -34,7 +34,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>&#8377;<?php if(!empty($overall_book_total)){
+                <h3><?php if(!empty($overall_book_total)){
                     echo $overall_book_total;
                 }else{
                     echo "0";
@@ -52,7 +52,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>&#8377;<?php if(!empty($today_fran_total)){
+                <h3><?php if(!empty($today_fran_total)){
                     echo $today_fran_total;
                 }else{
                     echo "0";
@@ -70,7 +70,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>&#8377;<?php if(!empty($overall_fran_total)){
+                <h3><?php if(!empty($overall_fran_total)){
                     echo $overall_fran_total;
                 }else{
                     echo "0";

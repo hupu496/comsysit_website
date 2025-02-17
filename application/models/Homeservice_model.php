@@ -49,6 +49,14 @@ class Homeservice_model extends CI_Model{
 		return $query->result_array();
 
 	}
+	public function subservice($where){
+		$this->db->select('t1.*,t2.id as serviceid,t2.name');
+		$this->db->from('sub_service as t1');
+		$this->db->join('services as t2','t1.service_id = t2.id');
+		$this->db->where($where);
+		$query =  $this->db->get();
+		return $query->result_array();
+	}
 	public function franchise_orderbook($data){
 		$table="franchise_book";  
 		$salt=random_string('alnum', 8);

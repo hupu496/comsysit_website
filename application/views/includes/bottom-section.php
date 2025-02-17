@@ -61,32 +61,43 @@
                 var notificationHTML = '';
 
                 // Loop through book notifications
-                if (response.book.length > 0) {
-                    response.book.forEach(function(item) {
+                if (response.serviceorder.length > 0) {
+                    response.serviceorder.forEach(function(item) {
                         notificationHTML += '<li>' +
                             '<a href="<?php echo base_url('admin/service/serviceorder_list'); ?>">' +
-                                '<div class="pull-left">' +
-                                    '<img src="<?php echo base_url(); ?>' + item.photo + '" class="img-circle" alt="User Image">' +
-                                '</div>' +
-                                '<h4>Service Order: ' + item.firstname + 
-                                '<small><i class="fa fa-clock-o"></i> 5 mins</small></h4>' +
-                                '<p>' + item.service + '</p>' +
+                                    '<p>Name: ' + item.name + '</p>' +
+                                '<p>Service Order: ' + item.service + 
+                                '<small><i class="fa fa-clock-o"></i> 5 mins</small></p>' +
+                                
                             '</a>' +
                         '</li>';
                     });
                 }
 
                 // Loop through franchise notifications
-                if (response.francise.length > 0) {
-                    response.francise.forEach(function(item) {
+                if (response.contact_us.length > 0) {
+                    response.contact_us.forEach(function(item) {
                         notificationHTML += '<li>' +
-                            '<a href="<?php echo base_url('admin/service/franchise_list'); ?>">' +
-                                '<div class="pull-left">' +
-                                    '<img src="<?php echo base_url(); ?>' + item.photo + '" class="img-circle" alt="User Image">' +
-                                '</div>' +
-                                '<h4>Franchise Order: ' + item.firstname + 
-                                '<small><i class="fa fa-clock-o"></i> 5 mins</small></h4>' +
+                            '<a href="<?php echo base_url('aadmin/user_cont/contactlist'); ?>">' +
+                                    '<p>Contact Name: ' + item.name +'</p>' +
+                                '<p>Contact Email: ' + item.email + 
+                                '<small><i class="fa fa-clock-o"></i> 5 mins</small></p>' +
                                 '<p>' + item.service + '</p>' +
+                            '</a>' +
+                        '</li>';
+                    });
+                }
+
+                if (response.meeting.length > 0) {
+                    response.meeting.forEach(function(item) {
+                        notificationHTML += '<li>' +
+                            '<a href="<?php echo base_url('aadmin/user_cont/contactlist'); ?>">' +
+                                
+                                    '<p>Meeting Name: ' + item.name +'</p>' +
+                               
+                                '<p>Meeting Email: ' + item.email + 
+                                '<small><i class="fa fa-clock-o"></i> 5 mins</small></p>' +
+                                '<p>' + item.subject + '</p>' +
                             '</a>' +
                         '</li>';
                     });

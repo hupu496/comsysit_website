@@ -32,6 +32,9 @@
              <li class="<?php echo activate_menu('searchservice/track'); ?>">
                 <a href="<?php echo base_url("admin/searchservice/add_blog"); ?>"><i class="fa fa-cog"></i> <span>Add Blog</span></a>
             </li>
+             <li class="<?php echo activate_menu('searchservice/track'); ?>">
+                <a href="<?php echo base_url("admin/searchservice/our_team"); ?>"><i class="fa fa-cog"></i> <span>Our Team</span></a>
+            </li>
          
             <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
                 <a href="<?php echo base_url('admin/user_cont/contactlist'); ?>"><i class="fa fa-users"></i> <span>Contact Us List</span></a>

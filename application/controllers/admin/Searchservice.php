@@ -30,6 +30,7 @@ class Searchservice extends CI_Controller{
 
 	 public function insert_subservice(){
 	 $data = $this->input->post();
+	 print_r($data);die;
 	 $upload_path = './assets/uploads/project/';	
 		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
 		if($_FILES['proj_images']['name'] !=''){	
@@ -125,10 +126,10 @@ class Searchservice extends CI_Controller{
 		  }
 	 $where = $this->db->where('id',$data['id']);
 	 if($_FILES['proj_images']['name'] !=''){
-	 	$result=$this->db->update('sub_service',array('service_id'=>$data['service_id'],'sub_service'=>$data['sub_service'],'Description'=>$data['Description'],'proj_images'=>$data['proj_images']),$where);
+	 	$result=$this->db->update('sub_service',array('service_id'=>$data['service_id'],'sub_service'=>$data['sub_service'],'Description'=>$data['Description'],'proj_images'=>$data['proj_images'],'video'=>$data['video']),$where);
 
 	 }else{
-	 	$result=$this->db->update('sub_service',array('service_id'=>$data['service_id'],'sub_service'=>$data['sub_service'],'Description'=>$data['Description']),$where);
+	 	$result=$this->db->update('sub_service',array('service_id'=>$data['service_id'],'sub_service'=>$data['sub_service'],'Description'=>$data['Description'],'video'=>$data['video']),$where);
 	 }
 	 
 	 if($result === true){
@@ -214,5 +215,100 @@ class Searchservice extends CI_Controller{
 	  $this->session->set_flashdata('err_msg',$result);
 	   }
 	   redirect('admin/searchservice/blog_list');
+	}
+	public function our_team(){
+		$data['title'] = "Add Team";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+        $data['ckeditor'] = true;
+        $data['switchery'] = true;
+		$this->template->load('admin/searchservice','add_team',$data);
+	}
+	public function insert_team(){
+		$data = $this->input->post();
+		$upload_path = './assets/uploads/project/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if($_FILES['photos']['name']!=''){	
+			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
+			  if ($photos !='') {
+				  $data['photos'] = $photos['path'];
+			  }
+		}
+		
+		$data['added_on'] = date('y-m-d');
+		$result = $this->db->insert('our_team', $data);
+		if ($result) {
+			$this->session->set_flashdata('msg', "Team Inserted.");
+		} else {
+			$this->session->set_flashdata('err_msg', $result);
+		}
+    redirect('admin/searchservice/team_list');
+} 
+public function team_list(){
+		$data['title'] = "team list";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('our_team',array('status'=>1))->result_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','team_list',$data);
+	}
+	public function edit_team($id){
+		$id = $this->uri->segment('4');
+		$data['title'] = "Team Edit";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('our_team',array('id'=>$id))->row_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','edit_team',$data);
+
+	}
+	public function update_team(){
+	 $data = $this->input->post();
+	 $upload_path = './assets/uploads/project/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if($_FILES['photos']['name'] !=''){	
+			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
+			  if ($photos !='') {
+				  $data['photos'] = $photos['path'];
+			  }
+		  }
+	 $where = $this->db->where('id',$data['id']);
+
+
+	 if($_FILES['photos']['name'] !=''){
+	 	$result=$this->db->update('our_team',array('id'=>$data['id'],'name'=>$data['name'],'position'=>$data['position'],'description'=>$data['description'],'photos'=>$data['photos']),$where);
+
+	 }else{
+	 	$result=$this->db->update('our_team',array('id'=>$data['id'],'name'=>$data['name'],'position'=>$data['position'],'description'=>$data['description']),$where);
+	 }
+	 
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Update Succesfully.");
+	}
+    else{
+     $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/team_list');
+
+	}
+	public function delete_team($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_team($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete Team members.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/team_list');
 	}
 }	 

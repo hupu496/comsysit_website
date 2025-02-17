@@ -4,8 +4,8 @@
         	<div class="box">
             	<div class="box-header with-border">
                 	<div class="box-title">
-                      <a href="<?php echo base_url('admin/searchservice/sub_service') ;?>">
-                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> ADD PROJECT</button>
+                      <a href="<?php echo base_url('admin/searchservice/our_team') ;?>">
+                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> ADD Team Member</button>
                         </a>
                     </div>
                 </div>
@@ -14,11 +14,12 @@
                     	<thead>
                         	<tr>
                             	<th class="table-plus" >Sl No</th>
-                                <th >Service</th>
-                                <th>project Name</th>
-                                <th>Description</th>
-								<th>Video</th>
+                                <th >Name</th>
+								<th>Protifilo</th>
+                                <th>Designation</th>
                                 <th>Images</th>
+                                <th>Added ON</th>
+
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -30,13 +31,13 @@
                         	<tr>
                             	<td class="table-plus" ><?php echo $i; ?></td>
                                 <td ><?php echo $srlist['name']; ?></td>
-								<td ><?php echo $srlist['sub_service']; ?></td>
-								<td><?php echo $srlist['Description'];?></td>
-								<td><?php echo $srlist['video']; ?></td>
-								<td> <img src="<?php echo base_url($srlist['proj_images']);?>"></td>
+								<td><?php echo $srlist['description'];?></td>
+								<td><?php echo $srlist['position'];?></td>
+								<td><img src="<?php echo base_url($srlist['photos']); ?>" width="100px;"></td>
+								<td><?php echo date('d M Y',strtotime($srlist['added_on'])); ?></td>
                                 <td >
-                                 <a href="<?php echo base_url("admin/searchservice/edit_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
-                                  <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
+                                 <a href="<?php echo base_url("admin/searchservice/edit_team/$srlist[id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
+                                  <a href="<?php echo base_url("admin/searchservice/delete_team/$srlist[id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
                               </td>
                             </tr>
                             <?php
@@ -68,23 +69,7 @@
 		});
 		new $.fn.dataTable.FixedHeader( table );
 		 
-		/*$('body').one('click','.delete',function(){
-			var dlt = $(this).attr('value');
-			var prompt = confirm("Are you Sure you want to delete?");
-			if(prompt){
-				//alert(dlt);
-				$.ajax({
-					url:"<?php echo base_url('lead/teamleader/delete_teamleader')?>",
-					method:"POST",
-					data:{id:dlt},
-					success:function(data){
-						console.log();
-						//alert(data);
-						//location.reload();
-					}
-				});
-			}
-		});*/
+		
 		
 	});
 </script>

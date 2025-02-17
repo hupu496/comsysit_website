@@ -48,6 +48,11 @@ class Staff_model extends CI_Model{
 		$query = $this->db->delete('blog');
 		return $query;
 	}
+	public function delete_team($id){
+		$this->db->where('id',$id);
+		$query = $this->db->delete('our_team');
+		return $query;
+	}
 	public function unblock_deliveryboy($id){
 		$upt = array('status'=>1);
 		$data = array('id'=>$id);
