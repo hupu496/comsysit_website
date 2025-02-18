@@ -189,8 +189,11 @@ class Homeservice extends CI_Controller {
        
 	}
 	public function blog_description()
-	{
+	{         
 		$data['title']="Blog Description";
+		$id = $this->uri->segment('3');
+		$data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
+		$data['blog_description'] = $this->db->get_where('blog',array('status'=>1,'id'=>$id))->row_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/blog_description',$data);
         $this->load->view('website/footer');

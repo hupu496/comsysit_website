@@ -152,55 +152,44 @@
                 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
+      <img src="<?php echo base_url($value['photos']); ?>" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><?php echo $value['name']; ?></h5>
+        <p class="card-text"><?php echo $value['description']; ?></p>
+        <p class="card-text"><small class="text-muted"><?php echo $value['added_on'];?></small></p>
       </div>
     </div>
   </div>
 </div>
             </div>
-    <?php            }
-            }   ?>
+    <?php   }
+            
+            }  ?>
            
 
-             <div class="col-md-6">
-                <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div>
-            </div>
+            
         </div>
 
 
         <!-- Feature Start -->
         <div class="container-fluid feature overflow-hidden py-5">
             <div class="container py-5">
-           
+                   <?php if(!empty($our_team)){
+                        foreach ($our_team as $key => $value) {
+                            if($value['position'] == 'Ceo & CFO'){  ?>
                 <div class="row g-5 pt-5" style="margin-top: 6rem;">
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                         <div class="feature-img RotateMoveLeft h-100" style="object-fit: cover;">
-                            <img src="img/features-1.png" class="img-fluid w-100 h-100" alt="">
+                            <img src="<?php echo base_url($value['photos']); ?>" class="img-fluid w-100 h-100" alt="">
                         </div>
                     </div>
+            
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <h4 class="text-primary">Fearutes</h4>
-                        <h1 class="display-5 mb-4">Push Your Visitors Into Happy Customers</h1>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                        <h4 class="text-primary">Profile</h4>
+                        <h1 class="display-5 mb-4"><?php echo $value['name']; ?></h1>
+                        <p class="mb-4"><?php echo $value['description']; ?>
                         </p>
                         <div class="row g-4">
                             <div class="col-6">
@@ -222,11 +211,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="my-4">
-                            <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
-                        </div>
+                       
                     </div>
                 </div>
+                 <?php    }
+                        }
+                    }  ?>
             </div>
         </div>
         <!-- Feature End -->
