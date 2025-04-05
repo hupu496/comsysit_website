@@ -97,7 +97,7 @@ if(isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST']=='localhost' || $_SERV
 	defined('DB_HOST')		? null : define('DB_HOST','localhost');
 	defined('DB_USER')		? null : define('DB_USER', 'root');
 	defined('DB_PASSWORD')	? null : define('DB_PASSWORD','');
-	defined('DB_NAME')		? null : define('DB_NAME','db_comsysitweb');
+	defined('DB_NAME')		? null : define('DB_NAME','db_comweb');
 }
 else{
 	defined('DB_HOST')      ? null : define('DB_HOST', 'localhost');

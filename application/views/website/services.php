@@ -1,5 +1,5 @@
         <?php if($id == 1 ){ ?>
-             <div class="container-fluid service py-5">
+            <div class="container-fluid service py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="mb-1 text-primary">Software Development</h4>
@@ -12,7 +12,8 @@
                 </div>
                 <div class="row g-4 justify-content-center">
                     <?php if(!empty($subservice)){
-                        foreach ($subservice as $key => $value) { ?>
+                        foreach ($subservice as $key => $value) { 
+                            if($value['serviceid'] == 1){ ?>
                         <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="service-item text-center rounded p-4">
                             <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
@@ -30,53 +31,11 @@
                         </div>
                             
                     <?php    }
+                        }
                     }  ?>
                     
                     
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">E-Safe Pass </h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                              <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-                                    onclick="openModal('E-Safe Pass - Modules', generateModuleList('e_safe_pass'))">Module</a>  
-                                    <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-                                    onclick="openModal('E-Safe Pass - Order', generateForm('E-Safe Pass'))">Order</a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/inventory.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">Inventry System</h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" onclick="openModal('Inventry System', 'This is the content for Module')">Module</a>
-                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" onclick="openModal('Inventry System', 'This is the content for Order')">Order</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/hospital.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">Hospital System</h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-                                    onclick="openModal('Head count system - Modules', generateModuleList('head_count_system'))">Module</a>  
-                                    <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-                                    onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order
-                                </a>
-
-                                
-                            </div>
-                        </div>
-                    </div> -->
+                   
                 </div>
             </div>
         </div>
@@ -95,7 +54,29 @@ Development of high-impact graphic design and web design projects including menu
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                     <?php if(!empty($subservice)){
+                        foreach ($subservice as $key => $value) { 
+                            if($value['serviceid'] == 2){ ?>
+                        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item text-center rounded p-4">
+                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
+                            <div class="service-content">
+                                <h4 class="mb-4"><?php echo $value['sub_service']; ?></h4>
+                                <p class="mb-4"><?php echo $value['Description']; ?></p>
+                               <a href="javascript:void(0);" class="btn btn-light rounded-pill text-primary py-2 px-4"
+                                onclick="playVideo('<?php echo $value['video']; ?>')">Demo
+                                </a>
+                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
+                                onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">Order
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                            
+                    <?php    }
+                        }
+                    }  ?>
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item text-center rounded p-4">
                             <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
                             <div class="service-content">
@@ -108,8 +89,8 @@ Development of high-impact graphic design and web design projects including menu
    onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    </div> -->
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="service-item text-center rounded p-4">
                             <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
                             <div class="service-content">
@@ -136,22 +117,8 @@ Development of high-impact graphic design and web design projects including menu
    onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/hospital.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">Hospital System</h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                                  <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Modules', generateModuleList())">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
-                             </div>
-                        </div>
-                    </div>
-                </div>
+                    </div> -->
+                    
             </div>
         </div>
            

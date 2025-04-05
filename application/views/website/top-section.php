@@ -43,7 +43,7 @@
         <!-- Navbar & Hero Start -->
         <div class="container-fluid header position-relative overflow-hidden p-0">
             <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand p-0">
+                <a href="<?php echo base_url('/'); ?>" class="navbar-brand p-0">
                     <h1 class="display-6 text-primary m-0">ComSys IT</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
