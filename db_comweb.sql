@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2025 at 02:41 PM
+-- Generation Time: Apr 30, 2025 at 10:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -129,9 +129,17 @@ CREATE TABLE `services` (
   `name` text NOT NULL,
   `Description` text NOT NULL,
   `image` text NOT NULL,
+  `url_link` text NOT NULL,
   `added_on` datetime NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name`, `Description`, `image`, `url_link`, `added_on`, `status`) VALUES
+(1, 'software developement', 'asdfasdfasdf', '/assets/uploads/service/1743827916.png', 'homeservice/service/1', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +306,7 @@ ALTER TABLE `serviceorder`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sub_service`

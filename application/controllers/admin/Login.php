@@ -105,7 +105,7 @@ class Login extends CI_Controller {
 	
 	public function startsession($result){
 		$data['user']=md5($result['id']);
-		$data['name']=$result['name'];
+		$data['name']=$result['username'];
 		$data['role']=$result['role'];
 		$this->session->set_userdata($data);
 	}

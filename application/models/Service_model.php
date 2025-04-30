@@ -9,7 +9,7 @@ class Service_model extends CI_Model{
 		$name = $data['name'];
 		
 		unset($data['addservice']);
-		$where = array('name'=>$type,'status'=>'1');
+		$where = array('name'=>$name,'status'=>'1');
 		$this->db->where($where);
 		$query = $this->db->get('services');
 		if($query->num_rows() == 0){
