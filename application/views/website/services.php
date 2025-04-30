@@ -1,13 +1,10 @@
-        <?php if($id == 1 ){ ?>
+        <?php if(!empty($service)){ ?>
             <div class="container-fluid service py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary">Software Development</h4>
-                    <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
-                    <p class="mb-0">ComSys IT is a leader of Software Development in India and provide a large number of web services, including programming for online applications. The Customized Software Developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-                            <p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
-
-                            Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
+                    <h4 class="mb-1 text-primary"><?php echo $service['name']; ?></h4>
+                    <h1 class="display-5 mb-4">CST : A customized <?php echo $service['name']; ?> Services Provider</h1>
+                    <p class="mb-0"><?php echo $service['Description']; ?>
                                                 </p>
                 </div>
                 <div class="row g-4 justify-content-center">
@@ -38,167 +35,7 @@
                    
                 </div>
             </div>
-        </div>
-
-       <?php  }elseif ($id == 2) { ?>
-         <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary">Web Developement</h4>
-                    <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
-                    <p class="mb-0">ComSys IT is a leader of Web Developement in India and provide a large number of web services, including programming for online applications. The Customized web developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-
-<p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
-
-Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
-                    </p>
-                </div>
-                <div class="row g-4 justify-content-center">
-                     <?php if(!empty($subservice)){
-                        foreach ($subservice as $key => $value) { 
-                            if($value['serviceid'] == 2){ ?>
-                        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4"><?php echo $value['sub_service']; ?></h4>
-                                <p class="mb-4"><?php echo $value['Description']; ?></p>
-                               <a href="javascript:void(0);" class="btn btn-light rounded-pill text-primary py-2 px-4"
-                                onclick="playVideo('<?php echo $value['video']; ?>')">Demo
-                                </a>
-                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-                                onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">Order
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                            
-                    <?php    }
-                        }
-                    }  ?>
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">Visitor Gate Pass</h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                                 <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Modules', generateModuleList())">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">E-Safe Pass </h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                                 <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Modules', generateModuleList())">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/inventory.png'); ?>"></div>
-                            <div class="service-content">
-                                <h4 class="mb-4">Inventry System</h4>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                                </p>
-                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Modules', generateModuleList())">Module</a>  
-<a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-   onclick="openModal('Head count system - Order', generateForm('Head count system'))">Order</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    
-            </div>
-        </div>
-           
-       <?php }elseif ($id == 3) { ?>
-           <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary">Industrial Electronic</h4>
-                    <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
-                    <p class="mb-0">ComSys IT is a leader of Industrial Electronic in India and provide a large number of web services, including programming for online applications. The Customized web developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-
-<p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
-
-Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
-                    </p>
-                  </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       <?php  }elseif ($id == 4) { ?>
-           <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary">Access and Security</h4>
-                    <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
-                    <p class="mb-0">ComSys IT is a leader of Access and Security in India and provide a large number of web services, including programming for online applications. The Customized web developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-
-<p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
-
-Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
-                    </p>
-                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                    
-       <?php }elseif ($id == 5) { ?>
-           <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary">Hardware & Networking</h4>
-                    <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
-                    <p class="mb-0">ComSys IT is a leader of Hardware & Networking in India and provide a large number of web services, including programming for online applications. The Customized web developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-
-<p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
-
-Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
-                    </p>
-                </div>
-                 </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                   
-       <?php } elseif ($id == 6) { ?>
-         <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary">Lay Out Designing & Interior</h4>
-                    <h1 class="display-5 mb-4">CST : A customized software Services Provider</h1>
-                    <p class="mb-0">ComSys IT is a leader of Lay Out Designing & Interior in India and provide a large number of web services, including programming for online applications. The Customized web developments for all kinds of web applications built to satisfy the client's needs. For custom developments, at ComSys IT Company the employees are trained to work in the following technology practice.</p>
-
-<p>Programming languages - HTML,HTML5, XML, ASP, VB/Java Script, Asp.NET, PHP in association with the database systems. Data base generally recommended - MS Access, MySQL and SQL Usage of web design and graphic design tools - Adobe Dreamweaver, Adobe XD, Adobe Photoshop, Adobe Illustrator, CorelDraw.</p>
-
-Development of high-impact graphic design and web design projects including menus, logos, web pages etc.
-                    </p>
-                </div>
-                 </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                   
+        </div>          
         <?php } ?>
         <div id="dynamicModalContainer"></div>
 

@@ -92,6 +92,7 @@ class Homeservice extends CI_Controller {
         $this->load->view('website/top-section',$data);
 		$where = array('t2.id'=>$id);
 		$data['subservice'] = $this->Homeservice_model->subservice($where);
+		$data['service'] = $this->db->get_where('services',array('id'=>$id, 'status'=>1))->row_array();
 		$this->load->view('website/services',$data);
         $this->load->view('website/footer');
     }

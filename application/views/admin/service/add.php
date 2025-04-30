@@ -27,7 +27,12 @@
                                            <textarea rows="5" cols="5" class="form-control" name="Description" placeholder="write the Description"></textarea>
                                         </div>
                                     </div>
-                                  
+                                  <div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">URl <span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <input type="text" name="url_link" value="" id="url_link" placeholder="URL LINK" class="form-control" required/>
+                                        </div>
+                                    </div>
                                     <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Photo<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
