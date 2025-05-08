@@ -36,7 +36,7 @@
 								<td> <img src="<?php echo base_url($srlist['proj_images']);?>"></td>
                                 <td >
                                  <a href="<?php echo base_url("admin/searchservice/edit_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
-                                  <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
+                                  <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[subservice_id]"); ?>" class="btn btn-sm btn-danger delete" ><i class="fa fa-trash"></i> Delete </a>
                               </td>
                             </tr>
                             <?php

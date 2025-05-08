@@ -30,7 +30,7 @@ class Searchservice extends CI_Controller{
 
 	 public function insert_subservice(){
 	 $data = $this->input->post();
-	 print_r($data);die;
+	
 	 $upload_path = './assets/uploads/project/';	
 		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
 		if($_FILES['proj_images']['name'] !=''){	
@@ -229,12 +229,13 @@ class Searchservice extends CI_Controller{
 		$data = $this->input->post();
 		$upload_path = './assets/uploads/project/';	
 		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
-		if($_FILES['photos']['name']!=''){	
+		if(isset($_FILES['photos']) && $_FILES['photos']['name'] != ''){	
+			
 			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
 			  if ($photos !='') {
 				  $data['photos'] = $photos['path'];
 			  }
-		}
+		  }
 		
 		$data['added_on'] = date('y-m-d');
 		$result = $this->db->insert('our_team', $data);

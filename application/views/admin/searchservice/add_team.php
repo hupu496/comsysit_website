@@ -37,16 +37,17 @@
                                         <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">images<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="file" name="photos " class="form-control">
+                                       <input type="file" name="photos" class="form-control">
                                         </div>
                                         </div>
                                        
                         
                                   <div class="row">
-                                  <div class="col-md-1"></div>
-                                  <div class="col-md-2 text-center"> 
+                                    <div class="col-md-3"></div>
+                                  <div class="col-md-6 text-center"> 
                                     <input type="submit"  class="btn btn-success btn-block btn-md"  />
                                 </div>
+                                <div class="col-md-3"></div>
                             </div>
                         </form>                    
                     </div>

@@ -35,14 +35,17 @@
              <li class="<?php echo activate_menu('searchservice/track'); ?>">
                 <a href="<?php echo base_url("admin/searchservice/our_team"); ?>"><i class="fa fa-cog"></i> <span>Our Team</span></a>
             </li>
-         
-            <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
-                <a href="<?php echo base_url('admin/user_cont/contactlist'); ?>"><i class="fa fa-users"></i> <span>Contact Us List</span></a>
-            </li> 
             
             <li class="<?php echo activate_menu('admin/service/serviceorder_list'); ?>">
                 <a href="<?php echo base_url('admin/service/order_list'); ?>"><i class="fa fa-users"></i> <span>Order list</span></a>
             </li> 
+              <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
+                <a href="<?php echo base_url('admin/user_cont/contactlist'); ?>"><i class="fa fa-users"></i> <span>Contact Us List</span></a>
+            </li> 
+             <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
+                <a href="<?php echo base_url('admin/service/meeting'); ?>"><i class="fa fa-users"></i> <span>Meeting Us List</span></a>
+            </li> 
+            
             
     
       <?php    }}elseif (!empty($_SESSION['fran_id'])) { ?>

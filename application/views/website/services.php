@@ -10,15 +10,16 @@
                 <div class="row g-4 justify-content-center">
                     <?php if(!empty($subservice)){
                         foreach ($subservice as $key => $value) { 
-                            if($value['serviceid'] == 1){ ?>
-                        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                             ?>
+                            <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="service-item text-center rounded p-4">
-                            <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><img src="<?php echo base_url('assets/images/visitor_gatepas.png'); ?>"></div>
+                            <img src="<?php echo base_url($value['proj_images']); ?>" class="img-fluid w-100" alt="Service Image">
                             <div class="service-content">
                                 <h4 class="mb-4"><?php echo $value['sub_service']; ?></h4>
                                 <p class="mb-4"><?php echo $value['Description']; ?></p>
-                               <a href="javascript:void(0);" class="btn btn-light rounded-pill text-primary py-2 px-4"
-                                onclick="playVideo('<?php echo $value['video']; ?>')">Demo
+                                <a href="javascript:void(0);" 
+                                class="btn btn-light rounded-pill text-primary py-2 px-4"
+                                onclick="showIframeModal(`<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>`)">Demo
                                 </a>
                                 <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
                                 onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">Order
@@ -27,12 +28,9 @@
                             </div>
                         </div>
                             
-                    <?php    }
+                    <?php   
                         }
                     }  ?>
-                    
-                    
-                   
                 </div>
             </div>
         </div>          
@@ -41,53 +39,30 @@
 
 
         <!-- Video Modal -->
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+
+<!-- model -->
+<div class="modal fade" id="iframeModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="videoModalLabel">Video Demo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideo()"></button>
+        <h5 class="modal-title" id="videoModalLabel">Demo Video</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-center">
-        <!-- YouTube iframe -->
-        <iframe id="demoVideo" width="100%" height="400" src="" frameborder="0" 
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="modal-body">
+        <div class="ratio ratio-16x9" id="iframeContainer">
+          <!-- iframe will be injected here -->
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
     // Data model for modules
-    const moduleData = {
-        head_count_system: [
-            "Employee Entry Tracking",
-            "Real-time Occupancy Monitoring",
-            "Visitor Log System",
-            "Attendance Reports",
-            "Access Control"
-        ],
-        e_safe_pass: [
-            "User Management",
-            "Visitor Gate Pass",
-            "Security Module",
-            "Admin Dashboard",
-            "Reporting & Analytics"
-        ],
-        visitor_management: [
-            "Visitor Registration",
-            "Badge Printing",
-            "Check-in/Check-out Tracking",
-            "Host Notifications",
-            "Security Clearance"
-        ]
-    };
+  
 
 
    function openModal(title, content) {
@@ -189,27 +164,10 @@ $(document).ready(function () {
         });
     });
 });
-// video monitoring
-function playVideo(videoUrl) {
-    var videoElement = document.getElementById('demoVideo');
-
-    // Convert YouTube URL to embed format if necessary
-    var embedUrl = videoUrl.replace("watch?v=", "embed/").replace("youtu.be/", "www.youtube.com/embed/");
-
-    // Append autoplay parameter
-    embedUrl += "?autoplay=1";
-
-    videoElement.src = embedUrl;  // Set the iframe source
-
-    var videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
-    videoModal.show();
+</script>
+<script>
+function showIframeModal(iframeCode) {
+    document.getElementById('iframeContainer').innerHTML = iframeCode;
+    $('#iframeModal').modal('show');
 }
-
-// Stop the video when the modal is closed
-function stopVideo() {
-    var videoElement = document.getElementById('demoVideo');
-    videoElement.src = "";  // Clear the iframe source to stop playback
-}
-
-
 </script>

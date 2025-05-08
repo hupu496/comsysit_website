@@ -155,13 +155,10 @@ class Service extends CI_Controller{
 		$status = $this->uri->segment(4);
 		if($status == 'wrong'){
 			$query = $this->db->update('booknow',array('order_status'=>3),array('id'=>$id));
-
 		}else{
 
 			$query = $this->db->update('booknow',array('order_status'=>2),array('id'=>$status));
 		}
-		
-		
 		if($query == true){
 			$this->session->set_flashdata('msg',"Payment update verify!");
 			
@@ -170,26 +167,7 @@ class Service extends CI_Controller{
 		}
         redirect('admin/service/serviceorder_list');
 	}
-	public function franch_paymentverify(){
-		$id = $this->uri->segment(5);
-		$status = $this->uri->segment(4);
-		if($status == 'wrong'){
-			$query = $this->db->update('franchise_book',array('order_status'=>3),array('id'=>$id));
-
-		}else{
-
-			$query = $this->db->update('franchise_book',array('order_status'=>2),array('id'=>$status));
-		}
-		
-		
-		if($query == true){
-			$this->session->set_flashdata('msg',"Payment update verify!");
-			
-		}else{
-           $this->session->set_flashdata('err_msg',"payment update not verify");
-		}
-        redirect('admin/service/franchise_list');
-	}
+	
 	public function blockserviceorder_list(){
 		$data['title'] = "block Service Order List";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
@@ -202,25 +180,6 @@ class Service extends CI_Controller{
 		$data['blockserviceprovider'] = $blockserviceprovider;
 		$this->template->load('admin/service','blockorder_list',$data);
 	}
-	public function update_payment(){
-		$id = $this->uri->segment('4');
-		$data['payment_status'] = 3;
-		$this->db->where('id',$id);
-		$this->db->update('service_order', $data);
-		redirect('admin/service/serviceorder_list');
-
-	}
-	public function review_update(){
-		$id = $this->uri->segment(4);
-		$query = $this->db->update('review',array('status'=>2),array('id'=>$id));
-		if($query == true){
-			$this->session->set_flashdata('msg',"Review will Be Show Customer Side.");
-		}else{
-			$this->session->set_flashdata('err_msg',"Review will Not Show Customer Side.");
-		}
-		redirect('admin/service/review_list');
-	}
-	
 	// Controller function to return notification data (example: NotificationController.php)
     public function get_notifications() {
    
@@ -262,6 +221,32 @@ public function order_list(){
         $servilist = $this->Service_model->myorder(array(),'all');
 		$data['servilist'] = $servilist;
 		$this->template->load('admin/service','orderlist',$data);
+	}
+	public function order_status(){
+		$id = $this->uri->segment('4');
+		$status = $this->uri->segment('5');
+		$data['status'] = $status;
+		$this->db->where('id',$id);
+		$this->db->update('serviceorder', $data);
+		redirect('admin/service/order_list');
+
+	}
+	public function meeting(){
+		$data['title'] = "Meeting";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $servilist = $this->db->get_where('meeting',array())->result_array();
+		$data['servilist'] = $servilist;
+		$this->template->load('admin/service','meetinglist',$data);
+	}
+	public function meeting_status(){
+		$id = $this->uri->segment('4');
+		$status = $this->uri->segment('5');
+		$data['status'] = $status;
+		$this->db->where('id',$id);
+		$this->db->update('meeting', $data);
+		redirect('admin/service/meeting');
+
 	}
 
 }	

@@ -41,9 +41,9 @@
                                         </div>
                                         </div>
                                           <div class="row form-group">
-                                        <label class="col-sm-12 col-md-2 col-form-label">Video<span class="text-danger">*</span></label>
+                                        <label class="col-sm-12 col-md-2 col-form-label">Video</label>
                                         <div class="col-sm-12 col-md-8">
-                                          <input type="text" class="form-control" name="video" placeholder="write the video link">
+                                        <textarea type="text" name="video" class="form-control" placeholder="Enter video" ></textarea>
                                         </div>
                                         </div>
                                         <div class="row form-group">

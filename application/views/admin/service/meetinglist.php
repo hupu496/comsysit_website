@@ -15,8 +15,9 @@
                                 <th >Customer Name</th>
                                 <th>Customer Email</th>
                                 <th >Customer Mobile</th>
-								<th >Service</th>
-								<th >Remarks</th>
+								<th >Customer Whatsapp_no</th>
+                                <th >subject</th>
+                                 <th >Message</th>
 								<th >Date</th>
                               
                                 <th class="datatable-nosort">Action</th>
@@ -32,9 +33,10 @@
     <td class="table-plus"><?php echo $i; ?></td>
     <td><?php echo $list['name']; ?></td>
     <td><?php echo $list['email']; ?></td>
-    <td><?php echo $list['mobile']; ?></td>
-    <td><?php echo $list['service']; ?></td>
-    <td><?php echo $list['query']; ?></td>
+    <td><?php echo $list['phone']; ?></td>
+    <td><?php echo $list['whatsapp_no']; ?></td>
+    <td><?php echo $list['subject']; ?></td>
+     <td><?php echo $list['message']; ?></td>
     <td>
         <?php if (!empty($list['added_on'])): ?>
             <span><?php echo date('Y-m-d', strtotime($list['added_on'])); ?></span>
@@ -42,8 +44,8 @@
     </td>
     <td>
         <?php if ($list['status'] == 1): ?>
-            <a href='<?php echo base_url("admin/service/order_status/{$list['id']}/2"); ?>' class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Waiting</a>
-            <a href='<?php echo base_url("admin/service/order_status/{$list['id']}/0"); ?>' class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Service Decline</a>
+            <a href='<?php echo base_url("admin/service/meeting_status/{$list['id']}/2"); ?>' class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Waiting</a>
+            <a href='<?php echo base_url("admin/service/meeting_status/{$list['id']}/0"); ?>' class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Service Decline</a>
         <?php elseif ($list['status'] == 2): ?>
             <a href='#' class="btn btn-sm btn-success"><i class="fa fa-edit"></i>connected</a>
         <?php else: ?>
@@ -98,8 +100,6 @@
 						else{
 							swal("Oops!", "Something Error!", "error");
 						}
-						
-						
 					}
 				});
 			}

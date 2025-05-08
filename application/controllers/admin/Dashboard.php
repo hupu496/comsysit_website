@@ -13,7 +13,10 @@ class Dashboard extends CI_Controller {
         $data['title'] ="Dashboard";
         $data['breadcrumb'] = array('admin/dashboard'=>'Dashboard');
         $current_date = date('Y-m-d');
-        // $data['today'] = $this->db->get_where('serviceorder',array('added_on'=>$));
+		$data['today_book_total'] = $this->db->get_where('serviceorder',array('status'=>1,'added_on'=>$current_date))->num_rows();
+		$data['book_total'] = $this->db->get_where('serviceorder',array('status'=>1))->num_rows();
+		$data['meeting'] = $this->db->get_where('meeting',array('status'=>1))->num_rows();
+		$data['contact'] = $this->db->get_where('contact_us',array('status'=>1))->num_rows();
 		$this->template->load('pages','dashboard',$data);
 	}
 	public function franchise_dashboard()
