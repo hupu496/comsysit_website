@@ -53,30 +53,16 @@ class Staff_model extends CI_Model{
 		$query = $this->db->delete('our_team');
 		return $query;
 	}
-	public function unblock_deliveryboy($id){
-		$upt = array('status'=>1);
-		$data = array('id'=>$id);
-		$this->db->where($data);
-		$query = $this->db->update('delivery_boy',$upt,$data,);
+	public function delete_faqs($id){
+		$this->db->where('id',$id);
+		$query = $this->db->delete('faqs');
 		return $query;
 	}
-	public function unapproved_deliveryboy($id){
-		$data= array('approval_status'=>0);
-		$where = array('id'=>$id);
-		$this->db->where($where);
-		$query = $this->db->update('delivery_boy',$data);
-		
+	public function delete_testmonial($id){
+		$this->db->where('id',$id);
+		$query = $this->db->delete('testimonial');
 		return $query;
 	}
-	public function approved_deliveryboy($id){
-		$data= array('approval_status'=>1);
-		$where = array('id'=>$id);
-		$this->db->where($where);
-		$query = $this->db->update('delivery_boy',$data);
-		
-		return $query;
-	}
-	
 	public function get_staff($where = array('status'=>1), $types='all'){
 		$query = $this->db->get_where('delivery_boy',$where);
 		if($types == 'all'){
@@ -87,10 +73,6 @@ class Staff_model extends CI_Model{
 		}
 		return $array;
 	}
-	public function get_block_deliveryboy($where = array('status'=>0)){
-		$query = $this->db->get_where('delivery_boy',$where);
-	    return $query->result_array();
-		
-	}
+	
 	
 }

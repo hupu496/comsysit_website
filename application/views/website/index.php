@@ -210,37 +210,6 @@
                             </div>
                         <?php   }
                         } ?>
-
-                           
- 
-                            <!-- <div class="accordion-item border-0 mb-4">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Are there any hidden charges? 
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body my-2">
-                                        <h5>Dolor sit amet consectetur adipisicing elit.</h5>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="accordion-item border-0">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        What are the key challenges of Software marketing?
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body my-2">
-                                        <h5>Dolor sit amet consectetur adipisicing elit.</h5>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
-                                    </div>
-                                </div>
-                            </div>  -->
                        </div>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
@@ -285,65 +254,6 @@
         </div>
 
 <?php } } ?>
-
-                    
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/img/blog-2.png'); ?>" class="img-fluid w-100" alt="">
-                                <div class="blog-info">
-                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                    <div class="d-flex">
-                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/img/blog-3.png'); ?>" class="img-fluid w-100" alt="">
-                                <div class="blog-info">
-                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                    <div class="d-flex">
-                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url('assets/img/blog-4.png'); ?>" class="img-fluid w-100" alt="">
-                                <div class="blog-info">
-                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                    <div class="d-flex">
-                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-dark border p-4 ">
-                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description'); ?>">Read More</a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -369,11 +279,11 @@
                                     <img src="<?php echo base_url($value['images']); ?>" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div>
-                                    <h5 class="mb-2"><?php echo base_url('name'); ?></h5>
-                                    <p class="mb-0"><?php echo base_url('location'); ?></p>
+                                    <h5 class="mb-2"><?php echo $value['name'] ?></h5>
+                                    <p class="mb-0"><?php echo $value['location']; ?></p>
                                 </div>
                             </div>
-                            <p class="fs-7"><?php echo base_url('description'); ?>
+                            <p class="fs-7"><?php echo $value['description']; ?>
                             </p>
                             <div class="text-center">
                                 <div class="d-flex justify-content-center">

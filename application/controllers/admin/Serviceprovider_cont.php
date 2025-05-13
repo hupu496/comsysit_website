@@ -6,12 +6,6 @@ class Serviceprovider_cont extends CI_Controller {
         parent::__construct();
         checklogin();
     }
-
-
-
-
-
-
 	public function myservices_update(){
         $postdata = $this->input->post();
         $checkpincode=$this->Master_model->getall_city(array('pincode'=>$postdata['pincode'],'district_id'=>$postdata['district_id'],'status'=>'1'),'single');

@@ -33,32 +33,32 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-dark">Head Office</h4>
-                            <a href=""><i class="fa fa-map-marker-alt me-2"></i> 507,Supriya Apartment, Plot-20,Sec-10 Dwarka, New Delhi-110075</a>
-                            <a href=""><i class="fas fa-envelope me-2"></i> info@comsysit.in</a>
-                            <a href=""><i class="fas fa-phone me-2"></i> +919470506166</a>
-                            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +917903037977</a>
+                            <a href="https://www.google.com/maps/dir/''/Supriya+Apartment+1,+Sector+10+Dwarka,+Dwarka,+Delhi,+110075/@28.5869262,77.0535962,19z/data=!4m13!4m12!1m5!1m1!1s0x390d1adfbbb6931f:0x5efd9bb2516b931f!2m2!1d77.0542163!2d28.5867733!1m5!1m1!1s0x390d1adfbbb6931f:0x5efd9bb2516b931f!2m2!1d77.0542163!2d28.5867733?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><i class="fa fa-map-marker-alt me-2"></i> 507,Supriya Apartment, Plot-20,Sec-10 Dwarka, New Delhi-110075</a>
+                            <a href="mailto:info@comsysit.in"><i class="fas fa-envelope me-2"></i> info@comsysit.in</a>
+                            <a href="tel:+919470506166"><i class="fas fa-phone me-2"></i> +919470506166</a>
+                            <a href="tel:+919212450030" class="mb-3"><i class="fas fa-print me-2"></i> +919212450030</a>
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-share fa-2x text-secondary me-2"></i>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.facebook.com/comsysit/"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.linkedin.com/company/comsys-it/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-dark">Branch Office</h4>
-                            <a href=""><i class="fa fa-map-marker-alt me-2"></i>Ghatsila,Jamshedpur</a>
-                            <a href=""><i class="fas fa-envelope me-2"></i> info@comsysit.in</a>
+                            <a href="https://www.google.com/maps/place/COMSYS+IT/@22.5880249,86.4684349,16z/data=!4m23!1m16!4m15!1m6!1m2!1s0x39f61d8bffffffff:0x5df0da89116231f4!2sCOMSYS+IT,+BO-+1st+Floor,+Suvidha+Business+Center,+Ghatsila,+Jamshedpur,+Ghatshila,+Jharkhand+832303!2m2!1d86.47438!2d22.587307!1m6!1m2!1s0x39f61d8bffffffff:0x5df0da89116231f4!2sCOMSYS+IT,+BO-+1st+Floor,+Suvidha+Business+Center,+Ghatsila,+Jamshedpur,+Ghatshila,+Jharkhand+832303!2m2!1d86.47438!2d22.587307!3e0!3m5!1s0x39f61d8bffffffff:0x5df0da89116231f4!8m2!3d22.587307!4d86.47438!16s%2Fg%2F11nns0jsbm?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Ghatsila,Jamshedpur</a>
+                            <a href="mailto:info@comsysit.in"><i class="fas fa-envelope me-2"></i> info@comsysit.in</a>
                             <a href="tel:+919470506166"><i class="fas fa-phone me-2"></i> +919470506166</a>
-                            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +917903037977</a>
+                            <a href="tel:+919212450030" class="mb-3"><i class="fas fa-print me-2"></i> +919212450030</a>
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-share fa-2x text-secondary me-2"></i>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.facebook.com/comsysit/"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://www.linkedin.com/company/comsys-it/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
@@ -66,8 +66,6 @@
             </div>
         </div>
         <!-- Footer End -->
-
-        
         <!-- Copyright Start -->
         <div class="container-fluid copyright py-4">
             <div class="container">
@@ -97,4 +95,4 @@
     <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
     </body>
 
-</html>
+</html> 

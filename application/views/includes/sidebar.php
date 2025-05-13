@@ -23,18 +23,29 @@
 
 
           if($_SESSION['role_id'] == 1){ ?>
-            <li class="<?php echo activate_menu('service/servilist'); ?>">
-                <a href="<?php echo base_url("admin/service/servilist"); ?>"><i class="fa fa-cog"></i> <span>Add Services</span></a>
-            </li>
-            <li class="<?php echo activate_menu('searchservice/track'); ?>">
-                <a href="<?php echo base_url("admin/searchservice/sub_service"); ?>"><i class="fa fa-cog"></i> <span>Add Project</span></a>
-            </li>
-             <li class="<?php echo activate_menu('searchservice/track'); ?>">
-                <a href="<?php echo base_url("admin/searchservice/add_blog"); ?>"><i class="fa fa-cog"></i> <span>Add Blog</span></a>
-            </li>
-             <li class="<?php echo activate_menu('searchservice/track'); ?>">
-                <a href="<?php echo base_url("admin/searchservice/our_team"); ?>"><i class="fa fa-cog"></i> <span>Our Team</span></a>
-            </li>
+          <li class="treeview <?php echo activate_menu('service/servilist') || activate_menu('searchservice/sub_service') || activate_menu('searchservice/add_blog') || activate_menu('searchservice/faqs') || activate_menu('searchservice/testominal') ? 'active' : ''; ?>">
+    <a href="#">
+        <i class="fa fa-cogs"></i> <span>Add Master</span>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="<?php echo activate_menu('service/servilist'); ?>">
+            <a href="<?php echo base_url("admin/service/servilist"); ?>"><i class="fa fa-circle-o"></i> Add Services</a>
+        </li>
+        <li class="<?php echo activate_menu('searchservice/sub_service'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/sub_service"); ?>"><i class="fa fa-circle-o"></i> Add Project</a>
+        </li>
+        <li class="<?php echo activate_menu('searchservice/add_blog'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/add_blog"); ?>"><i class="fa fa-circle-o"></i> Add Blog</a>
+        </li>
+        <li class="<?php echo activate_menu('searchservice/add_faqs'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/add_faqs"); ?>"><i class="fa fa-circle-o"></i> FAQs</a>
+        </li>
+        <li class="<?php echo activate_menu('searchservice/add_testmonial'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/add_testmonial"); ?>"><i class="fa fa-circle-o"></i> Testimonial</a>
+        </li>
+    </ul>
+</li>
             
             <li class="<?php echo activate_menu('admin/service/serviceorder_list'); ?>">
                 <a href="<?php echo base_url('admin/service/order_list'); ?>"><i class="fa fa-users"></i> <span>Order list</span></a>

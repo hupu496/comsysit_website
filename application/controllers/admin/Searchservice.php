@@ -18,15 +18,7 @@ class Searchservice extends CI_Controller{
 		$data['servilist'] = $servilist;
 		$this->template->load('admin/searchservice','sub_service',$data);
 	}
-	public function add_blog(){
-		$data['title'] = "Add Blog";
-		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
-		$data['select2'] = true;
-        $data['datatable'] = true;
-        $data['ckeditor'] = true;
-        $data['switchery'] = true;
-		$this->template->load('admin/searchservice','add_blog',$data);
-	}
+	
 
 	 public function insert_subservice(){
 	 $data = $this->input->post();
@@ -48,26 +40,7 @@ class Searchservice extends CI_Controller{
 	}
 	redirect('admin/searchservice/sub_servicelist');
 } 
- public function insert_blog(){
-	 $data = $this->input->post();
-	 $upload_path = './assets/uploads/blog/';	
-		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
-		if($_FILES['photos']['name'] !=''){	
-			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
-			  if ($photos !='') {
-				  $data['photos'] = $photos['path'];
-			  }
-		  }
 
-	 $result=$this->db->insert('blog',$data);
-	 if($result === true){
-	  $this->session->set_flashdata('msg',"Blog Created.");
-	}
-    else{
-   $this->session->set_flashdata('err_msg',$result);
-	}
-	redirect('admin/searchservice/add_blog');
-} 
 
 	public function searchlist(){
 		$data['title'] = "Search List";
@@ -152,6 +125,35 @@ class Searchservice extends CI_Controller{
 	   }
 	   redirect('admin/searchservice/sub_servicelist');
 	}
+	public function add_blog(){
+		$data['title'] = "Add Blog";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+        $data['ckeditor'] = true;
+        $data['switchery'] = true;
+		$this->template->load('admin/searchservice','add_blog',$data);
+	}
+ public function insert_blog(){
+	 $data = $this->input->post();
+	 $upload_path = './assets/uploads/blog/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if($_FILES['photos']['name'] !=''){	
+			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
+			  if ($photos !='') {
+				  $data['photos'] = $photos['path'];
+			  }
+		  }
+
+	 $result=$this->db->insert('blog',$data);
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Blog Created.");
+	}
+    else{
+   $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/add_blog');
+} 
 	public function blog_list(){
 		$data['title'] = "Blog list";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
@@ -311,5 +313,172 @@ public function team_list(){
 	  $this->session->set_flashdata('err_msg',$result);
 	   }
 	   redirect('admin/searchservice/team_list');
+	}
+	public function add_faqs(){
+		$data['title'] = "Add FAQS";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+        $data['ckeditor'] = true;
+        $data['switchery'] = true;
+		$this->template->load('admin/searchservice','add_faqs',$data);
+	}
+ public function insert_faqs(){
+	 $data = $this->input->post();
+	 $data['added_on'] = date('y-m-d');
+	 $result=$this->db->insert('faqs',$data);
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"faqs Created.");
+	}
+    else{
+   $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/faqs_list');
+} 
+	public function faqs_list(){
+		$data['title'] = "faqs list";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('faqs',array('status'=>1))->result_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect('admin/searchservice/add_faqs');
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','faqs_list',$data);
+	}
+	public function edit_faqs($id){
+		$id = $this->uri->segment('4');
+		$data['title'] = "Sub faqs Edit";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('faqs',array('id'=>$id))->row_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','edit_faqs',$data);
+
+	}
+	public function update_faqs(){
+	 $data = $this->input->post();
+	 $data['added_on'] = date('y-m-d');
+	 
+	 $where = $this->db->where('id',$data['id']);
+	 $result=$this->db->update('faqs',$data,$where);
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Update Succesfully.");
+	  }
+     else{
+      $this->session->set_flashdata('err_msg',$result);
+	 }
+	 redirect('admin/searchservice/faqs_list');
+	}
+	public function delete_faqs($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_faqs($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete faqs.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/faqs_list');
+	}
+	public function add_testmonial(){
+		$data['title'] = "Add testmonial";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+        $data['ckeditor'] = true;
+        $data['switchery'] = true;
+		$this->template->load('admin/searchservice','add_testmonial',$data);
+	}
+ public function insert_testmonial(){
+	 $data = $this->input->post();
+	 $data['added_on'] = date('Y-m-d');
+	 $upload_path = './assets/uploads/testmonial/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if($_FILES['images']['name'] !=''){	
+			  $images = upload_file("images", $upload_path, $allowed_types, time());
+			  if ($images !='') {
+				  $data['images'] = $images['path'];
+			  }
+		  }
+    
+	 $result=$this->db->insert('testimonial',$data);
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"testmonial Created.");
+	}
+    else{
+   $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/add_testmonial');
+} 
+	public function testmonial_list(){
+		$data['title'] = "testmonial list";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('testimonial',array('status'=>1))->result_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','testmonial_list',$data);
+	}
+	public function edit_testmonial($id){
+		$id = $this->uri->segment('4');
+		$data['title'] = "Sub testmonial Edit";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('testimonial',array('id'=>$id))->row_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect('admin/searchservice/testmonial_list');
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','edit_testmonial',$data);
+
+	}
+	public function update_testmonial(){
+	 $data = $this->input->post();
+	 $data['added_on'] = date('Y-m-d');
+	 $upload_path = './assets/uploads/project/';	
+	 $allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if($_FILES['images']['name'] !=''){	
+			  $images = upload_file("images", $upload_path, $allowed_types, time());
+			  if ($images !='') {
+				  $data['images'] = $images['path'];
+			  }
+		  }
+	 $where = $this->db->where('id',$data['id']);
+	 if($_FILES['images']['name'] !=''){
+	 	$result=$this->db->update('testimonial',array('id'=>$data['id'],'name'=>$data['name'],'location'=>$data['location'],'description'=>$data['description'],'images'=>$data['images'],'star'=>$data['star']),$where);
+
+	 }else{
+	 	$result=$this->db->update('testimonial',array('id'=>$data['id'],'name'=>$data['name'],'location'=>$data['location'],'description'=>$data['description'],'star'=>$data['star']),$where);
+	 }
+	 
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Update Succesfully.");
+	}
+    else{
+     $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/testmonial_list');
+
+	}
+	public function delete_testmonial($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_testmonial($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete testmonial.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/testmonial_list');
 	}
 }	 
