@@ -8,7 +8,7 @@
                 <div class="row gy-5 align-items-center">
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                         <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">IT and Industrial Automation Service Provider</h1>
-                        <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">The company offers a dynamic blend of strategic consulting and system integration services to help organizations architect and build their business.COMSYS IT is a Customer-driven Company in that it always strives to provide customized solutions as per the demand of the customer.Industrial Automation.</p>
+                        <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">The company offers a dynamic blend of strategic consulting and system integration services to help organizations architect and build their businesses.COMSYS IT is a Customer-driven Company that always strives to provide customized solutions as per the customer’s demand.Industrial Automation.</p>
                         <a href="#" class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Get Started</a>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
@@ -58,7 +58,7 @@
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary">Our Services</h4>
-                    <h1 class=" mb-4">ComSys IT services that Boost your business Online & Offline.</h1>
+                    <h1 class=" mb-4">ComSys IT services that boost your business Online & Offline.</h1>
                     <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
                     </p>
                 </div>
