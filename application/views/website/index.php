@@ -186,40 +186,43 @@
 
 
         <!-- FAQ Start -->
-        <div class="container-fluid FAQ bg-light overflow-hidden py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                       <div class="accordion" id="accordionExample">
-                        <?php  if (!empty($faqs)){
-                            foreach ($faqs as $key => $value) { ?>
-                             <div class="accordion-item border-0 mb-4">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTOne">
-                                        <!-- Why did you choose Our ComsysIT services? -->
-                                        <?php echo $value['question']; ?>   
+  <div class="container-fluid FAQ bg-light overflow-hidden py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="accordion" id="accordionExample">
+                    <?php if (!empty($faqs)) {
+                        foreach ($faqs as $key => $value) {
+                            $headingId = 'heading' . $key;
+                            $collapseId = 'collapse' . $key;
+                            $isFirst = ($key === array_key_first($faqs)); // First item expanded
+                            ?>
+                            <div class="accordion-item border-0 mb-4">
+                                <h2 class="accordion-header" id="<?= $headingId; ?>">
+                                    <button class="accordion-button <?= $isFirst ? '' : 'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $collapseId; ?>" aria-expanded="<?= $isFirst ? 'true' : 'false'; ?>" aria-controls="<?= $collapseId; ?>">
+                                        <?= $value['question']; ?>
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div id="<?= $collapseId; ?>" class="accordion-collapse collapse <?= $isFirst ? 'show' : ''; ?>" aria-labelledby="<?= $headingId; ?>" data-bs-parent="#accordionExample">
                                     <div class="accordion-body my-2">
-                                        <!-- <h5>Dolor sit amet consectetur adipisicing elit.</h5> -->
-                                        
-                                        <p><?php echo $value['answer']; ?></p>
+                                        <p><?= $value['answer']; ?></p>
                                     </div>
                                 </div>
                             </div>
-                        <?php   }
-                        } ?>
-                       </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="FAQ-img RotateMoveRight rounded">
-                            <img src="<?php echo base_url('assets/img/about-1.png');?>" class="img-fluid w-100" alt="">
-                        </div>
-                    </div>
+                    <?php }
+                    } ?>
+                </div>
+            </div>
+
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                <div class="FAQ-img RotateMoveRight rounded">
+                    <img src="<?= base_url('assets/img/about-1.png'); ?>" class="img-fluid w-100" alt="">
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
         <!-- FAQ End -->
         <!-- Blog Start -->
         <div class="container-fluid blog py-5">
@@ -240,7 +243,7 @@
                     <div class="blog-info">
                         <span><i class="fa fa-clock"></i> <?php echo date('Y-m-d', strtotime($value['added_on'])); ?></span>
                         <div class="d-flex">
-                            <span class="me-3">3 <i class="fa fa-heart"></i></span>
+                             <!-- <span class="me-3">3 <i class="fa fa-heart"></i></span> -->
                             <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
                         </div>
                     </div>
@@ -248,7 +251,7 @@
                 <div class="blog-content text-dark border p-4">
                     <h5 class="mb-4"><?php echo $value['name']; ?></h5>
                     <p class="mb-4"><?php echo $value['description']; ?></p>
-                    <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('blog_description/'.$value['id']); ?>">Read More</a>
+                    <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>">Read More</a>
                 </div>
             </div>
         </div>

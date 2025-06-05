@@ -17,7 +17,7 @@
                                 <th >Service</th>
                                 <th>project Name</th>
                                 <th>Description</th>
-								<th>Video</th>
+								<th>User Manual</th>
                                 <th>Images</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>

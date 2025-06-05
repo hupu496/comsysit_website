@@ -43,7 +43,7 @@
                                           <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">User Manual</label>
                                         <div class="col-sm-12 col-md-8">
-                                        <textarea type="text" name="video" class="form-control" placeholder="Enter video" ></textarea>
+                                        <textarea type="text" name="video" class="form-control" placeholder="Enter link user manual" ></textarea>
                                         </div>
                                         </div>
                                         <div class="row form-group">

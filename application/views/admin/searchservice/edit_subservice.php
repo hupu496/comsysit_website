@@ -13,7 +13,7 @@
 						<form action="<?php echo base_url('admin/searchservice/update_subservice');?>" enctype="multipart/form-data" method="POST">
                         	<div class="row form-group">
                                 <div class="col-md-1"></div>
-                                <div class="col-sm-12 col-md-6">
+                                <div class="col-sm-12 col-md-12">
                                         <div class="row form-group">
                                         <input type="hidden" name="id" value="<?php echo $subservicelist['subservice_id']; ?>">
                                         <label class="col-sm-12 col-md-2 col-form-label">Service Type<span class="text-danger">*</span></label>
@@ -42,13 +42,14 @@
                                          <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Description<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="text" name="Description" class="form-control" id="description" placeholder="Enter Description" value="<?php echo $subservicelist['Description']; ?>">
+                                        <textarea name="Description" id="description" class="form-control"><?php echo $subservicelist['Description']; ?></textarea>
+                                        
                                         </div>
                                         </div>
                                           <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">USer Manual<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <textarea type="text" name="video" class="form-control" placeholder="Enter video" value="<?php echo $subservicelist['video']; ?>"><?php echo $subservicelist['video']; ?></textarea>
+                                        <textarea type="text" name="video" class="form-control" placeholder="Enter User manual link" value="<?php echo $subservicelist['video']; ?>"><?php echo $subservicelist['video']; ?></textarea>
                                         </div>
                                         </div>
                                         <div class="row form-group">

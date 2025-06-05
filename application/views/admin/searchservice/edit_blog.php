@@ -14,7 +14,7 @@
 						<form action="<?php echo base_url('admin/searchservice/update_blog');?>" enctype="multipart/form-data" method="POST">
                         	<div class="row form-group">
                                 <div class="col-md-1"></div>
-                                <div class="col-sm-12 col-md-6">                                
+                                <div class="col-sm-12 col-md-12">                                
                                         <div class="row form-group">
                                       <input type="hidden" name="id" value="<?php echo $subservicelist['id']; ?>">
                                         <label class="col-sm-12 col-md-2 col-form-label">Blog Name<span class="text-danger">*</span></label>
@@ -26,7 +26,8 @@
                                          <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Description<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="textarea" name="description" class="form-control" id="description" value="<?php echo $subservicelist['description']; ?>">
+                                             <textarea name="description" id="description" class="form-control"><?php echo $subservicelist['Description']; ?></textarea>
+                                        <!-- <input type="textarea" name="description" class="form-control" id="description" value="<?php echo $subservicelist['description']; ?>"> -->
                                         </div>
                                         </div>
                                          
