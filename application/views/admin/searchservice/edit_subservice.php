@@ -42,11 +42,11 @@
                                          <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Description<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                        <input type="text" name="Description" class="form-control" placeholder="Enter Description" value="<?php echo $subservicelist['Description']; ?>">
+                                        <input type="text" name="Description" class="form-control" id="description" placeholder="Enter Description" value="<?php echo $subservicelist['Description']; ?>">
                                         </div>
                                         </div>
                                           <div class="row form-group">
-                                        <label class="col-sm-12 col-md-2 col-form-label">Video<span class="text-danger">*</span></label>
+                                        <label class="col-sm-12 col-md-2 col-form-label">USer Manual<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
                                         <textarea type="text" name="video" class="form-control" placeholder="Enter video" value="<?php echo $subservicelist['video']; ?>"><?php echo $subservicelist['video']; ?></textarea>
                                         </div>
@@ -79,6 +79,11 @@
        	</div>
     </section>
     <!-- /.content -->
+    <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/ckeditor.js"); ?>"></script>
+        <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/config.js"); ?>"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 <script>
 $(document).ready(function(e){	
 	function showImage(src,target) {
