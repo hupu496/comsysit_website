@@ -132,6 +132,7 @@ class Searchservice extends CI_Controller{
         $data['datatable'] = true;
         $data['ckeditor'] = true;
         $data['switchery'] = true;
+        $data['ckeditor'] = true;
 		$this->template->load('admin/searchservice','add_blog',$data);
 	}
  public function insert_blog(){

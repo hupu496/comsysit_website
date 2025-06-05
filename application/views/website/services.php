@@ -17,10 +17,12 @@
                             <div class="service-content">
                                 <h4 class="mb-4"><?php echo $value['sub_service']; ?></h4>
                                 <p class="mb-4"><?php echo $value['Description']; ?></p>
-                                <a href="javascript:void(0);" 
-                                class="btn btn-light rounded-pill text-primary py-2 px-4"
-                                onclick="showIframeModal(`<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>`)">Demo
-                                </a>
+                               <a href="<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>" 
+   target="_blank" 
+   class="btn btn-light rounded-pill text-primary py-2 px-4">
+   Demo
+</a>
+
                                 <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
                                 onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">Order
                                 </a>
@@ -166,8 +168,14 @@ $(document).ready(function () {
 });
 </script>
 <script>
-function showIframeModal(iframeCode) {
-    document.getElementById('iframeContainer').innerHTML = iframeCode;
+function showIframeModal(iframeURL) {
+    const iframe = `<iframe src="${iframeURL}" frameborder="0" width="100%" height="400px" allowfullscreen></iframe>`;
+    document.getElementById('iframeContainer').innerHTML = iframe;
     $('#iframeModal').modal('show');
+}
+
+function closeIframeModal() {
+    $('#iframeModal').modal('hide');
+    document.getElementById('iframeContainer').innerHTML = ''; // clear on close
 }
 </script>

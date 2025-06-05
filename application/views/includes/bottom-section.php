@@ -20,6 +20,8 @@
         <script src="<?php echo file_url("includes/plugins/fastclick/fastclick.js"); ?>"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo file_url("includes/dist/js/adminlte.min.js"); ?>"></script>
+        <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/ckeditor.js"); ?>"></script>
+        <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/config.js"); ?>"></script>
         <?php
 		if(!empty($bottom_script)){
 		  foreach($bottom_script as $key=>$script){

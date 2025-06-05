@@ -14,7 +14,7 @@
 						<form action="<?php echo base_url('admin/searchservice/insert_faqs');?>" enctype="multipart/form-data" method="POST">
                         	<div class="row form-group">
                                 <div class="col-md-1"></div>
-                                <div class="col-sm-12 col-md-6">                                
+                                <div class="col-sm-12 col-md-12">                                
                                         <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Questions<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
@@ -25,7 +25,7 @@
                                         <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Answer<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                            <?php echo form_textarea(array('name' => 'answer', 'id' => 'answer', 'class' => 'form-control')); ?>
+                                            <?php echo form_textarea(array('name' => 'answer', 'id' => 'answer', 'class' => 'form-control','id'=>'description')); ?>
                                         <!-- <textarea cols="5" rows="4" class="form-control" name="description" placeholder="Write short Description..."></textarea> -->
                                         </div>
                                         </div>
@@ -43,6 +43,11 @@
        	</div>
     </section>
     <!-- /.content -->
+     <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/ckeditor.js"); ?>"></script>
+        <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/config.js"); ?>"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 <script>
    let editor;
     ClassicEditor

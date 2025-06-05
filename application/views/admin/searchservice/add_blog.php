@@ -14,7 +14,7 @@
 						<form action="<?php echo base_url('admin/searchservice/insert_blog');?>" enctype="multipart/form-data" method="POST">
                         	<div class="row form-group">
                                 <div class="col-md-1"></div>
-                                <div class="col-sm-12 col-md-6">                                
+                                <div class="col-sm-12 col-md-12">                                
                                         <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Blog Name<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
@@ -50,22 +50,15 @@
          	</div>
        	</div>
     </section>
+    
     <!-- /.content -->
+     <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/ckeditor.js"); ?>"></script>
+        <script src="<?php echo base_url("/assets/ckeditor4-4.22.1/config.js"); ?>"></script>
+    <script>
+        CKEDITOR.replace('product_desp');
+    </script>
 <script>
-   let editor;
-    ClassicEditor
-        .create(document.querySelector('#product_desp'), {
-
-        })
-        .then(newEditor => {
-            editor = newEditor;
-            //console.log(editor.config._config.toolbar); 
-        }, editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+  
 $(document).ready(function(e){	
 	function showImage(src,target) {
 		var fr=new FileReader();

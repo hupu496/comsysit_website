@@ -59,7 +59,7 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary">Our Services</h4>
                     <h1 class=" mb-4">ComSys IT services that boost your business Online & Offline.</h1>
-                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    <p class="mb-0">COMSYS IT offers expert services in Software & Consultation, Hardware & Networking, Industrial Automation, and BPO/KPO, empowering businesses with innovative, efficient, and customized solutions to drive growth, productivity, and digital transformation across diverse industries.
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center">
@@ -91,7 +91,7 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary">Let's Build Your Project Together</h4>
                     <h1 class="display-5 mb-4">Collaborate with our team of experts to bring your vision to life.</h1>
-                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    <p class="mb-0">The software development lifecycle includes requirement analysis, design and implementation, verification, and maintenance—ensuring systems meet stakeholder needs, function as intended, and remain effective over time through structured development, rigorous testing, and continuous updates to adapt to change.
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center text-center mb-5">
@@ -227,7 +227,7 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary">Our Blog</h4>
                     <h1 class="display-5 mb-4">Join Us For New Blog</h1>
-                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    <p class="mb-0">Discover comprehensive IT solutions with our expert hardware, software, and ERP services. We ensure seamless integration, enhanced productivity, and tailored support to meet your business needs. Trust us to power your digital transformation with innovation and reliability.
                     </p>
                 </div>
                 <div class="row g-4 justify-content-center">
@@ -266,7 +266,7 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary">Our Clients</h4>
                     <h1 class="display-5 mb-4">What Our Client Say About Us</h1>
-                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    <p class="mb-0">Our clients consistently praise our dedication, professionalism, and exceptional service. They value our commitment to quality, timely delivery, and personalized support, which builds lasting trust. Their positive feedback drives us to maintain excellence and exceed expectations every time.
                     </p>
                 </div>
                 <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
@@ -306,54 +306,7 @@
                 <?php        } 
                     }  ?>
                    
-                    <!-- <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/jharkand.png'); ?>' alt=''>">
-                        <div class="testimonial-inner text-center p-5">
-                            <div class="d-flex align-items-center justify-content-center mb-4">
-                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                    <img src="<?php echo base_url('assets/images/jharkand.png'); ?>" class="img-fluid rounded-circle" alt="">
-                                </div>
-                                <div>
-                                    <h5 class="mb-2">Jharkhand Govt</h5>
-                                    <p class="mb-0">Jharkhand, INDIA</p>
-                                </div>
-                            </div>
-                            <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                            </p>
-                            <div class="text-center">
-                                <div class="d-flex justify-content-center">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item" data-dot="<img class='img-fluid' src='<?php echo base_url('assets/images/sunpharama.jfif'); ?>' alt=''>">
-                        <div class="testimonial-inner text-center p-5">
-                            <div class="d-flex align-items-center justify-content-center mb-4">
-                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                    <img src="<?php echo base_url('assets/images/sunpharama.jfif'); ?>" class="img-fluid rounded-circle" alt="">
-                                </div>
-                                <div>
-                                    <h5 class="mb-2">SUN Pharma</h5>
-                                    <p class="mb-0">INDIA</p>
-                                </div>
-                            </div>
-                            <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                            </p>
-                            <div class="text-center">
-                                <div class="d-flex justify-content-center">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                 
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary mb-4">Contact Us</h4>
                     <h1 class="display-5 mb-4">Get In Touch</h1>
-                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    <p class="mb-0">Provide a clear, user-friendly contact form including name, email, phone, and message fields. Include company address, phone number, email, and social media links. Add a map for location and ensure mobile responsiveness for easy access.
                     </p>
                 </div>
                 <div class="row g-5 align-items-center">
