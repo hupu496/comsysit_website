@@ -235,7 +235,10 @@
                 </div>
                 <div class="row g-4 justify-content-center">
 <?php if (!empty($blog)) {
-    foreach ($blog as $key => $value) { ?>
+    foreach ($blog as $key => $value) { 
+        $desc = strip_tags($value['description']); // remove HTML tags
+        $words = explode(' ', $desc);
+        $limited = implode(' ', array_slice($words, 0, 15));  ?>
         <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
             <div class="blog-item">
                 <div class="blog-img">
@@ -250,7 +253,7 @@
                 </div>
                 <div class="blog-content text-dark border p-4">
                     <h5 class="mb-4"><?php echo $value['name']; ?></h5>
-                    <p class="mb-4"><?php echo $value['description']; ?></p>
+                    <p class="mb-4"><?= $limited ?>...</p>
                     <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>">Read More</a>
                 </div>
             </div>

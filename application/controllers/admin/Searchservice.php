@@ -64,10 +64,10 @@ class Searchservice extends CI_Controller{
 		$data['datatable'] = true;
         $subservicelist= $this->Search_model->sub_servicelist();
 		// print_r($subservicelist);die;
-		if(empty($subservicelist)){
-			$this->session->set_flashdata('msg',"data not Found.");
-			redirect($_SERVER['HTTP_REFERER']);
-		}
+		// if(empty($subservicelist)){
+		// 	$this->session->set_flashdata('msg',"data not Found.");
+		// 	redirect($_SERVER['HTTP_REFERER']);
+		// }
 		$data['subservicelist'] = $subservicelist;
 		$this->template->load('admin/searchservice','subservicelist',$data);
 	}
@@ -145,7 +145,7 @@ class Searchservice extends CI_Controller{
 				  $data['photos'] = $photos['path'];
 			  }
 		  }
-
+     $data['added_on'] = date('Y-m-d');
 	 $result=$this->db->insert('blog',$data);
 	 if($result === true){
 	  $this->session->set_flashdata('msg',"Blog Created.");
@@ -160,10 +160,10 @@ class Searchservice extends CI_Controller{
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $subservicelist= $this->db->get_where('blog',array('status'=>1))->result_array();
-		if(empty($subservicelist)){
-			$this->session->set_flashdata('msg',"data not Found.");
-			redirect($_SERVER['HTTP_REFERER']);
-		}
+		// if(empty($subservicelist)){
+		// 	$this->session->set_flashdata('msg',"data not Found.");
+		// 	redirect($_SERVER['HTTP_REFERER']);
+		// }
 		$data['subservicelist'] = $subservicelist;
 		$this->template->load('admin/searchservice','blog_list',$data);
 	}
@@ -173,10 +173,10 @@ class Searchservice extends CI_Controller{
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $subservicelist= $this->db->get_where('blog',array('id'=>$id))->row_array();
-		if(empty($subservicelist)){
-			$this->session->set_flashdata('msg',"data not Found.");
-			redirect($_SERVER['HTTP_REFERER']);
-		}
+		// if(empty($subservicelist)){
+		// 	$this->session->set_flashdata('msg',"data not Found.");
+		// 	redirect($_SERVER['HTTP_REFERER']);
+		// }
 		$data['subservicelist'] = $subservicelist;
 		$this->template->load('admin/searchservice','edit_blog',$data);
 
@@ -192,11 +192,12 @@ class Searchservice extends CI_Controller{
 			  }
 		  }
 	 $where = $this->db->where('id',$data['id']);
+	 $date = date('y-m-d');
 	 if($_FILES['photos']['name'] !=''){
-	 	$result=$this->db->update('blog',array('id'=>$data['id'],'name'=>$data['name'],'Description'=>$data['Description'],'photos'=>$data['photos']),$where);
+	 	$result=$this->db->update('blog',array('id'=>$data['id'],'name'=>$data['name'],'description'=>$data['description'],'photos'=>$data['photos'],'added_on'=>$date),$where);
 
 	 }else{
-	 	$result=$this->db->update('blog',array('id'=>$data['id'],'name'=>$data['name'],'Description'=>$data['Description']),$where);
+	 	$result=$this->db->update('blog',array('id'=>$data['id'],'name'=>$data['name'],'description'=>$data['description'],'added_on'=>$date),$where);
 	 }
 	 
 	 if($result === true){

@@ -26,7 +26,7 @@
                                          <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Description<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                             <textarea name="description" id="description" class="form-control"><?php echo $subservicelist['Description']; ?></textarea>
+                                             <textarea name="description" id="description" class="form-control"><?php echo $subservicelist['description']; ?></textarea>
                                         <!-- <input type="textarea" name="description" class="form-control" id="description" value="<?php echo $subservicelist['description']; ?>"> -->
                                         </div>
                                         </div>

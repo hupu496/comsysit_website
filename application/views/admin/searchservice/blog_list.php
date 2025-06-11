@@ -35,7 +35,7 @@
 								<td><?php echo date('d M Y',strtotime($srlist['added_on'])); ?></td>
                                 <td >
                                  <a href="<?php echo base_url("admin/searchservice/edit_blog/$srlist[id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
-                                  <a href="<?php echo base_url("admin/searchservice/delete_subservice/$srlist[id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
+                                  <a href="<?php echo base_url("admin/searchservice/delete_blog/$srlist[id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
                               </td>
                             </tr>
                             <?php

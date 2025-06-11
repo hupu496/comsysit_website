@@ -39,6 +39,9 @@
             <a href="<?php echo base_url("admin/searchservice/add_blog"); ?>"><i class="fa fa-circle-o"></i> Add Blog</a>
         </li>
         <li class="<?php echo activate_menu('searchservice/add_faqs'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/our_team"); ?>"><i class="fa fa-circle-o"></i> Our Team</a>
+        </li>
+        <li class="<?php echo activate_menu('searchservice/add_faqs'); ?>">
             <a href="<?php echo base_url("admin/searchservice/add_faqs"); ?>"><i class="fa fa-circle-o"></i> FAQs</a>
         </li>
         <li class="<?php echo activate_menu('searchservice/add_testmonial'); ?>">
