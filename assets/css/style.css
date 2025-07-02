@@ -1,6 +1,30 @@
 
 /*** Spinner Start ***/
 /*** Spinner ***/
+.circle-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #002B5B; /* Deep blue border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #002B5B; /* Optional deep background */
+}
+
+.circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.small-card {
+    max-width: 230px;
+    background-color: #f5f7ff;
+    border-radius: 20px;
+}
+
 #spinner {
     opacity: 0;
     visibility: hidden;

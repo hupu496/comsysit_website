@@ -7,33 +7,36 @@
                     <p class="mb-0"><?php echo $service['Description']; ?>
                                                 </p>
                 </div>
-                <div class="row g-4 justify-content-center">
-                    <?php if(!empty($subservice)){
-                        foreach ($subservice as $key => $value) { 
-                             ?>
-                            <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="service-item text-center rounded p-4">
-                            <img src="<?php echo base_url($value['proj_images']); ?>" class="img-fluid w-100" alt="Service Image">
-                            <div class="service-content">
-                                <h4 class="mb-4"><?php echo $value['sub_service']; ?></h4>
-                                <p class="mb-4"><?php echo $value['Description']; ?></p>
-                               <a href="<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>" 
-   target="_blank" 
-   class="btn btn-light rounded-pill text-primary py-2 px-4">
-   Demo
-</a>
+           <div class="row g-4 justify-content-center">
+    <?php if (!empty($subservice)) {
+        foreach ($subservice as $key => $value) { ?>
+            <div class="col-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item text-center rounded p-3 shadow-sm border small-card" style="width:190px;">
+                    <div class="mb-3">
+                        <img src="<?php echo base_url($value['proj_images']); ?>" 
+                             class="img-fluid rounded-circle circle-image mx-auto d-block" 
+                             alt="Service Image" style="width: 100px;height: 100px;">
+                    </div>
+                    <div class="service-content">
+                        <p class="mb-3"><?php echo $value['sub_service']; ?></p>
 
-                                <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4" 
-                                onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">Order
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                            
-                    <?php   
-                        }
-                    }  ?>
+                        <a href="<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>" 
+                           target="_blank" 
+                           class="btn btn-light rounded-pill text-primary py-1 px-3 btn-sm">
+                            Demo
+                        </a>
+                        <a href="#" 
+                           class="btn btn-light rounded-pill text-primary py-1 px-3 btn-sm" 
+                           onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">
+                            Order
+                        </a>
+                    </div>
                 </div>
+            </div>
+    <?php }
+    } ?>
+</div>
+
             </div>
         </div>          
         <?php } ?>

@@ -11,6 +11,7 @@
                             <a href="<?php echo base_url('term_condition'); ?>"> Terms & Conditions</a>
                             <a href="<?php echo base_url('blog'); ?>"> Our Blog & News</a>
                             <a href="<?php echo base_url('our_team'); ?>"> Our Team</a>
+                            <a href="<?php echo base_url('troublshooting'); ?>">Troubleshooting</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
