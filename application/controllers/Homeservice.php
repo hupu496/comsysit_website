@@ -123,6 +123,14 @@ class Homeservice extends CI_Controller {
     exit;
 
 	}
+	public function troublshooting(){
+		$data['title']="TroubleShooting";
+		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/troubleshooting',$data);
+        $this->load->view('website/footer');
+      
+	}
     // ///////////////////
 	
 	public function privacy_policy()

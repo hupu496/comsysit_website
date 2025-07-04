@@ -483,4 +483,95 @@ public function team_list(){
 	   }
 	   redirect('admin/searchservice/testmonial_list');
 	}
+	public function our_troubleshoot(){
+		$data['title'] = "Add troubleshoot";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+		$data['project'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+		$this->template->load('admin/searchservice','add_troubleshoot',$data);
+	}
+	public function insert_troubleshoot(){
+		$data = $this->input->post();
+		$upload_path = './assets/uploads/trouble/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if(isset($_FILES['images']) && $_FILES['images']['name'] != ''){	
+			
+			  $images = upload_file("images", $upload_path, $allowed_types, time());
+			  if ($images !='') {
+				  $data['images'] = $images['path'];
+			  }
+		  }
+		
+		
+		$result = $this->db->insert('troubleshoot', $data);
+		if ($result) {
+			$this->session->set_flashdata('msg', "troubleshoot Inserted.");
+		} else {
+			$this->session->set_flashdata('err_msg', $result);
+		}
+    redirect('admin/searchservice/troubleshoot_list');
+} 
+public function troubleshoot_list(){
+		$data['title'] = "troubleshoot list";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $data['subservicelist'] =  $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
+	
+		
+		$this->template->load('admin/searchservice','troubleshoot_list',$data);
+	}
+	public function edit_troubleshoot($id){
+		$id = $this->uri->segment('4');
+		$data['title'] = "troubleshoot Edit";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->Service_model->troubleshoot(array('t1.id'=>$id),'single');
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$data['project'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+		$this->template->load('admin/searchservice','edit_troubleshoot',$data);
+
+	}
+	public function update_troubleshoot(){
+	 $data = $this->input->post();
+	 $upload_path = './assets/uploads/trouble/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if($_FILES['images']['name'] !=''){	
+			  $images = upload_file("images", $upload_path, $allowed_types, time());
+			  if ($images !='') {
+				  $data['images'] = $images['path'];
+			  }
+		  }
+	 $where = $this->db->where('id',$data['id']);
+	 if($_FILES['images']['name'] !=''){
+	 	$result=$this->db->update('troubleshoot',array('id'=>$data['id'],'project_id'=>$data['project_id'],'manual_link'=>$data['manual_link'],'images'=>$data['images']),$where);
+
+	 }else{
+	 	$result=$this->db->update('troubleshoot',array('id'=>$data['id'],'project_id'=>$data['project_id'],'manual_link'=>$data['manual_link']),$where);
+	 }
+	 
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Update Succesfully.");
+	}
+    else{
+     $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/troubleshoot_list');
+
+	}
+	public function delete_troubleshoot($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_troubleshoot($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete troubleshoot members.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/troubleshoot_list');
+	}
 }	 

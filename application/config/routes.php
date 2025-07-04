@@ -58,6 +58,7 @@ $route['service'] = 'homeservice/service';
 $route['our_team'] = 'homeservice/our_team';
 $route['term_condition'] = 'homeservice/term_condition';
 $route['privacy_policy'] = 'homeservice/privacy_policy';
+$route['troublshooting'] = 'homeservice/troublshooting';
 $route['blog'] = 'homeservice/blog';
 $route['our_team']='homeservice/our_team';
 $route['blog_description'] = 'homeservice/blog_description';

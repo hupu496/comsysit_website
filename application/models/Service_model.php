@@ -96,6 +96,21 @@ class Service_model extends CI_Model{
 		
 		return $query;
 	}
+	public function troubleshoot($where,$type){
+		$this->db->select('t1.*,t1.id as trouble_id,t2.id as sub_id,t2.sub_service');
+        $this->db->from('troubleshoot as t1');
+        $this->db->join('sub_service as t2', 't1.project_id = t2.id');
+        $this->db->order_by("t1.id", "desc");
+        $this->db->where($where);
+        $query = $this->db->get();
+		if($type== "all"){
+          $return = $query->result_array();
+		}else{
+			$return = $query->row_array();
+		}
+        
+        return $return;
+	}
 	
 
 

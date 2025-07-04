@@ -63,6 +63,11 @@ class Staff_model extends CI_Model{
 		$query = $this->db->delete('testimonial');
 		return $query;
 	}
+	public function delete_troubleshoot($id){
+		$this->db->where('id',$id);
+		$query = $this->db->delete('troubleshoot');
+		return $query;
+	}
 	public function get_staff($where = array('status'=>1), $types='all'){
 		$query = $this->db->get_where('delivery_boy',$where);
 		if($types == 'all'){
