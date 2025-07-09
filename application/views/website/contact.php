@@ -59,14 +59,14 @@
                             <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-home fa-2x text-primary"></i></div>
                             <div class="ms-4">
                                 <h4>Head Office</h4>
-                                <p class="mb-0">507,Supriya Apartment, Plot-20,Sec-10 Dwarka, New Delhi-110075</p>
+                                <p class="mb-0">Supriya Apartment,Sec-10 Dwarka, New Delhi-110075</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-map-marker-alt fa-2x text-primary"></i></div>
                             <div class="ms-4">
                                 <h4>Branch Office</h4>
-                                <p class="mb-0">Ghatsila,Jamshedpur</p>
+                                <p class="mb-0">DakBunglow Road Ghatsila,Jamshedpur</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-4">
@@ -74,7 +74,7 @@
                             <div class="ms-4">
                                 <h4>Mobile</h4>
                                 <p class="mb-0">+919470506166</p>
-                                <p class="mb-0">+919212450030</p>
+                                <p class="mb-0">+919470506166</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-4">

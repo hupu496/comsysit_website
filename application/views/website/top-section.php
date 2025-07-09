@@ -67,12 +67,27 @@
                               
                             </div>
                         </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Support</a>
+                            <div class="dropdown-menu m-0">
+                              <a href="<?php echo base_url('homeservice/manual'); ?>" class="dropdown-item">Manual</a>
+                               <a href="<?php echo base_url('homeservice/troublshooting'); ?>" class="dropdown-item">Troubleshoot</a>
+                                <a href="<?php echo base_url('homeservice/need_help'); ?>" class="dropdown-item">Need & help</a>
+                            </div>
+                        </div>
+                         <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Demo</a>
+                            <div class="dropdown-menu m-0">
+                              <a href="<?php echo base_url('homeservice/slides'); ?>" class="dropdown-item">Slides</a>
+                               <a href="<?php echo base_url('homeservice/document'); ?>" class="dropdown-item">Document</a>
+                               
+                            </div>
+                        </div>
+                        
                         <a href="<?php echo base_url('/contact'); ?>" class="nav-item nav-link">Contact Us</a>
                     </div>
                    
-                   <button type="button" class="btn btn-primary rounded-pill text-white py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Meeting
-</button>
+                   <button type="button" class="btn btn-primary rounded-pill text-white py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Meeting</button>
                 </div>
             </nav>
             <!-- Button trigger modal -->
@@ -110,7 +125,7 @@
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="phone" name="whatsapp_no" class="form-control" id="phone" placeholder="Phone">
-                                        <label for="phone">Whatsup Number</label>
+                                        <label for="phone">WhatsApp Number</label>
                                     </div>
                                 </div>
                                

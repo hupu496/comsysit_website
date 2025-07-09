@@ -50,6 +50,9 @@
          <li class="<?php echo activate_menu('searchservice/troubleshoot_list'); ?>">
             <a href="<?php echo base_url("admin/searchservice/troubleshoot_list"); ?>"><i class="fa fa-circle-o"></i>Troubleshooting</a>
         </li>
+         <li class="<?php echo activate_menu('searchservice/need_help_list'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/need_help_list"); ?>"><i class="fa fa-circle-o"></i>Need & Help</a>
+        </li>
     </ul>
 </li>
             

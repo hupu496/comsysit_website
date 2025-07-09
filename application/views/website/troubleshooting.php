@@ -1,11 +1,20 @@
-  <div class="container-fluid service py-5">
+  <div class="container-fluid bg-breadcrumb">
+    <ul class="breadcrumb-animation">
+               
+            </ul>
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">TROUBLESHOOT</h1>
+                <ol class="breadcrumb justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active text-primary">Troubleshoot</li>
+                    <p><b>ComSys IT Service Provider – Your Partner in Reliable Solutions</b>
+
+This section helps you quickly identify and resolve common issues encountered while using ComSys IT software or hardware. Each problem is paired with easy-to-follow solutions or recommended steps.</p>
+                </ol>    
+            </div>
+            </div>
             <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary"></h4>
-                    <h1 class="display-5 mb-4">CST : A customized Services Provider</h1>
-                    <p class="mb-0">
-                                                </p>
-                </div>
            <div class="row g-4 justify-content-center">
             <?php  if(!empty($trouble)){
                   foreach ($trouble as $key => $value) { ?>

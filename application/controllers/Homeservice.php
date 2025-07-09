@@ -131,6 +131,41 @@ class Homeservice extends CI_Controller {
         $this->load->view('website/footer');
       
 	}
+	public function manual(){
+		$data['title']="Manual";
+		$data['trouble'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/manual',$data);
+        $this->load->view('website/footer');
+      
+	}
+	public function need_help(){
+		$data['title']="TroubleShooting";
+		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
+		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/need_help',$data);
+        $this->load->view('website/footer');
+      
+	}
+	public function slides(){
+		$data['title']="TroubleShooting";
+		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
+		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/slides',$data);
+        $this->load->view('website/footer');
+      
+	}
+	public function document(){
+		$data['title']="TroubleShooting";
+		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
+		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
+		$this->load->view('website/top-section',$data);
+		$this->load->view('website/document',$data);
+        $this->load->view('website/footer');
+      
+	}
     // ///////////////////
 	
 	public function privacy_policy()

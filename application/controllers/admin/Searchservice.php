@@ -484,7 +484,7 @@ public function team_list(){
 	   redirect('admin/searchservice/testmonial_list');
 	}
 	public function our_troubleshoot(){
-		$data['title'] = "Add troubleshoot";
+		$data['title'] = "Add Troubleshoot";
 		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
 		$data['select2'] = true;
         $data['datatable'] = true;
@@ -513,7 +513,7 @@ public function team_list(){
     redirect('admin/searchservice/troubleshoot_list');
 } 
 public function troubleshoot_list(){
-		$data['title'] = "troubleshoot list";
+		$data['title'] = "Troubleshoot list";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $data['subservicelist'] =  $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
@@ -574,4 +574,69 @@ public function troubleshoot_list(){
 	   }
 	   redirect('admin/searchservice/troubleshoot_list');
 	}
+	public function need_help(){
+		$data['title'] = "Add Need Help";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+		
+		$this->template->load('admin/searchservice','add_need_help',$data);
+	}
+	public function insert_need_help(){
+		$data = $this->input->post();
+		$result = $this->db->insert('need_help', $data);
+		if ($result) {
+			$this->session->set_flashdata('msg', "need & help Inserted.");
+		} else {
+			$this->session->set_flashdata('err_msg', $result);
+		}
+    redirect('admin/searchservice/need_help_list');
+} 
+public function need_help_list(){
+		$data['title'] = "need_help list";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $data['subservicelist'] =  $this->db->get_where('need_help',array('status'=>1));
+		$this->template->load('admin/searchservice','need_help_list',$data);
+	}
+	public function edit_need_help($id){
+		$id = $this->uri->segment('4');
+		$data['title'] = "Need Help Edit";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('need_help',array('id'=>$id,'status'=>1))->row_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','edit_need_help',$data);
+
+	}
+	public function update_need_help(){
+	 $data = $this->input->post();
+	 $where = $this->db->where('id',$data['id']);
+	 $result = $this->db->update('need_help',$data,$where);
+	 
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Update Succesfully.");
+	}
+    else{
+     $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/need_help_list');
+
+	}
+	public function delete_need_help($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_need_help($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete need_help members.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/need_help_list');
+	}
+	
 }	 

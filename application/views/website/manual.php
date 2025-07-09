@@ -1,16 +1,25 @@
-        <?php if(!empty($service)){ ?>
-            <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="mb-1 text-primary"><?php echo $service['name']; ?></h4>
-                    <h1 class="display-5 mb-4">ComSys IT : A Customized <?php echo $service['name']; ?> Services Provider</h1>
-                    <p class="mb-0"><?php echo $service['Description']; ?>
-                                                </p>
-                </div>
+
+         
+        <div class="container-fluid bg-breadcrumb">
+            <ul class="breadcrumb-animation">
+               
+            </ul>
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">MANUAL</h1>
+                <ol class="breadcrumb justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active text-primary">Manual</li>
+                    <p>To offer manuals for software and hardware as ComSys IT Service Provider, you should structure them clearly for both technical and non-technical users. Below is a breakdown of what you can include in both types of manuals, and how you might brand and distribute them.</p>
+                </ol>    
+            </div>
+            </div>
+     
+               
            <div class="row g-4 justify-content-center">
-    <?php if (!empty($subservice)) {
-        foreach ($subservice as $key => $value) { ?>
-            <div class="col-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+            <?php  if(!empty($trouble)){
+                  foreach ($trouble as $key => $value) { ?>
+                   <div class="col-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item text-center rounded p-3 shadow-sm border small-card" style="width:190px;">
                     <div class="mb-3">
                         <img src="<?php echo base_url($value['proj_images']); ?>" 
@@ -23,23 +32,20 @@
                         <a href="<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>" 
                            target="_blank" 
                            class="btn btn-light rounded-pill text-primary py-1 px-3 btn-sm">
-                            Demo
+                            view
                         </a>
-                        <a href="#" 
-                           class="btn btn-light rounded-pill text-primary py-1 px-3 btn-sm" 
-                           onclick="openModal('<?php echo $value['sub_service']; ?> - Order', generateForm('<?php echo $value['sub_service']; ?>'))">
-                            Order
-                        </a>
+                       
                     </div>
                 </div>
             </div>
-    <?php }
-    } ?>
-</div>
+            <?php      }
+            }  ?>
+           
+            </div>
 
             </div>
         </div>          
-        <?php } ?>
+        
         <div id="dynamicModalContainer"></div>
 
 
