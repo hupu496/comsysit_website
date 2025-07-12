@@ -53,6 +53,9 @@
          <li class="<?php echo activate_menu('searchservice/need_help_list'); ?>">
             <a href="<?php echo base_url("admin/searchservice/need_help_list"); ?>"><i class="fa fa-circle-o"></i>Need & Help</a>
         </li>
+         <li class="<?php echo activate_menu('searchservice/live_demo_list'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/live_demo_list"); ?>"><i class="fa fa-circle-o"></i>Live Demo</a>
+        </li>
     </ul>
 </li>
             
@@ -64,6 +67,9 @@
             </li> 
              <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
                 <a href="<?php echo base_url('admin/service/meeting'); ?>"><i class="fa fa-users"></i> <span>Meeting Us List</span></a>
+            </li> 
+              <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
+                <a href="<?php echo base_url('admin/service/request_livedemo'); ?>"><i class="fa fa-users"></i> <span>Request Demo List</span></a>
             </li> 
             
             

@@ -1,3 +1,70 @@
+<style>
+     .card {
+      position: relative;
+      width: 250px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card .info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .info {
+      transform: translateY(-100%);
+    }
+
+    .card .hover-info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 15px;
+      color: white;
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .hover-info {
+      transform: translateY(0);
+    }
+
+    .name {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .position {
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+
+    .desc {
+      font-size: 0.8em;
+      margin-top: 8px;
+      line-height: 1.3;
+    }
+</style>
 <div class="container-fluid price py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
@@ -11,33 +78,32 @@
         </div>
         <!-- Pricing End -->
         <!-- FAQ End -->
-        <div class="row">
+   <div class="container">
+         <div class="row">
             <?php  if(!empty($our_team)){
                 foreach ($our_team as $key => $value) {  ?>
-                    <div class="col-md-6">
-                <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="<?php echo base_url($value['photos']); ?>" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $value['name']; ?></h5>
-        <p class="card-text"><?php echo $value['position']; ?></p>
-        <p class="card-text"><?php echo $value['description']; ?></p>
-        <!-- <p class="card-text"><small class="text-muted"><?php echo $value['added_on'];?></small></p> -->
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="col-md-4 col-12 mb-4">
+               <div class="card">
+                <img src="<?php echo base_url($value['photos']); ?>" alt="Abhishek">
+                <div class="info">
+                <div class="name"><?php echo $value['name']; ?></div>
+                <div class="position"><?php echo $value['position']; ?></div>
+                </div>
+                <div class="hover-info">
+                <div class="name"><?php echo $value['name']; ?></div>
+                <div class="position"><?php echo $value['position']; ?></div>
+                <div class="desc"><?php echo $value['description']; ?></div>
+                </div>
+            </div>  
             </div>
-    <?php   }
+             <?php   }
             
             }  ?>
            
-
-            
         </div>
+   </div>
+        
+
 
 
         <!-- Feature Start -->

@@ -140,16 +140,15 @@ class Homeservice extends CI_Controller {
       
 	}
 	public function need_help(){
-		$data['title']="TroubleShooting";
-		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
-		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
+		$data['title']="Need & Help";
+		$data['faqs'] = $this->db->get_where('need_help',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/need_help',$data);
         $this->load->view('website/footer');
       
 	}
 	public function slides(){
-		$data['title']="TroubleShooting";
+		$data['title']="Slides";
 		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
 		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
@@ -157,14 +156,27 @@ class Homeservice extends CI_Controller {
         $this->load->view('website/footer');
       
 	}
-	public function document(){
-		$data['title']="TroubleShooting";
-		$data['trouble'] = $this->Service_model->troubleshoot(array('t1.status'=>1),'all');
-		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
+	public function live_demo(){
+		$data['title']="Live Demo";
+		$data['live_demo'] = $this->db->get_where('live_demo',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
-		$this->load->view('website/document',$data);
+		$this->load->view('website/live_demo',$data);
         $this->load->view('website/footer');
       
+	}
+	public function request_demo(){
+	$data = $this->input->post();
+    $data['added_on'] = date('Y-m-d');
+
+    $query = $this->db->insert('request_demo', $data);
+
+    if ($query) {
+        echo json_encode(["status" => "success", "message" => "Meeting saved successfully!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Meeting save failed"]);
+    }
+    exit;
+		
 	}
     // ///////////////////
 	

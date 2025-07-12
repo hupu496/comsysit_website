@@ -205,15 +205,15 @@ public function mark_all_notifications_as_seen() {
     // Respond with a success message
     echo json_encode(['status' => 'success']);
 }
+public function request_livedemo(){
+		$data['title'] = "Live Demo Request List";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $servilist = $this->db->get_where('request_demo',array('status'=>1))->result_array();
+		$data['servilist'] = $servilist;
+		$this->template->load('admin/service','request_livedemo',$data);
+	}
 
-// public function servilist(){
-// 		$data['title'] = "Service List";
-// 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
-// 		$data['datatable'] = true;
-//         $servilist = $this->Service_model->get_service(array(),'all');
-// 		$data['servilist'] = $servilist;
-// 		$this->template->load('admin/service','view',$data);
-// 	}
 public function order_list(){
 		$data['title'] = "Service Order";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');

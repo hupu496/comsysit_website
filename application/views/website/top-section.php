@@ -79,7 +79,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Demo</a>
                             <div class="dropdown-menu m-0">
                               <a href="<?php echo base_url('homeservice/slides'); ?>" class="dropdown-item">Slides</a>
-                               <a href="<?php echo base_url('homeservice/document'); ?>" class="dropdown-item">Document</a>
+                               <a href="<?php echo base_url('homeservice/live_demo'); ?>" class="dropdown-item">Live Demo</a>
                                
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                         <a href="<?php echo base_url('/contact'); ?>" class="nav-item nav-link">Contact Us</a>
                     </div>
                    
-                   <button type="button" class="btn btn-primary rounded-pill text-white py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Meeting</button>
+                   <button type="button" class="btn btn-primary rounded-pill text-white py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Reach Us</button>
                 </div>
             </nav>
             <!-- Button trigger modal -->
@@ -98,7 +98,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Meeting Us</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Reach Us</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active text-primary">Need & Help</li>
                     <p><b>ComSys IT Service Provider – We’re Here to Support You</b>
-We understand that even the best systems need occasional assistance. Whether you're experiencing technical difficulties, need configuration guidance, or want to request a feature, we're ready to help.</p>
+ComSys IT Service Provider – We’re Here to Support You. We understand that even the best systems need occasional assistance. Whether you're experiencing technical difficulties, need configuration guidance, or want to request a feature, we're ready to help.</p>
                 </ol>    
             </div>
             </div>

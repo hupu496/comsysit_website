@@ -593,10 +593,10 @@ public function troubleshoot_list(){
     redirect('admin/searchservice/need_help_list');
 } 
 public function need_help_list(){
-		$data['title'] = "need_help list";
+		$data['title'] = "Need Help list";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
-        $data['subservicelist'] =  $this->db->get_where('need_help',array('status'=>1));
+        $data['subservicelist'] =  $this->db->get_where('need_help',array('status'=>1))->result_array();
 		$this->template->load('admin/searchservice','need_help_list',$data);
 	}
 	public function edit_need_help($id){
@@ -637,6 +637,90 @@ public function need_help_list(){
 	  $this->session->set_flashdata('err_msg',$result);
 	   }
 	   redirect('admin/searchservice/need_help_list');
+	}
+	// live demo 
+
+	public function live_demo(){
+		$data['title'] = "Add Live Demo";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+		
+		$this->template->load('admin/searchservice','add_live_demo',$data);
+	}
+	public function insert_live_demo(){
+		$data = $this->input->post();
+		$upload_path = './assets/uploads/live_demo/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if(isset($_FILES['photos']) && $_FILES['photos']['name'] != ''){	
+			
+			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
+			  if ($photos !='') {
+				  $data['photos'] = $photos['path'];
+			  }
+		  }
+		$result = $this->db->insert('live_demo', $data);
+		if ($result) {
+			$this->session->set_flashdata('msg', "need & help Inserted.");
+		} else {
+			$this->session->set_flashdata('err_msg', $result);
+		}
+    redirect('admin/searchservice/live_demo_list');
+} 
+public function live_demo_list(){
+		$data['title'] = "Live Demo List";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $data['subservicelist'] =  $this->db->get_where('live_demo',array('status'=>1))->result_array();
+		$this->template->load('admin/searchservice','live_demo_list',$data);
+	}
+	public function edit_live_demo($id){
+		$id = $this->uri->segment('4');
+		$data['title'] = "Live Demo Edit";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $subservicelist= $this->db->get_where('live_demo',array('id'=>$id,'status'=>1))->row_array();
+		if(empty($subservicelist)){
+			$this->session->set_flashdata('msg',"data not Found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		$data['subservicelist'] = $subservicelist;
+		$this->template->load('admin/searchservice','edit_live_demo',$data);
+
+	}
+	public function update_live_demo(){
+	 $data = $this->input->post();
+	 $upload_path = './assets/uploads/live_demo/';	
+		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+		if(isset($_FILES['photos']) && $_FILES['photos']['name'] != ''){	
+			
+			  $photos = upload_file("photos", $upload_path, $allowed_types, time());
+			  if ($photos !='') {
+				  $data['photos'] = $photos['path'];
+			  }
+		  }
+	 $where = $this->db->where('id',$data['id']);
+	 $result = $this->db->update('live_demo',$data,$where);
+	 
+	 if($result === true){
+	  $this->session->set_flashdata('msg',"Update Succesfully.");
+	}
+    else{
+     $this->session->set_flashdata('err_msg',$result);
+	}
+	redirect('admin/searchservice/live_demo_list');
+
+	}
+	public function delete_live_demo($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_live_demo($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete live demo members.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/live_demo_list');
 	}
 	
 }	 

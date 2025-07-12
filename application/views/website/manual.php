@@ -10,7 +10,7 @@
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active text-primary">Manual</li>
-                    <p>To offer manuals for software and hardware as ComSys IT Service Provider, you should structure them clearly for both technical and non-technical users. Below is a breakdown of what you can include in both types of manuals, and how you might brand and distribute them.</p>
+                    <p>To offer manuals for software and hardware as a ComSys IT Service Provider, you should structure them clearly for both technical and non-technical users. Below is a breakdown of what you can include in both types of manuals, along with guidance on how to brand and distribute them.</p>
                 </ol>    
             </div>
             </div>
