@@ -56,6 +56,9 @@
          <li class="<?php echo activate_menu('searchservice/live_demo_list'); ?>">
             <a href="<?php echo base_url("admin/searchservice/live_demo_list"); ?>"><i class="fa fa-circle-o"></i>Live Demo</a>
         </li>
+         <li class="<?php echo activate_menu('searchservice/live_demo_list'); ?>">
+            <a href="<?php echo base_url("admin/searchservice/slides_list"); ?>"><i class="fa fa-circle-o"></i>Slides List</a>
+        </li>
     </ul>
 </li>
             

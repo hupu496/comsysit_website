@@ -722,5 +722,162 @@ public function live_demo_list(){
 	   }
 	   redirect('admin/searchservice/live_demo_list');
 	}
+	// slides list
+	public function slides(){
+		$data['title'] = "Add Slides";
+		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
+		$data['select2'] = true;
+        $data['datatable'] = true;
+		$data['servilist'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+		$this->template->load('admin/searchservice','add_slides',$data);
+	}
+	public function insert_slides()
+{
+    $data = $this->input->post();
+    $upload_path = './assets/uploads/live_demo/';	
+	$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+	$image_paths = [];
+
+	if (!empty($_FILES['images']['name'][0])) {
+		$files = $_FILES['images'];
+		$count = count($files['name']);
+
+		for ($i = 0; $i < $count; $i++) {
+			// Rebuild $_FILES array for single file
+			$_FILES['single_photo']['name']     = $files['name'][$i];
+			$_FILES['single_photo']['type']     = $files['type'][$i];
+			$_FILES['single_photo']['tmp_name'] = $files['tmp_name'][$i];
+			$_FILES['single_photo']['error']    = $files['error'][$i];
+			$_FILES['single_photo']['size']     = $files['size'][$i];
+
+			// Call your custom upload_file function
+			$photo = upload_file("single_photo", $upload_path, $allowed_types, time() . $i);
+			if (!empty($photo['path'])) {
+				$image_paths[] = $photo['path'];
+			}
+		}
+	
+
+		// Save as JSON or comma-separated
+		if (!empty($image_paths)) {
+			$data['images'] = json_encode($image_paths); // You can also use implode(',', $image_paths)
+		}
+	}
+
+    $insert_data = [
+        'project_id'  => $data['project_id'],
+        'images'      => $data['images'],
+        'tech'        => json_encode($data['tech']),
+        'description' => $data['description'],
+        'status'      => 1,
+      
+    ];
+   
+    $result = $this->db->insert('slides', $insert_data);
+   
+
+    if ($result) {
+        $this->session->set_flashdata('msg', "Project Slides Inserted.");
+    } else {
+        $this->session->set_flashdata('err_msg', "Error inserting record.");
+    }
+
+    redirect('admin/searchservice/slides_list');
+}
+
+public function slides_list(){
+		$data['title'] = "Live Demo List";
+		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
+		$data['datatable'] = true;
+        $data['subservicelist'] =  $this->Service_model->slides_list(array('t1.status'=>1));
+		
+		$this->template->load('admin/searchservice','slides_list',$data);
+	}
+	public function edit_slides($id)
+{
+    $id = $this->uri->segment(4);
+    $data['title'] = "Live Demo Edit";
+    $data['breadcrumb'] = array('dashboard' => 'Dashboard');
+
+    $slide = $this->db->get_where('slides', ['id' => $id, 'status' => 1])->row_array();
+
+    if (empty($slide)) {
+        $this->session->set_flashdata('err_msg', "Data not found.");
+        redirect('admin/searchservice/slides_list');
+    }
+
+    $slide['images'] = json_decode($slide['images'], true); // array
+    $slide['tech'] = json_decode($slide['tech'], true); // array
+
+    $data['slide'] = $slide;
+    $data['servilist'] = $this->db->get('sub_service')->result_array(); // optional: for dropdown
+
+    $this->template->load('admin/searchservice', 'edit_slides', $data);
+}
+public function update_slides()
+{
+    $data = $this->input->post();
+    $id = $data['id'];
+
+    $upload_path = './assets/uploads/live_demo/';
+    $allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
+    $image_paths = [];
+
+    // Handle new uploads only if selected
+    if (!empty($_FILES['images']['name'][0])) {
+        $files = $_FILES['images'];
+        $count = count($files['name']);
+
+        for ($i = 0; $i < $count; $i++) {
+            $_FILES['single_photo']['name']     = $files['name'][$i];
+            $_FILES['single_photo']['type']     = $files['type'][$i];
+            $_FILES['single_photo']['tmp_name'] = $files['tmp_name'][$i];
+            $_FILES['single_photo']['error']    = $files['error'][$i];
+            $_FILES['single_photo']['size']     = $files['size'][$i];
+
+            $photo = upload_file("single_photo", $upload_path, $allowed_types, time() . $i);
+            if (!empty($photo['path'])) {
+                $image_paths[] = $photo['path'];
+            }
+        }
+    }
+
+    // Prepare update data
+    $update_data = [
+        'project_id'  => $data['project_id'],
+        'tech'        => json_encode($data['tech']),
+        'description' => $data['description'],
+        'updated_at'  => date('Y-m-d H:i:s')
+    ];
+
+    // Only add image field if new images are uploaded
+    if (!empty($image_paths)) {
+        $update_data['images'] = json_encode($image_paths);
+    }
+
+    // Perform update
+    $this->db->where('id', $id);
+    $result = $this->db->update('slides', $update_data);
+
+    if ($result) {
+        $this->session->set_flashdata('msg', "Slide updated successfully.");
+    } else {
+        $this->session->set_flashdata('err_msg', "Update failed.");
+    }
+
+    redirect('admin/searchservice/slides_list');
+}
+
+	public function delete_slides($id){
+		$id = $this->uri->segment('4');
+	    $result= $this->Staff_model->delete_slides($id);
+	    if($result === true){
+	    $this->session->set_flashdata('msg',"Delete live demo members.");
+	   }
+	   else{
+	  $this->session->set_flashdata('err_msg',$result);
+	   }
+	   redirect('admin/searchservice/slides_list');
+	}
 	
 }	 

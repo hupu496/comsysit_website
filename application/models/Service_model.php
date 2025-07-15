@@ -111,7 +111,19 @@ class Service_model extends CI_Model{
         
         return $return;
 	}
-	
+	public function slides_list($where) {
+    $this->db->select('t1.*, t1.id as slides_id, t2.id as sub_serviceid, t2.sub_service, t2.proj_images');
+    $this->db->from('slides as t1');
+    $this->db->join('sub_service as t2', 't1.project_id = t2.id');
+    $this->db->where($where);
+    $query = $this->db->get();
 
+    if ($query === false) {
+        log_message('error', 'DB error in slides_list: ' . $this->db->_error_message());
+        return []; // or return false;
+    }
+
+    return $query->result_array();
+}
 
 }
