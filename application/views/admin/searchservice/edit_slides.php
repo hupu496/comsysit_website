@@ -71,7 +71,7 @@
                 <div class="box-header with-border">
                     <div class="box-title">
                         <a href="<?= base_url('admin/searchservice/slides_list'); ?>">
-                            <button class="btn btn-sm btn-success"><i class="fa fa-list"></i> Slides List</button>
+                            <button class="btn btn-sm btn-success"><i class="fa fa-list"></i>Presentation List</button>
                         </a>
                     </div>
                 </div>
@@ -98,28 +98,26 @@
                             <div class="col-md-6 col-12">
                                 <h4>Project Images:</h4>
                                 <div id="inputContainer4">
-                                    <?php 
-                                    if (!empty($slide['images'])) {
-                                        foreach ($slide['images'] as $img): ?>
-                                            <div class="input-row">
-                                                <div class="input-field">
-                                                    <input type="file" name="images[]">
-                                                    <div><small>Existing:</small><br>
-                                                        <img src="<?= base_url($img); ?>" width="60" height="60" style="border:1px solid #ccc;">
-                                                    </div>
-                                                </div>
-                                                <button type="button" class="remove-btn" onclick="removeRow4(this)">Remove</button>
-                                            </div>
-                                    <?php endforeach; } else { ?>
+                                <?php 
+                                if (!empty($slide['images'])) {
+                                    foreach ($slide['images'] as $index => $img): ?>
                                         <div class="input-row">
                                             <div class="input-field">
-                                                <input type="file" name="images[]" required>
+                                                <input type="hidden" name="old_images[]" value="<?= $img ?>">
+                                                <input type="file" name="images[<?= $index ?>]">
+                                                <div><small>Existing:</small><br>
+                                                    <img src="<?= base_url($img); ?>" width="60" height="60" style="border:1px solid #ccc;">
+                                                </div>
                                             </div>
                                             <button type="button" class="remove-btn" onclick="removeRow4(this)">Remove</button>
                                         </div>
-                                    <?php } ?>
-                                </div>
-                                <button type="button" class="add-row-btn" onclick="addNewRow4()">Add New Row</button>
+                                <?php endforeach; } ?>
+                            </div>
+
+                            <!-- New image inputs appended here -->
+                            <div id="newImageContainer"></div>
+                            <button type="button" class="add-row-btn" onclick="addNewRow4()">Add New Image</button>
+
                             </div>
 
                             <!-- Technology Section -->
@@ -172,21 +170,20 @@
 
 <script>
     function addNewRow4() {
-        const container = document.getElementById('inputContainer4');
+        const container = document.getElementById('newImageContainer');
+        const index = container.children.length + document.querySelectorAll('#inputContainer4 .input-row').length;
         const newRow = document.createElement('div');
         newRow.className = 'input-row';
         newRow.innerHTML = `
             <div class="input-field">
-                <input type="file" name="images[]" required>
+                <input type="file" name="images[${index}]" required>
             </div>
             <button type="button" class="remove-btn" onclick="removeRow4(this)">Remove</button>`;
         container.appendChild(newRow);
     }
 
     function removeRow4(button) {
-        const inputRows = document.querySelectorAll('#inputContainer4 .input-row');
-        if (inputRows.length > 1) button.parentElement.remove();
-        else alert("At least one row is required!");
+        button.parentElement.remove();
     }
 
     function addNewRow5() {

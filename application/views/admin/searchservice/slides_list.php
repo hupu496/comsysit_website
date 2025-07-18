@@ -5,7 +5,7 @@
             	<div class="box-header with-border">
                 	<div class="box-title">
                       <a href="<?php echo base_url('admin/searchservice/slides') ;?>">
-                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Project Slides</button>
+                            <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Add Presentation</button>
                         </a>
                     </div>
                 </div>

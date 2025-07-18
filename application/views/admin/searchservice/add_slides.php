@@ -71,7 +71,7 @@
                 	<div class="box-header with-border">
                     	<div class="box-title">
                         	<a href="<?php echo base_url('admin/searchservice/slides_list') ;?>">
-                            	<button class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Slides List</button>
+                            	<button class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Presentation List</button>
                         	</a>
                         </div>
                     </div>

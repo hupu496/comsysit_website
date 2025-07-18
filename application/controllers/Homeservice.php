@@ -149,7 +149,8 @@ class Homeservice extends CI_Controller {
 	}
 	public function slides(){
 		$data['title']="Slides";
-		$data['project'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+		$data['project'] = $this->Homeservice_model->slides_list(array('t1.status'=>1));
+		
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/slides_service',$data);
         $this->load->view('website/footer');
@@ -157,8 +158,9 @@ class Homeservice extends CI_Controller {
 	}
 	public function slides_desc(){
 		$data['title']="Slides Description";
-		$id = $this->url->segment('4');
-		$data['project'] = $this->db->get_where('slides',array('id'=>$id,'status'=>1))->result_array();
+		$id = $this->uri->segment('3');
+		$data['project'] = $this->Homeservice_model->slides_list(array( 't1.id'=>$id,'t1.status'=>1),'single');
+	
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/slides',$data);
         $this->load->view('website/footer');

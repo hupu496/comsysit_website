@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active text-primary">Troubleshoot</li>
                     <p><b>ComSys IT Service Provider – Your Partner in Reliable Solutions</b>
-This section helps you quickly identify and resolve common issues that may arise when using ComSys IT software or hardware. Each problem is paired with easy-to-follow solutions or recommended steps.</p>
+ComSys IT  – Your Partner in Reliable Solutions This section helps you quickly identify and resolve common issues that may arise when using  software or hardware. Each problem is paired with easy-to-follow solutions or recommended steps.</p>
                 </ol>    
             </div>
             </div>

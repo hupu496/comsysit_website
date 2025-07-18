@@ -72,13 +72,13 @@
                             <div class="dropdown-menu m-0">
                               <a href="<?php echo base_url('homeservice/manual'); ?>" class="dropdown-item">Manual</a>
                                <a href="<?php echo base_url('homeservice/troublshooting'); ?>" class="dropdown-item">Troubleshoot</a>
-                                <a href="<?php echo base_url('homeservice/need_help'); ?>" class="dropdown-item">Need & help</a>
+                                <a href="<?php echo base_url('homeservice/need_help'); ?>" class="dropdown-item">Need a help</a>
                             </div>
                         </div>
                          <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Demo</a>
                             <div class="dropdown-menu m-0">
-                              <a href="<?php echo base_url('homeservice/slides'); ?>" class="dropdown-item">Slides</a>
+                              <a href="<?php echo base_url('homeservice/slides'); ?>" class="dropdown-item">Presentation</a>
                                <a href="<?php echo base_url('homeservice/live_demo'); ?>" class="dropdown-item">Live Demo</a>
                                
                             </div>

@@ -51,23 +51,22 @@
             <a href="<?php echo base_url("admin/searchservice/troubleshoot_list"); ?>"><i class="fa fa-circle-o"></i>Troubleshooting</a>
         </li>
          <li class="<?php echo activate_menu('searchservice/need_help_list'); ?>">
-            <a href="<?php echo base_url("admin/searchservice/need_help_list"); ?>"><i class="fa fa-circle-o"></i>Need & Help</a>
+            <a href="<?php echo base_url("admin/searchservice/need_help_list"); ?>"><i class="fa fa-circle-o"></i>Need a Help</a>
         </li>
          <li class="<?php echo activate_menu('searchservice/live_demo_list'); ?>">
             <a href="<?php echo base_url("admin/searchservice/live_demo_list"); ?>"><i class="fa fa-circle-o"></i>Live Demo</a>
         </li>
          <li class="<?php echo activate_menu('searchservice/live_demo_list'); ?>">
-            <a href="<?php echo base_url("admin/searchservice/slides_list"); ?>"><i class="fa fa-circle-o"></i>Slides List</a>
+            <a href="<?php echo base_url("admin/searchservice/slides_list"); ?>"><i class="fa fa-circle-o"></i>Presentation List</a>
         </li>
     </ul>
 </li>
-            
             <li class="<?php echo activate_menu('admin/service/serviceorder_list'); ?>">
                 <a href="<?php echo base_url('admin/service/order_list'); ?>"><i class="fa fa-users"></i> <span>Order list</span></a>
             </li> 
-              <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
+              <!-- <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
                 <a href="<?php echo base_url('admin/user_cont/contactlist'); ?>"><i class="fa fa-users"></i> <span>Contact Us List</span></a>
-            </li> 
+            </li>  -->
              <li class="<?php echo activate_menu('admin/serviceprovider_cont/serviceprovider_inactive'); ?>">
                 <a href="<?php echo base_url('admin/service/meeting'); ?>"><i class="fa fa-users"></i> <span>Meeting Us List</span></a>
             </li> 

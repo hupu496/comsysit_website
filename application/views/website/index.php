@@ -84,15 +84,18 @@
 
                 <div class="row g-4 justify-content-center">
                     <?php if(!empty($services)){
-                        foreach ($services as $key => $value) { ?>
+                        foreach ($services as $key => $value) { 
+                            $desc = strip_tags($value['Description']); // remove HTML tags
+                            $words = explode(' ', $desc);
+                            $limited = implode(' ', array_slice($words, 0, 15)); ?>
                         <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
+                        <div class="blog-item border" style="height:27rem;">
                             <div class="blog-img">
                                 <img src="<?php echo base_url($value['image']); ?>" class="img-fluid w-100" alt="">
                             </div>
-                            <div class="blog-content text-dark border p-4 ">
+                            <div class="blog-content text-dark  p-4 ">
                                 <h5 class="mb-4"><?php echo $value['name']; ?></h5>
-                                <p class="mb-4"><?php echo $value['Description']; ?></p>
+                                <p class="mb-4" style="word-break: break-word;"><?php echo $limited; ?>...</p>
                                 <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url($value['url_link']); ?>">Read More</a>
                             </div>
                         </div>
@@ -283,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="blog-content text-dark border p-4">
+                <div class="blog-content text-dark border p-4" style="height:18rem;">
                     <h5 class="mb-4"><?php echo $value['name']; ?></h5>
                     <p class="mb-4"><?= $limited ?>...</p>
                     <a class="btn btn-light rounded-pill py-2 px-4" href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>">Read More</a>

@@ -724,7 +724,7 @@ public function live_demo_list(){
 	}
 	// slides list
 	public function slides(){
-		$data['title'] = "Add Slides";
+		$data['title'] = "Add Presentation";
 		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
 		$data['select2'] = true;
         $data['datatable'] = true;
@@ -786,7 +786,7 @@ public function live_demo_list(){
 }
 
 public function slides_list(){
-		$data['title'] = "Live Demo List";
+		$data['title'] = "Presentation List";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
         $data['subservicelist'] =  $this->Service_model->slides_list(array('t1.status'=>1));
@@ -821,41 +821,60 @@ public function update_slides()
 
     $upload_path = './assets/uploads/live_demo/';
     $allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
-    $image_paths = [];
 
-    // Handle new uploads only if selected
-    if (!empty($_FILES['images']['name'][0])) {
-        $files = $_FILES['images'];
-        $count = count($files['name']);
+    $final_images = [];
 
-        for ($i = 0; $i < $count; $i++) {
-            $_FILES['single_photo']['name']     = $files['name'][$i];
-            $_FILES['single_photo']['type']     = $files['type'][$i];
-            $_FILES['single_photo']['tmp_name'] = $files['tmp_name'][$i];
-            $_FILES['single_photo']['error']    = $files['error'][$i];
-            $_FILES['single_photo']['size']     = $files['size'][$i];
+    // Get old images
+    $old_images = $data['old_images'] ?? [];
 
-            $photo = upload_file("single_photo", $upload_path, $allowed_types, time() . $i);
+    // Loop through expected image indexes
+    foreach ($old_images as $index => $old_image) {
+        if (!empty($_FILES['images']['name'][$index])) {
+            // Replace this image
+            $_FILES['single_photo']['name']     = $_FILES['images']['name'][$index];
+            $_FILES['single_photo']['type']     = $_FILES['images']['type'][$index];
+            $_FILES['single_photo']['tmp_name'] = $_FILES['images']['tmp_name'][$index];
+            $_FILES['single_photo']['error']    = $_FILES['images']['error'][$index];
+            $_FILES['single_photo']['size']     = $_FILES['images']['size'][$index];
+
+            $photo = upload_file("single_photo", $upload_path, $allowed_types, time() . $index);
             if (!empty($photo['path'])) {
-                $image_paths[] = $photo['path'];
+                $final_images[] = $photo['path'];
+            } else {
+                $final_images[] = $old_image; // fallback to old if upload fails
+            }
+        } else {
+            // Keep old image
+            $final_images[] = $old_image;
+        }
+    }
+
+    // Handle new images (those without old counterparts)
+    if (!empty($_FILES['images']['name'])) {
+        foreach ($_FILES['images']['name'] as $key => $name) {
+            if ($key >= count($old_images) && !empty($name)) {
+                $_FILES['single_photo']['name']     = $_FILES['images']['name'][$key];
+                $_FILES['single_photo']['type']     = $_FILES['images']['type'][$key];
+                $_FILES['single_photo']['tmp_name'] = $_FILES['images']['tmp_name'][$key];
+                $_FILES['single_photo']['error']    = $_FILES['images']['error'][$key];
+                $_FILES['single_photo']['size']     = $_FILES['images']['size'][$key];
+
+                $photo = upload_file("single_photo", $upload_path, $allowed_types, time() . $key);
+                if (!empty($photo['path'])) {
+                    $final_images[] = $photo['path'];
+                }
             }
         }
     }
 
-    // Prepare update data
     $update_data = [
         'project_id'  => $data['project_id'],
         'tech'        => json_encode($data['tech']),
         'description' => $data['description'],
-        'updated_at'  => date('Y-m-d H:i:s')
+        'images'      => json_encode($final_images),
+        
     ];
 
-    // Only add image field if new images are uploaded
-    if (!empty($image_paths)) {
-        $update_data['images'] = json_encode($image_paths);
-    }
-
-    // Perform update
     $this->db->where('id', $id);
     $result = $this->db->update('slides', $update_data);
 
@@ -867,6 +886,7 @@ public function update_slides()
 
     redirect('admin/searchservice/slides_list');
 }
+
 
 	public function delete_slides($id){
 		$id = $this->uri->segment('4');

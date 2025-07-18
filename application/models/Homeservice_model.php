@@ -57,35 +57,6 @@ class Homeservice_model extends CI_Model{
 		$query =  $this->db->get();
 		return $query->result_array();
 	}
-	public function franchise_orderbook($data){
-		$table="franchise_book";  
-		$salt=random_string('alnum', 8);
-		$password=md5($data['password'].SITE_SALT.$salt);
-		$data['salt'] = $salt;
-    $data['cpassword'] = $password;
-    $data['added_on'] = date("Y-m-d");
-    $query = $this->db->insert('franchise_book',$data);
-    $insert_id = $this->db->insert_id();
-    	$cookie = array(
-        'name'   => 'franchiseid',
-        'value'  => $insert_id,
-        'expire' => '86400'        
-         ); 
-		
-        $this->input->set_cookie($cookie);
-    if($query == true){
-    	return true;
-
-    }else{
-       return false;
-
-    }
-    
-    
-
-	}
-
-
 	
 	public function getdifferencemin($start, $curecord)
 	{
@@ -142,6 +113,24 @@ class Homeservice_model extends CI_Model{
 		$result = $get_data->row_array();
     return $result;
 	}
+	public function slides_list($where, $type = 'all'){
+	   $this->db->select('t1.*, t1.id as slide_id,t2.*, t3.id as service_id,t3.name');
+	   $this->db->from('slides as t1');
+	   $this->db->join('sub_service as t2','t1.project_id = t2.id');
+	   $this->db->join('services as t3', 't2.service_id = t3.id');
+	   $this->db->where($where);
+	   $query = $this->db->get();
+	   if($type=='all'){
+		return $query->result_array();
+	   }else{
+		return $query->row_array();
+	   }
+	  
+
+	}
+
+
+
 	public function get_customerdetail($book_id){
 		$getdata = $this->db->get_where('booknow', array('id' => $book_id));
 		$result = $getdata->row_array();

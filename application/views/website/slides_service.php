@@ -2,7 +2,7 @@
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                  
-                    <h1 class="display-5 mb-4">ComSys IT : A Customized Services Provider</h1>
+                    <h1 class="display-5 mb-4">ComSys IT : A Presentation Of Project</h1>
                     
                 </div>
            <div class="row g-4 justify-content-center">
@@ -18,10 +18,10 @@
                     <div class="service-content">
                         <p class="mb-3"><?php echo $value['sub_service']; ?></p>
 
-                        <a href="<?php echo htmlspecialchars($value['video'], ENT_QUOTES); ?>" 
+                        <a href="<?php echo base_url('homeservice/slides_desc/'.$value['slide_id']); ?>" 
                            target="_blank" 
                            class="btn btn-light rounded-pill text-primary py-1 px-3 btn-sm">
-                            Demo
+                            View
                         </a>
                        
                     </div>

@@ -3,18 +3,18 @@
                
             </ul>
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">NEED & HELP</h1>
+                <h3 class="display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">NEED a HELP</h1>
                 <ol class="breadcrumb justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active text-primary">Need & Help</li>
+                    <li class="breadcrumb-item active text-primary">Need a Help</li>
                     <p><b>ComSys IT Service Provider – We’re Here to Support You</b>
-We understand that even the best systems need occasional assistance. Whether you're experiencing technical difficulties, need configuration guidance, or want to request a feature, we're ready to help.</p>
+We’re Here to Support You We understand that even the best systems need occasional assistance. Whether you're experiencing technical difficulties, need configuration guidance, or want to request a feature, we're ready to help.</p>
                 </ol>    
             </div>
             </div>
-<div class="container-fluid FAQ bg-light overflow-hidden py-5">
-    <div class="container py-5">
+<div class="container-fluid FAQ bg-light overflow-hidden">
+    <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                 <div class="accordion" id="accordionExample">

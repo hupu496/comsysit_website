@@ -1,5 +1,14 @@
+<?php $images = json_decode($project['images'] ?? '[]', true);
+$tech = json_decode($project['tech'] ?? '[]', true); ?>
+
 <section id="portfolio-details" class="portfolio-details" style="padding-top: 6rem !important;">
       <div class="container">
+         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="mb-1 text-primary"><?php echo $project['name']; ?></h4>
+                    <h1 class="display-5 mb-4">ComSys IT :A Presentation Of <?php echo $project['name']; ?> Project</h1>
+                    <p class="mb-0"><?php echo $project['Description']; ?>
+                                                </p>
+                </div>
 
         <div class="row gy-4">
 
@@ -7,33 +16,20 @@
             <div class="portfolio-details-slider swiper-container">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="<?php echo base_url('assets/images/access_control.jpg'); ?>" class="d-block w-100" alt="...">
+    <?php foreach ($images as $key => $img): ?>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" <?= ($key == 0) ? 'class="active" aria-current="true"' : '' ?> aria-label="Slide <?= $key + 1 ?>"></button>
+    <?php endforeach; ?>
+</div>
+<div class="carousel-inner">
+    <?php foreach ($images as $key => $img): ?>
+    <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
+      <img src="<?= base_url(trim($img, '\"')) ?>" class="d-block w-100" alt="project image <?= $key + 1 ?>">
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+       
       </div>
     </div>
-    <div class="carousel-item">
-      <img src="<?php echo base_url('assets/images/access_control.jpg'); ?>" class="d-block w-100" alt="<?php echo base_url('assets/images/access_control.jpg'); ?>">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="<?php echo base_url('assets/images/access_control.jpg'); ?>" class="d-block w-100" alt="<?php echo base_url('assets/images/access_control.jpg'); ?>">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
+    <?php endforeach; ?>
+</div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -49,36 +45,29 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category </strong>: Web Application</li>
-                <li><strong>Project Name </strong>: Erp ComsysIT</li>
-                <li><strong>Source Code <i class='bx bx-code-curly' ></i></strong>: <span class="text-success" style='letter-spacing: 1px;' > Public <i class='bx bx-code-block' ></i> </span> </li>
-               
-                <li><strong>Project Source Code URL</strong>: <a href='https://github.com/hupu496/comsysit' target='_blank'>Github <i class="bx bxl-git"></i> </a> </li>
-              </ul>
-            </div>
+          <div class="portfolio-info">
+            <h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>: <?= $project['name'] ?></li>
+              <li><strong>Project Name</strong>: <?= $project['sub_service'] ?></li>
+              <li><strong>Status</strong>: <?= ($project['status'] == 1) ? 'Active' : 'Inactive' ?></li>
+              <li><strong>Image</strong>: <img src="<?= base_url($project['proj_images']) ?>" height="50"></li>
+            </ul>
+          </div>
             <div class="portfolio-info mt-3">
-              <h3>Technology Used &nbsp; <i class='bx bx-code' ></i></h3>
-              <ul>
-                <li><strong style="font-size: 18px;color: rgb(48, 97, 202);" class="text-primary" > <i class='bx bx-intersect' ></i>  Creative UI</strong></li>
-                <li><strong style="font-size: 18px;color: rgb(59, 40, 231);"  > <img src="assets/img/html.png"  width="20px"> HTML</strong></li>
-                <li><strong style="font-size: 18px;color: rgb(59, 40, 231);"  ><img src="assets/img/css.png"  width="20px"> CSS</strong></li>
-                <li><strong style="font-size: 18px;color: rgb(168, 16, 199);" ><i class='bx bxl-javascript'></i> JavaScript</strong></li>
-                <li><strong style="font-size: 18px;color: rgb(55, 134, 18);" ><i class='bx bxl-django' ></i> Codelignter</strong></li>
-                <li><strong style="font-size: 18px;color: rgb(5, 137, 146);" ><i class='bx bxl-python' ></i> PHP</strong></li>
-                <li><strong style="font-size: 18px;color: rgb(173, 150, 16);"  ><i class='bx bx-data'></i> MySQL</strong></li>
-              </ul>
-            </div>
+            <h3>Technology Used <i class='bx bx-code'></i></h3>
+            <ul>
+              <?php foreach ($tech as $t): ?>
+                <li><strong style="font-size: 18px; color:#cb3fb8;"><i class='bx bx-code-block'></i> <?= htmlspecialchars($t) ?></strong></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
           </div>
 
           <div class="col-lg-8">
             <div class="portfolio-description">
               <h2>About this project</h2>
-              <p>
-                Erp software for comsysit employee reporting project wise and daily reporting features avaliable daily reporting , attendance ,project wise repoting ,regularize, task assign ,approval.
-              </p>
+              <p><?= $project['description']; ?></p>
             </div>
           </div>
 
