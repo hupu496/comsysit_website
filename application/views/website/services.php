@@ -8,7 +8,219 @@
                                                 </p>
                 </div>
            <div class="row g-4 justify-content-center">
-    <?php if (!empty($subservice)) {
+    <?php if($service['id']=='4'){   ?>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .header h1::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: #3498db;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            height: 200px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .service-content ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+        
+        .service-content ul li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+        
+        .service-content ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+      <div class="container">
+        <div class="header">
+            <h1>BPO/KPO Services</h1>
+            <p>Comprehensive solutions tailored to your business needs</p>
+        </div>
+        
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i>🚦</i>
+                </div>
+                <div class="service-content">
+                    <h2>Journey Risk Management</h2>
+                    <p>A systematic approach for ensuring the safety and effectiveness of journeys.</p>
+                    <ul>
+                        <li>Documentation of potential risks and mitigation strategies</li>
+                        <li>Route-specific risk assessment</li>
+                        <li>Development of comprehensive route management strategies</li>
+                        <li>Continuous monitoring and improvement</li>
+                    </ul>
+                    <div class="highlight">
+                        Journey risk management involves documenting the potential risks that have been found and the accompanying mitigation strategies for specific routes, which might subsequently be used to develop a route management strategy.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i>🚚</i>
+                </div>
+                <div class="service-content">
+                    <h2>Fleet Tracking and Monitoring Services</h2>
+                    <p>Advanced solutions for real-time fleet management and control.</p>
+                    <ul>
+                        <li>Real-time location tracking</li>
+                        <li>24/7 operational monitoring</li>
+                        <li>Instant violation alerts</li>
+                        <li>Data-driven decision making</li>
+                        <li>Comprehensive reporting and analytics</li>
+                    </ul>
+                    <div class="highlight">
+                        Managing a fleet today means more than just tracking locations — it's about real-time control, smart decisions, and operational speed. We have an experienced team and dedicated 24x7 operation to monitor your fleet and alert on the occasion of any violation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+ <?php    } 
+    elseif(!empty($subservice)) {
         foreach ($subservice as $key => $value) { ?>
             <div class="col-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item text-center rounded p-3 shadow-sm border small-card" style="width:190px;">
